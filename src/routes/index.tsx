@@ -123,23 +123,31 @@ const faq = [
     a: "Alguns sinais comuns são dor na mandíbula, dor de cabeça ao acordar, dentes sensíveis, desgaste dental, tensão facial e estalos na articulação. A confirmação depende de uma avaliação odontológica.",
   },
   {
-    q: "Bruxismo tem cura?",
-    a: "O bruxismo pode ter diferentes causas e manifestações. Em muitos casos, o objetivo do tratamento é controlar os sintomas, proteger os dentes e reduzir os impactos do apertamento.",
+    q: "Qual é o tratamento para bruxismo?",
+    a: "O tratamento é individualizado e pode envolver placa oclusal personalizada, orientações para reduzir o apertamento durante o dia, acompanhamento clínico e, quando necessário, reabilitação de áreas desgastadas. A conduta é definida após a avaliação.",
   },
   {
-    q: "A placa resolve o problema?",
-    a: "A placa pode ajudar a proteger os dentes e reduzir danos causados pelo apertamento, mas a indicação depende da avaliação individual. Em alguns casos, outras orientações e acompanhamentos também podem ser necessários.",
-  },
-  {
-    q: "Bruxismo pode causar dor de cabeça?",
-    a: "Sim. A sobrecarga muscular causada pelo apertamento pode estar relacionada a dores de cabeça, especialmente ao acordar.",
+    q: "A placa para bruxismo realmente protege os dentes?",
+    a: "A placa, quando indicada e confeccionada sob medida, ajuda a proteger os dentes do desgaste causado pelo apertamento e pode reduzir desconfortos musculares. A necessidade e o modelo ideal são definidos na avaliação.",
   },
   {
     q: "Dor na mandíbula pode ser bruxismo?",
-    a: "Pode ser um dos sinais. A dor ou cansaço na mandíbula pode estar associada ao apertamento dental, mas é importante avaliar cada caso.",
+    a: "Pode ser um dos sinais. A dor ou cansaço na mandíbula, principalmente ao acordar ou após momentos de tensão, frequentemente está associada ao apertamento dental. É importante avaliar cada caso.",
   },
   {
-    q: "Quando devo procurar avaliação?",
+    q: "Bruxismo pode causar dor de cabeça?",
+    a: "Sim. A sobrecarga dos músculos da face e da mandíbula pode estar relacionada a dores de cabeça, especialmente ao acordar ou ao final do dia.",
+  },
+  {
+    q: "Bruxismo tem cura?",
+    a: "O bruxismo pode ter diferentes causas e manifestações. Em muitos casos, o objetivo do tratamento é controlar os sintomas, proteger os dentes e reduzir os impactos do apertamento ao longo do tempo.",
+  },
+  {
+    q: "Onde fazer avaliação de bruxismo em Vila Formosa ou São Miguel Paulista?",
+    a: "A Dra. Jaqueline Martins atende em duas unidades em São Paulo: Vila Formosa e São Miguel Paulista. O agendamento da avaliação pode ser feito diretamente pelo WhatsApp.",
+  },
+  {
+    q: "Quando devo procurar uma avaliação?",
     a: "Quando houver dor frequente, desgaste nos dentes, sensibilidade, estalos, tensão facial ou suspeita de apertamento durante o sono ou ao longo do dia.",
   },
 ];
