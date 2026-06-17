@@ -436,30 +436,37 @@ function LandingPage() {
         </section>
 
         {/* AUTHORITY — Dra. Jaqueline */}
-        <section id="sobre" className="px-6 py-20 md:py-28 bg-bone border-y border-border">
-          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-center">
-            <div className="md:col-span-5 order-2 md:order-1">
+        <section id="sobre" className="px-6 py-24 md:py-32 bg-bone border-y border-border">
+          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-12 md:gap-20 items-center">
+            <div className="md:col-span-6 order-2 md:order-1">
               <div className="relative">
-                <div className="absolute -inset-3 border border-champagne/30 -z-10" aria-hidden />
+                <div className="absolute -inset-4 md:-inset-6 border border-champagne/40 -z-10" aria-hidden />
+                <div className="absolute -bottom-6 -right-6 hidden md:block bg-graphite text-ivory px-6 py-4 max-w-[220px]">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-champagne block mb-1">CRO-SP</span>
+                  <span className="font-display text-lg leading-tight">Dra. Jaqueline Martins</span>
+                </div>
                 <img
-                  src={clinicaImg}
-                  alt="Detalhe da clínica odontológica da Dra. Jaqueline Martins, com bancada em mármore e instrumentos."
-                  width={1280}
-                  height={896}
+                  src={heroImg}
+                  alt="Retrato da Dra. Jaqueline Martins, cirurgiã-dentista, em sua clínica em São Paulo."
+                  width={1120}
+                  height={1400}
                   loading="lazy"
-                  className="w-full aspect-[4/3] object-cover"
+                  className="w-full aspect-[4/5] object-cover"
                 />
               </div>
             </div>
-            <div className="md:col-span-7 order-1 md:order-2">
-              <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-5">
+            <div className="md:col-span-6 order-1 md:order-2">
+              <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-6">
                 [ 05 ] Dra. Jaqueline Martins
               </p>
-              <h2 className="font-display text-4xl md:text-5xl leading-[1.05] tracking-tight text-graphite mb-6">
-                Conheça a Dra. Jaqueline Martins.
+              <h2 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.02] tracking-tight text-graphite mb-8">
+                Autoridade clínica em estética e função do sorriso.
               </h2>
-              <p className="text-graphite/70 leading-relaxed mb-10 max-w-2xl">
-                Cirurgiã-dentista formada em 2004, com especialização em implantodontia, foco em odontologia estética e mais de 21 anos de experiência. Sua atuação une estética, função e cuidado individualizado para ajudar pacientes a preservarem a saúde bucal e a confiança no sorriso.
+              <p className="font-display text-xl md:text-2xl text-graphite/85 leading-snug mb-8">
+                A atuação da Dra. Jaqueline une estética, função e cuidado preventivo para preservar não apenas a aparência do sorriso, mas também sua saúde, conforto e estabilidade ao longo do tempo.
+              </p>
+              <p className="text-graphite/65 leading-relaxed mb-10 max-w-2xl">
+                Cirurgiã-dentista formada em 2004, especialista em implantodontia e com mais de 21 anos de experiência clínica. Atende em duas unidades em São Paulo — Vila Formosa e São Miguel Paulista — com um cuidado individualizado para cada paciente.
               </p>
 
               <dl className="grid grid-cols-3 gap-6 border-t border-border pt-8">
