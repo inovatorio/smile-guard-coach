@@ -617,6 +617,17 @@ function LandingPage() {
           </p>
         </div>
       </footer>
+
+      {/* Mobile sticky CTA */}
+      <a
+        href={ctaFinalHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="md:hidden fixed bottom-4 inset-x-4 z-50 inline-flex items-center justify-center bg-graphite text-ivory px-6 py-4 text-[12px] uppercase tracking-[0.18em] font-medium shadow-[var(--shadow-elevated)] hover:bg-champagne hover:text-graphite transition-colors"
+      >
+        Agendar avaliação
+      </a>
+      <div className="md:hidden h-20" aria-hidden />
     </div>
   );
 }
