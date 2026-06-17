@@ -8,6 +8,7 @@ import {
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import heroImg from "@/assets/dra-jaqueline-hero.jpg";
 import clinicaImg from "@/assets/clinica-detalhe.jpg";
+import tratamentosImg from "@/assets/tratamentos-detalhe.jpg";
 
 const PAGE_TITLE = "Dra. Jaqueline Martins — Avaliação de Bruxismo";
 const PAGE_DESC =
