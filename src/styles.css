@@ -47,7 +47,7 @@
   --color-rose: var(--rose);
   --color-graphite: var(--graphite);
 
-  --font-display: "Cormorant Garamond", "Times New Roman", serif;
+  --font-display: "Fraunces", "Times New Roman", serif;
   --font-sans: "Inter", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
