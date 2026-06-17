@@ -9,6 +9,9 @@ import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import heroImg from "@/assets/dra-jaqueline-hero.jpg";
 import clinicaImg from "@/assets/clinica-detalhe.jpg";
 import tratamentosImg from "@/assets/tratamentos-detalhe.jpg";
+import plaquinhaHero from "@/assets/plaquinha-hero.png";
+import plaquinhaTecnica from "@/assets/plaquinha-tecnica.png";
+import plaquinhaRepouso from "@/assets/plaquinha-repouso.png";
 
 const PAGE_TITLE = "Dra. Jaqueline Martins — Avaliação de Bruxismo";
 const PAGE_DESC =
@@ -233,14 +236,26 @@ function LandingPage() {
 
             <div className="md:col-span-5 animate-reveal" style={{ animationDelay: "200ms" }}>
               <div className="relative">
+                {/* Plaquinha flutuante — composição lateral, não cobre a Dra. */}
+                <img
+                  src={plaquinhaHero}
+                  alt=""
+                  aria-hidden="true"
+                  width={1024}
+                  height={1024}
+                  className="plaquinha plaquinha-float pointer-events-none absolute -top-10 -left-16 md:-left-24 lg:-left-32 w-36 md:w-44 lg:w-56 z-10 hidden sm:block"
+                />
                 <div className="absolute -inset-3 border border-champagne/30 -z-10" aria-hidden />
                 <img
                   src={heroImg}
                   alt="Dra. Jaqueline Martins, cirurgiã-dentista, em sua clínica odontológica em São Paulo."
                   width={896}
                   height={1152}
-                  className="w-full aspect-[4/5] object-cover"
+                  className="w-full aspect-[4/5] object-cover relative"
                 />
+                <p className="absolute -bottom-4 left-4 md:left-6 bg-background px-3 py-1 font-mono text-[9px] uppercase tracking-[0.24em] text-graphite/60">
+                  O bruxismo deixa pistas
+                </p>
               </div>
             </div>
           </div>
@@ -265,17 +280,33 @@ function LandingPage() {
               </div>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
-              {symptoms.map((s) => (
-                <article
-                  key={s.code}
-                  className="group bg-background p-8 md:p-10 transition-colors duration-300 hover:bg-accent-soft"
-                >
-                  <span className="font-mono text-[10px] tracking-[0.2em] text-champagne">{s.code}</span>
-                  <h3 className="font-display text-2xl text-graphite mt-5 mb-3">{s.title}</h3>
-                  <p className="text-sm text-graphite/65 leading-relaxed">{s.desc}</p>
-                </article>
-              ))}
+            <div className="relative grid lg:grid-cols-[1fr_auto] gap-10 items-start">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
+                {symptoms.map((s) => (
+                  <article
+                    key={s.code}
+                    className="group bg-background p-8 md:p-10 transition-colors duration-300 hover:bg-accent-soft"
+                  >
+                    <span className="font-mono text-[10px] tracking-[0.2em] text-champagne">{s.code}</span>
+                    <h3 className="font-display text-2xl text-graphite mt-5 mb-3">{s.title}</h3>
+                    <p className="text-sm text-graphite/65 leading-relaxed">{s.desc}</p>
+                  </article>
+                ))}
+              </div>
+              {/* Plaquinha condutora — sticky desktop, oculta no mobile */}
+              <aside className="hidden lg:block w-44 sticky top-32 self-start" aria-hidden="true">
+                <img
+                  src={plaquinhaHero}
+                  alt=""
+                  width={1024}
+                  height={1024}
+                  loading="lazy"
+                  className="plaquinha plaquinha-drift w-full"
+                />
+                <p className="mt-6 font-mono text-[9px] uppercase tracking-[0.24em] text-graphite/45 text-center">
+                  Sinais que pedem<br />investigação
+                </p>
+              </aside>
             </div>
 
             <div className="mt-14 grid md:grid-cols-12 gap-8 items-center border-t border-border pt-10">
@@ -326,19 +357,35 @@ function LandingPage() {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {consequences.map((c, i) => (
-                <article
-                  key={c.title}
-                  className="bg-card border border-border p-8 transition-shadow duration-300 hover:shadow-[var(--shadow-soft)]"
-                >
-                  <span className="font-mono text-[10px] tracking-[0.2em] text-champagne">
-                    C-{String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="font-display text-xl text-graphite mt-5 mb-3">{c.title}</h3>
-                  <p className="text-sm text-graphite/65 leading-relaxed">{c.desc}</p>
-                </article>
-              ))}
+            <div className="grid lg:grid-cols-[1fr_280px] gap-10 items-start">
+              <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                {consequences.map((c, i) => (
+                  <article
+                    key={c.title}
+                    className="bg-card border border-border p-8 transition-shadow duration-300 hover:shadow-[var(--shadow-soft)]"
+                  >
+                    <span className="font-mono text-[10px] tracking-[0.2em] text-champagne">
+                      C-{String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="font-display text-xl text-graphite mt-5 mb-3">{c.title}</h3>
+                    <p className="text-sm text-graphite/65 leading-relaxed">{c.desc}</p>
+                  </article>
+                ))}
+              </div>
+              {/* Plaquinha como metáfora de proteção */}
+              <aside className="hidden lg:flex flex-col items-center sticky top-32 self-start text-center" aria-hidden="true">
+                <img
+                  src={plaquinhaHero}
+                  alt=""
+                  width={1024}
+                  height={1024}
+                  loading="lazy"
+                  className="plaquinha plaquinha-drift w-48"
+                />
+                <p className="mt-8 font-display text-lg text-graphite/80 italic leading-snug max-w-[200px]">
+                  Proteger antes que o dano se torne visível.
+                </p>
+              </aside>
             </div>
 
             <div className="mt-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-t border-border pt-10">
@@ -369,6 +416,58 @@ function LandingPage() {
               </div>
             </div>
 
+            {/* Plaquinha técnica — sensação de precisão clínica */}
+            <div className="relative mb-16 md:mb-20 border-y border-ivory/15 py-12 md:py-16 grid md:grid-cols-12 gap-8 items-center">
+              <div className="md:col-span-4 md:col-start-2 relative">
+                <img
+                  src={plaquinhaTecnica}
+                  alt=""
+                  aria-hidden="true"
+                  width={1024}
+                  height={1024}
+                  loading="lazy"
+                  className="plaquinha w-full max-w-[280px] mx-auto"
+                  style={{ filter: "drop-shadow(0 12px 24px oklch(0 0 0 / 0.4))" }}
+                />
+                {/* Marcações editoriais finas */}
+                <svg
+                  className="absolute inset-0 w-full h-full pointer-events-none"
+                  viewBox="0 0 200 200"
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                >
+                  <line x1="0" y1="40" x2="100" y2="40" stroke="currentColor" strokeWidth="0.3" className="text-champagne/70" />
+                  <line x1="100" y1="160" x2="200" y2="160" stroke="currentColor" strokeWidth="0.3" className="text-champagne/70" />
+                  <circle cx="100" cy="100" r="0.8" className="fill-champagne" />
+                </svg>
+              </div>
+              <div className="md:col-span-6 md:col-start-7">
+                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne mb-4">
+                  S-04 · Diagnóstico
+                </p>
+                <p className="font-display text-2xl md:text-3xl text-ivory leading-snug mb-4">
+                  Cada caso tem sinais únicos. A avaliação revela o caminho.
+                </p>
+                <p className="text-sm text-ivory/60 leading-relaxed max-w-md">
+                  Quando indicada, a placa é confeccionada sob medida — depois de entender o seu caso, não antes.
+                </p>
+              </div>
+            </div>
+
+            <ol className="grid md:grid-cols-4 gap-10 md:gap-12">
+              {steps.map((step) => (
+                <li key={step.phase} className="border-l border-ivory/15 pl-6">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne block mb-4">
+                    {step.phase}
+                  </span>
+                  <h3 className="font-display text-2xl md:text-3xl text-ivory mb-3">{step.title}</h3>
+                  <p className="text-sm text-ivory/65 leading-relaxed">{step.desc}</p>
+                </li>
+              ))}
+            </ol>
+
+
+
             <ol className="grid md:grid-cols-4 gap-10 md:gap-12">
               {steps.map((step) => (
                 <li key={step.phase} className="border-l border-ivory/15 pl-6">
@@ -394,7 +493,7 @@ function LandingPage() {
                 Cuidado personalizado para proteger seus dentes e reduzir desconfortos.
               </h2>
               <p className="text-graphite/65 leading-relaxed">
-                A conduta ideal depende da avaliação individual. Em muitos casos, o cuidado envolve proteção dental, orientações específicas e acompanhamento clínico.
+                A placa pode fazer parte do cuidado, mas o tratamento começa com uma avaliação individual. A conduta envolve proteção dental, orientações específicas e acompanhamento clínico — sempre desenhada para o seu caso.
               </p>
             </div>
 
@@ -556,25 +655,41 @@ function LandingPage() {
         </section>
 
         {/* FINAL CTA */}
-        <section className="px-6 py-24 md:py-32 bg-graphite text-ivory">
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-6">
-              Agende sua avaliação
-            </p>
-            <h2 className="font-display text-4xl md:text-6xl leading-[1.02] tracking-tight text-ivory mb-6 text-balance">
-              Não espere o desgaste aparecer para cuidar do seu sorriso.
-            </h2>
-            <p className="text-ivory/70 leading-relaxed mb-10 max-w-xl mx-auto">
-              Agende uma avaliação e entenda se seus sintomas podem estar relacionados ao bruxismo ou apertamento dental.
-            </p>
-            <a
-              href={ctaFinalHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center bg-champagne text-graphite px-10 py-5 text-sm tracking-wide font-medium hover:bg-ivory transition-colors duration-300"
-            >
-              Agendar avaliação pelo WhatsApp
-            </a>
+        <section className="px-6 py-24 md:py-32 bg-graphite text-ivory overflow-hidden">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-12 gap-12 items-center">
+            <div className="md:col-span-7">
+              <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-6">
+                Agende sua avaliação
+              </p>
+              <h2 className="font-display text-4xl md:text-6xl leading-[1.02] tracking-tight text-ivory mb-6 text-balance">
+                Não espere o desgaste aparecer para cuidar do seu sorriso.
+              </h2>
+              <p className="text-ivory/70 leading-relaxed mb-10 max-w-xl">
+                Agende uma avaliação e entenda se seus sintomas podem estar relacionados ao bruxismo ou apertamento dental.
+              </p>
+              <a
+                href={ctaFinalHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center bg-champagne text-graphite px-10 py-5 text-sm tracking-wide font-medium hover:bg-ivory transition-colors duration-300"
+              >
+                Agendar avaliação pelo WhatsApp
+              </a>
+              <p className="mt-8 font-mono text-[10px] uppercase tracking-[0.24em] text-ivory/45">
+                A avaliação revela o caminho
+              </p>
+            </div>
+            <div className="md:col-span-5 relative flex justify-center md:justify-end" aria-hidden="true">
+              <img
+                src={plaquinhaRepouso}
+                alt=""
+                width={1024}
+                height={1024}
+                loading="lazy"
+                className="plaquinha plaquinha-float w-56 md:w-72"
+                style={{ filter: "drop-shadow(0 20px 40px oklch(0 0 0 / 0.5))" }}
+              />
+            </div>
           </div>
         </section>
       </main>
