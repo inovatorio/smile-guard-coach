@@ -70,14 +70,20 @@ const ctaSecondaryHref = buildWhatsAppUrl(
 const ctaFinalHref = buildWhatsAppUrl(
   "Olá, Dra. Jaqueline. Quero agendar minha avaliação.",
 );
+const ctaSymptomsHref = buildWhatsAppUrl(
+  "Olá, Dra. Jaqueline. Esses sintomas parecem comigo. Gostaria de uma avaliação.",
+);
+const ctaConsequencesHref = buildWhatsAppUrl(
+  "Olá, Dra. Jaqueline. Quero entender se o que sinto pode ser bruxismo.",
+);
 
 const symptoms = [
-  { code: "S-01", title: "Dor ou cansaço na mandíbula", desc: "Sensação de músculos sobrecarregados ao falar, mastigar ou ao acordar." },
-  { code: "S-02", title: "Dores de cabeça ao acordar", desc: "Dor frequente nas têmporas ou na região frontal logo nas primeiras horas do dia." },
-  { code: "S-03", title: "Dentes sensíveis", desc: "Desconforto a frio, calor ou doce sem causa aparente de cárie." },
-  { code: "S-04", title: "Desgaste ou pequenas fraturas", desc: "Dentes visivelmente mais curtos, com bordas lascadas ou translúcidas." },
-  { code: "S-05", title: "Estalos ou desconforto na ATM", desc: "Ruídos ou travamentos ao abrir e fechar a boca." },
-  { code: "S-06", title: "Tensão facial e travamento", desc: "Sensação de rosto rígido, principalmente em momentos de estresse." },
+  { code: "S-01", title: "Dor ou cansaço na mandíbula", desc: "Sente dor ou cansaço na mandíbula ao acordar ou ao mastigar?" },
+  { code: "S-02", title: "Dores de cabeça ao acordar", desc: "Acorda com dor de cabeça nas têmporas ou na região frontal com frequência?" },
+  { code: "S-03", title: "Dentes sensíveis", desc: "Seus dentes ficaram sensíveis ao frio, calor ou doce sem causa aparente?" },
+  { code: "S-04", title: "Desgaste ou pequenas fraturas", desc: "Notou os dentes mais curtos, com bordas lascadas ou pequenas trincas?" },
+  { code: "S-05", title: "Estalos ou desconforto na ATM", desc: "Sua mandíbula estala, trava ou incomoda ao abrir a boca?" },
+  { code: "S-06", title: "Tensão facial e travamento", desc: "Percebe o rosto tenso ou a mandíbula travada em momentos de estresse?" },
 ];
 
 const consequences = [
