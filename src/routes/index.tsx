@@ -280,17 +280,33 @@ function LandingPage() {
               </div>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
-              {symptoms.map((s) => (
-                <article
-                  key={s.code}
-                  className="group bg-background p-8 md:p-10 transition-colors duration-300 hover:bg-accent-soft"
-                >
-                  <span className="font-mono text-[10px] tracking-[0.2em] text-champagne">{s.code}</span>
-                  <h3 className="font-display text-2xl text-graphite mt-5 mb-3">{s.title}</h3>
-                  <p className="text-sm text-graphite/65 leading-relaxed">{s.desc}</p>
-                </article>
-              ))}
+            <div className="relative grid lg:grid-cols-[1fr_auto] gap-10 items-start">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
+                {symptoms.map((s) => (
+                  <article
+                    key={s.code}
+                    className="group bg-background p-8 md:p-10 transition-colors duration-300 hover:bg-accent-soft"
+                  >
+                    <span className="font-mono text-[10px] tracking-[0.2em] text-champagne">{s.code}</span>
+                    <h3 className="font-display text-2xl text-graphite mt-5 mb-3">{s.title}</h3>
+                    <p className="text-sm text-graphite/65 leading-relaxed">{s.desc}</p>
+                  </article>
+                ))}
+              </div>
+              {/* Plaquinha condutora — sticky desktop, oculta no mobile */}
+              <aside className="hidden lg:block w-44 sticky top-32 self-start" aria-hidden="true">
+                <img
+                  src={plaquinhaHero}
+                  alt=""
+                  width={1024}
+                  height={1024}
+                  loading="lazy"
+                  className="plaquinha plaquinha-drift w-full"
+                />
+                <p className="mt-6 font-mono text-[9px] uppercase tracking-[0.24em] text-graphite/45 text-center">
+                  Sinais que pedem<br />investigação
+                </p>
+              </aside>
             </div>
 
             <div className="mt-14 grid md:grid-cols-12 gap-8 items-center border-t border-border pt-10">
