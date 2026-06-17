@@ -340,6 +340,13 @@ function LandingPage() {
                 </article>
               ))}
             </div>
+
+            <div className="mt-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-t border-border pt-10">
+              <p className="font-display text-xl md:text-2xl text-graphite/85 leading-snug max-w-xl">
+                Muitas dessas marcas começam silenciosas — e podem ser interrompidas com a avaliação certa.
+              </p>
+              <PrimaryCta href={ctaConsequencesHref} label="Quero entender se isso pode ser bruxismo" />
+            </div>
           </div>
         </section>
 
