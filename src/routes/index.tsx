@@ -278,11 +278,13 @@ function LandingPage() {
               ))}
             </div>
 
-            <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-5">
-              <p className="text-sm text-graphite/60 italic font-display text-lg">
-                Esses sintomas parecem comigo.
+            <div className="mt-14 grid md:grid-cols-12 gap-8 items-center border-t border-border pt-10">
+              <p className="md:col-span-7 font-display text-xl md:text-2xl text-graphite/85 leading-snug italic">
+                Quando esses sinais aparecem com frequência, vale investigar. O bruxismo pode agir em silêncio antes de causar danos visíveis.
               </p>
-              <PrimaryCta href={ctaSecondaryHref} label="Quero conversar sobre meu caso" />
+              <div className="md:col-span-5 md:justify-self-end">
+                <PrimaryCta href={ctaSymptomsHref} label="Esses sintomas parecem comigo" />
+              </div>
             </div>
           </div>
         </section>
