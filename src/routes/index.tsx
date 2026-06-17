@@ -490,13 +490,25 @@ function LandingPage() {
         {/* CLINIC */}
         <section className="px-6 py-20 md:py-28">
           <div className="max-w-7xl mx-auto">
-            <div className="max-w-3xl mb-14">
-              <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-5">
-                [ 06 ] Estrutura
-              </p>
-              <h2 className="font-display text-4xl md:text-5xl leading-[1.05] tracking-tight text-graphite">
-                Uma clínica preparada para cuidar do seu sorriso com precisão e acolhimento.
-              </h2>
+            <div className="grid md:grid-cols-12 gap-10 md:gap-14 mb-14 items-end">
+              <div className="md:col-span-7">
+                <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-5">
+                  [ 06 ] Estrutura
+                </p>
+                <h2 className="font-display text-4xl md:text-5xl leading-[1.05] tracking-tight text-graphite">
+                  Uma clínica preparada para cuidar do seu sorriso com precisão e acolhimento.
+                </h2>
+              </div>
+              <div className="md:col-span-5">
+                <img
+                  src={clinicaImg}
+                  alt="Detalhe da clínica odontológica da Dra. Jaqueline Martins."
+                  width={1280}
+                  height={896}
+                  loading="lazy"
+                  className="w-full aspect-[4/3] object-cover"
+                />
+              </div>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {clinic.map((c, i) => (
