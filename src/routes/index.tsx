@@ -9,6 +9,9 @@ import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import heroImg from "@/assets/dra-jaqueline-hero.jpg";
 import clinicaImg from "@/assets/clinica-detalhe.jpg";
 import tratamentosImg from "@/assets/tratamentos-detalhe.jpg";
+import plaquinhaHero from "@/assets/plaquinha-hero.png";
+import plaquinhaTecnica from "@/assets/plaquinha-tecnica.png";
+import plaquinhaRepouso from "@/assets/plaquinha-repouso.png";
 
 const PAGE_TITLE = "Dra. Jaqueline Martins — Avaliação de Bruxismo";
 const PAGE_DESC =
