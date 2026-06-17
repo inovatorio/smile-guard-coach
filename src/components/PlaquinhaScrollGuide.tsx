@@ -14,13 +14,13 @@ type Keyframe = {
 // Side-biased trajectory. Plaquinha permanece oculta no hero (não cobre a Dra.)
 // e entra na cena ao chegar nos sintomas; sai antes da seção de autoridade.
 const KEYFRAMES: Keyframe[] = [
-  { at: 0.00, x:  40, y: -2, rotate: -4, scale: 0.85, opacity: 0.00 },
-  { at: 0.10, x:  38, y:  0, rotate: -2, scale: 0.85, opacity: 0.00 },
-  { at: 0.20, x:  36, y:  0, rotate:  2, scale: 0.85, opacity: 0.85 },
-  { at: 0.42, x:  38, y:  2, rotate: -3, scale: 0.90, opacity: 0.85 },
-  { at: 0.65, x: -34, y:  4, rotate:  6, scale: 1.00, opacity: 1.00, glow: true },
-  { at: 0.85, x:  38, y:  6, rotate: -4, scale: 0.65, opacity: 0.35 },
-  { at: 1.00, x:  44, y:  8, rotate: -6, scale: 0.55, opacity: 0.00 },
+  { at: 0.00, x:  32, y: -4, rotate: -8, scale: 0.95, opacity: 0.45 },
+  { at: 0.08, x:  30, y: -2, rotate: -5, scale: 1.00, opacity: 0.70 },
+  { at: 0.20, x:  28, y:  0, rotate:  2, scale: 1.05, opacity: 0.95 },
+  { at: 0.42, x:  30, y:  2, rotate: -3, scale: 1.10, opacity: 1.00 },
+  { at: 0.65, x: -28, y:  4, rotate:  6, scale: 1.20, opacity: 1.00, glow: true },
+  { at: 0.85, x:  30, y:  6, rotate: -4, scale: 0.85, opacity: 0.45 },
+  { at: 1.00, x:  36, y:  8, rotate: -6, scale: 0.70, opacity: 0.00 },
 ];
 
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
