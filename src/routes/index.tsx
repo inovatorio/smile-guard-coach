@@ -493,7 +493,7 @@ function LandingPage() {
                 Cuidado personalizado para proteger seus dentes e reduzir desconfortos.
               </h2>
               <p className="text-graphite/65 leading-relaxed">
-                A conduta ideal depende da avaliação individual. Em muitos casos, o cuidado envolve proteção dental, orientações específicas e acompanhamento clínico.
+                A placa pode fazer parte do cuidado, mas o tratamento começa com uma avaliação individual. A conduta envolve proteção dental, orientações específicas e acompanhamento clínico — sempre desenhada para o seu caso.
               </p>
             </div>
 
