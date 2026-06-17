@@ -655,25 +655,41 @@ function LandingPage() {
         </section>
 
         {/* FINAL CTA */}
-        <section className="px-6 py-24 md:py-32 bg-graphite text-ivory">
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-6">
-              Agende sua avaliação
-            </p>
-            <h2 className="font-display text-4xl md:text-6xl leading-[1.02] tracking-tight text-ivory mb-6 text-balance">
-              Não espere o desgaste aparecer para cuidar do seu sorriso.
-            </h2>
-            <p className="text-ivory/70 leading-relaxed mb-10 max-w-xl mx-auto">
-              Agende uma avaliação e entenda se seus sintomas podem estar relacionados ao bruxismo ou apertamento dental.
-            </p>
-            <a
-              href={ctaFinalHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center bg-champagne text-graphite px-10 py-5 text-sm tracking-wide font-medium hover:bg-ivory transition-colors duration-300"
-            >
-              Agendar avaliação pelo WhatsApp
-            </a>
+        <section className="px-6 py-24 md:py-32 bg-graphite text-ivory overflow-hidden">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-12 gap-12 items-center">
+            <div className="md:col-span-7">
+              <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-6">
+                Agende sua avaliação
+              </p>
+              <h2 className="font-display text-4xl md:text-6xl leading-[1.02] tracking-tight text-ivory mb-6 text-balance">
+                Não espere o desgaste aparecer para cuidar do seu sorriso.
+              </h2>
+              <p className="text-ivory/70 leading-relaxed mb-10 max-w-xl">
+                Agende uma avaliação e entenda se seus sintomas podem estar relacionados ao bruxismo ou apertamento dental.
+              </p>
+              <a
+                href={ctaFinalHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center bg-champagne text-graphite px-10 py-5 text-sm tracking-wide font-medium hover:bg-ivory transition-colors duration-300"
+              >
+                Agendar avaliação pelo WhatsApp
+              </a>
+              <p className="mt-8 font-mono text-[10px] uppercase tracking-[0.24em] text-ivory/45">
+                A avaliação revela o caminho
+              </p>
+            </div>
+            <div className="md:col-span-5 relative flex justify-center md:justify-end" aria-hidden="true">
+              <img
+                src={plaquinhaRepouso}
+                alt=""
+                width={1024}
+                height={1024}
+                loading="lazy"
+                className="plaquinha plaquinha-float w-56 md:w-72"
+                style={{ filter: "drop-shadow(0 20px 40px oklch(0 0 0 / 0.5))" }}
+              />
+            </div>
           </div>
         </section>
       </main>
