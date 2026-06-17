@@ -236,14 +236,26 @@ function LandingPage() {
 
             <div className="md:col-span-5 animate-reveal" style={{ animationDelay: "200ms" }}>
               <div className="relative">
+                {/* Plaquinha flutuante — composição lateral, não cobre a Dra. */}
+                <img
+                  src={plaquinhaHero}
+                  alt=""
+                  aria-hidden="true"
+                  width={1024}
+                  height={1024}
+                  className="plaquinha plaquinha-float pointer-events-none absolute -top-10 -left-16 md:-left-24 lg:-left-32 w-36 md:w-44 lg:w-56 z-10 hidden sm:block"
+                />
                 <div className="absolute -inset-3 border border-champagne/30 -z-10" aria-hidden />
                 <img
                   src={heroImg}
                   alt="Dra. Jaqueline Martins, cirurgiã-dentista, em sua clínica odontológica em São Paulo."
                   width={896}
                   height={1152}
-                  className="w-full aspect-[4/5] object-cover"
+                  className="w-full aspect-[4/5] object-cover relative"
                 />
+                <p className="absolute -bottom-4 left-4 md:left-6 bg-background px-3 py-1 font-mono text-[9px] uppercase tracking-[0.24em] text-graphite/60">
+                  O bruxismo deixa pistas
+                </p>
               </div>
             </div>
           </div>
