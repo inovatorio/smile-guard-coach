@@ -465,8 +465,8 @@ function LandingPage() {
                 </li>
               ))}
             </ol>
-          </div>
-        </section>
+
+
 
             <ol className="grid md:grid-cols-4 gap-10 md:gap-12">
               {steps.map((step) => (
