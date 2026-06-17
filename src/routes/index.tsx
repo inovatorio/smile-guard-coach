@@ -416,6 +416,58 @@ function LandingPage() {
               </div>
             </div>
 
+            {/* Plaquinha técnica — sensação de precisão clínica */}
+            <div className="relative mb-16 md:mb-20 border-y border-ivory/15 py-12 md:py-16 grid md:grid-cols-12 gap-8 items-center">
+              <div className="md:col-span-4 md:col-start-2 relative">
+                <img
+                  src={plaquinhaTecnica}
+                  alt=""
+                  aria-hidden="true"
+                  width={1024}
+                  height={1024}
+                  loading="lazy"
+                  className="plaquinha w-full max-w-[280px] mx-auto"
+                  style={{ filter: "drop-shadow(0 12px 24px oklch(0 0 0 / 0.4))" }}
+                />
+                {/* Marcações editoriais finas */}
+                <svg
+                  className="absolute inset-0 w-full h-full pointer-events-none"
+                  viewBox="0 0 200 200"
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                >
+                  <line x1="0" y1="40" x2="100" y2="40" stroke="currentColor" strokeWidth="0.3" className="text-champagne/70" />
+                  <line x1="100" y1="160" x2="200" y2="160" stroke="currentColor" strokeWidth="0.3" className="text-champagne/70" />
+                  <circle cx="100" cy="100" r="0.8" className="fill-champagne" />
+                </svg>
+              </div>
+              <div className="md:col-span-6 md:col-start-7">
+                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne mb-4">
+                  S-04 · Diagnóstico
+                </p>
+                <p className="font-display text-2xl md:text-3xl text-ivory leading-snug mb-4">
+                  Cada caso tem sinais únicos. A avaliação revela o caminho.
+                </p>
+                <p className="text-sm text-ivory/60 leading-relaxed max-w-md">
+                  Quando indicada, a placa é confeccionada sob medida — depois de entender o seu caso, não antes.
+                </p>
+              </div>
+            </div>
+
+            <ol className="grid md:grid-cols-4 gap-10 md:gap-12">
+              {steps.map((step) => (
+                <li key={step.phase} className="border-l border-ivory/15 pl-6">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne block mb-4">
+                    {step.phase}
+                  </span>
+                  <h3 className="font-display text-2xl md:text-3xl text-ivory mb-3">{step.title}</h3>
+                  <p className="text-sm text-ivory/65 leading-relaxed">{step.desc}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
             <ol className="grid md:grid-cols-4 gap-10 md:gap-12">
               {steps.map((step) => (
                 <li key={step.phase} className="border-l border-ivory/15 pl-6">
