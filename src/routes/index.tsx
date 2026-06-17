@@ -12,6 +12,7 @@ import heroImg from "@/assets/dra-jaqueline-hero.jpg";
 import clinicaImg from "@/assets/clinica-detalhe.jpg";
 import tratamentosImg from "@/assets/tratamentos-detalhe.jpg";
 import plaquinhaRepouso from "@/assets/plaquinha-repouso.png";
+import logoAsset from "@/assets/logo-jaqueline-martins.png.asset.json";
 
 const PAGE_TITLE = "Dra. Jaqueline Martins — Avaliação de Bruxismo";
 const PAGE_DESC =
@@ -189,8 +190,12 @@ function LandingPage() {
       {/* HEADER */}
       <header className="fixed top-0 inset-x-0 z-50 bg-background/85 backdrop-blur-md border-b border-border">
         <div className="max-w-7xl mx-auto px-6 h-16 md:h-20 flex items-center justify-between">
-          <a href="#top" className="font-display text-lg md:text-xl tracking-tight text-graphite">
-            Dra. Jaqueline Martins
+          <a href="#top" className="flex items-center" aria-label="Dra. Jaqueline Martins — Odontologia Estética">
+            <img
+              src={logoAsset.url}
+              alt="Dra. Jaqueline Martins — Odontologia Estética"
+              className="h-10 md:h-12 w-auto"
+            />
           </a>
           <nav className="hidden md:flex items-center gap-8 text-[11px] uppercase tracking-[0.18em] text-graphite/70">
             <a href="#sintomas" className="hover:text-champagne transition-colors">Sintomas</a>
@@ -645,7 +650,11 @@ function LandingPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-12 gap-10 md:gap-12 pb-12 border-b border-border">
             <div className="md:col-span-5">
-              <div className="font-display text-2xl text-graphite mb-3">Dra. Jaqueline Martins</div>
+              <img
+                src={logoAsset.url}
+                alt="Dra. Jaqueline Martins — Odontologia Estética"
+                className="h-16 md:h-20 w-auto mb-5"
+              />
               <p className="text-sm text-graphite/60 max-w-sm leading-relaxed">
                 Odontologia avançada com foco em estética, função e cuidado individualizado.
               </p>
