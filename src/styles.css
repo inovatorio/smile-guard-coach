@@ -122,34 +122,8 @@
 }
 
 /* Plaquinha — fio narrativo visual.
- * Animação scroll-driven com fallback gracioso (imagem estática) em navegadores
- * sem suporte. Mobile e prefers-reduced-motion: estática. */
+ * Sombra base reaproveitada pelo PlaquinhaScrollGuide e pela plaquinha em repouso (CTA final). */
 .plaquinha {
   filter: drop-shadow(0 24px 32px oklch(0.265 0.005 75 / 0.18))
           drop-shadow(0 2px 4px oklch(0.74 0.075 75 / 0.15));
-  will-change: transform;
-}
-
-@keyframes plaquinha-float-in {
-  from { transform: translateY(24px) rotate(-4deg); opacity: 0.6; }
-  to   { transform: translateY(-8px) rotate(2deg);  opacity: 1; }
-}
-@keyframes plaquinha-drift {
-  from { transform: translateY(0) rotate(-2deg); }
-  to   { transform: translateY(-32px) rotate(3deg); }
-}
-
-@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
-  @supports (animation-timeline: view()) {
-    .plaquinha-float {
-      animation: plaquinha-float-in linear both;
-      animation-timeline: view();
-      animation-range: entry 0% cover 60%;
-    }
-    .plaquinha-drift {
-      animation: plaquinha-drift linear both;
-      animation-timeline: view();
-      animation-range: cover 0% cover 100%;
-    }
-  }
 }
