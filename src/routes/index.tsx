@@ -357,19 +357,35 @@ function LandingPage() {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {consequences.map((c, i) => (
-                <article
-                  key={c.title}
-                  className="bg-card border border-border p-8 transition-shadow duration-300 hover:shadow-[var(--shadow-soft)]"
-                >
-                  <span className="font-mono text-[10px] tracking-[0.2em] text-champagne">
-                    C-{String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="font-display text-xl text-graphite mt-5 mb-3">{c.title}</h3>
-                  <p className="text-sm text-graphite/65 leading-relaxed">{c.desc}</p>
-                </article>
-              ))}
+            <div className="grid lg:grid-cols-[1fr_280px] gap-10 items-start">
+              <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                {consequences.map((c, i) => (
+                  <article
+                    key={c.title}
+                    className="bg-card border border-border p-8 transition-shadow duration-300 hover:shadow-[var(--shadow-soft)]"
+                  >
+                    <span className="font-mono text-[10px] tracking-[0.2em] text-champagne">
+                      C-{String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="font-display text-xl text-graphite mt-5 mb-3">{c.title}</h3>
+                    <p className="text-sm text-graphite/65 leading-relaxed">{c.desc}</p>
+                  </article>
+                ))}
+              </div>
+              {/* Plaquinha como metáfora de proteção */}
+              <aside className="hidden lg:flex flex-col items-center sticky top-32 self-start text-center" aria-hidden="true">
+                <img
+                  src={plaquinhaHero}
+                  alt=""
+                  width={1024}
+                  height={1024}
+                  loading="lazy"
+                  className="plaquinha plaquinha-drift w-48"
+                />
+                <p className="mt-8 font-display text-lg text-graphite/80 italic leading-snug max-w-[200px]">
+                  Proteger antes que o dano se torne visível.
+                </p>
+              </aside>
             </div>
 
             <div className="mt-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-t border-border pt-10">
