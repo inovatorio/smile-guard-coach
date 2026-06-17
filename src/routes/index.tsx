@@ -8,6 +8,7 @@ import {
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import heroImg from "@/assets/dra-jaqueline-hero.jpg";
 import clinicaImg from "@/assets/clinica-detalhe.jpg";
+import tratamentosImg from "@/assets/tratamentos-detalhe.jpg";
 
 const PAGE_TITLE = "Dra. Jaqueline Martins — Avaliação de Bruxismo";
 const PAGE_DESC =
@@ -69,14 +70,20 @@ const ctaSecondaryHref = buildWhatsAppUrl(
 const ctaFinalHref = buildWhatsAppUrl(
   "Olá, Dra. Jaqueline. Quero agendar minha avaliação.",
 );
+const ctaSymptomsHref = buildWhatsAppUrl(
+  "Olá, Dra. Jaqueline. Esses sintomas parecem comigo. Gostaria de uma avaliação.",
+);
+const ctaConsequencesHref = buildWhatsAppUrl(
+  "Olá, Dra. Jaqueline. Quero entender se o que sinto pode ser bruxismo.",
+);
 
 const symptoms = [
-  { code: "S-01", title: "Dor ou cansaço na mandíbula", desc: "Sensação de músculos sobrecarregados ao falar, mastigar ou ao acordar." },
-  { code: "S-02", title: "Dores de cabeça ao acordar", desc: "Dor frequente nas têmporas ou na região frontal logo nas primeiras horas do dia." },
-  { code: "S-03", title: "Dentes sensíveis", desc: "Desconforto a frio, calor ou doce sem causa aparente de cárie." },
-  { code: "S-04", title: "Desgaste ou pequenas fraturas", desc: "Dentes visivelmente mais curtos, com bordas lascadas ou translúcidas." },
-  { code: "S-05", title: "Estalos ou desconforto na ATM", desc: "Ruídos ou travamentos ao abrir e fechar a boca." },
-  { code: "S-06", title: "Tensão facial e travamento", desc: "Sensação de rosto rígido, principalmente em momentos de estresse." },
+  { code: "S-01", title: "Dor ou cansaço na mandíbula", desc: "Sente dor ou cansaço na mandíbula ao acordar ou ao mastigar?" },
+  { code: "S-02", title: "Dores de cabeça ao acordar", desc: "Acorda com dor de cabeça nas têmporas ou na região frontal com frequência?" },
+  { code: "S-03", title: "Dentes sensíveis", desc: "Seus dentes ficaram sensíveis ao frio, calor ou doce sem causa aparente?" },
+  { code: "S-04", title: "Desgaste ou pequenas fraturas", desc: "Notou os dentes mais curtos, com bordas lascadas ou pequenas trincas?" },
+  { code: "S-05", title: "Estalos ou desconforto na ATM", desc: "Sua mandíbula estala, trava ou incomoda ao abrir a boca?" },
+  { code: "S-06", title: "Tensão facial e travamento", desc: "Percebe o rosto tenso ou a mandíbula travada em momentos de estresse?" },
 ];
 
 const consequences = [
@@ -116,23 +123,31 @@ const faq = [
     a: "Alguns sinais comuns são dor na mandíbula, dor de cabeça ao acordar, dentes sensíveis, desgaste dental, tensão facial e estalos na articulação. A confirmação depende de uma avaliação odontológica.",
   },
   {
-    q: "Bruxismo tem cura?",
-    a: "O bruxismo pode ter diferentes causas e manifestações. Em muitos casos, o objetivo do tratamento é controlar os sintomas, proteger os dentes e reduzir os impactos do apertamento.",
+    q: "Qual é o tratamento para bruxismo?",
+    a: "O tratamento é individualizado e pode envolver placa oclusal personalizada, orientações para reduzir o apertamento durante o dia, acompanhamento clínico e, quando necessário, reabilitação de áreas desgastadas. A conduta é definida após a avaliação.",
   },
   {
-    q: "A placa resolve o problema?",
-    a: "A placa pode ajudar a proteger os dentes e reduzir danos causados pelo apertamento, mas a indicação depende da avaliação individual. Em alguns casos, outras orientações e acompanhamentos também podem ser necessários.",
-  },
-  {
-    q: "Bruxismo pode causar dor de cabeça?",
-    a: "Sim. A sobrecarga muscular causada pelo apertamento pode estar relacionada a dores de cabeça, especialmente ao acordar.",
+    q: "A placa para bruxismo realmente protege os dentes?",
+    a: "A placa, quando indicada e confeccionada sob medida, ajuda a proteger os dentes do desgaste causado pelo apertamento e pode reduzir desconfortos musculares. A necessidade e o modelo ideal são definidos na avaliação.",
   },
   {
     q: "Dor na mandíbula pode ser bruxismo?",
-    a: "Pode ser um dos sinais. A dor ou cansaço na mandíbula pode estar associada ao apertamento dental, mas é importante avaliar cada caso.",
+    a: "Pode ser um dos sinais. A dor ou cansaço na mandíbula, principalmente ao acordar ou após momentos de tensão, frequentemente está associada ao apertamento dental. É importante avaliar cada caso.",
   },
   {
-    q: "Quando devo procurar avaliação?",
+    q: "Bruxismo pode causar dor de cabeça?",
+    a: "Sim. A sobrecarga dos músculos da face e da mandíbula pode estar relacionada a dores de cabeça, especialmente ao acordar ou ao final do dia.",
+  },
+  {
+    q: "Bruxismo tem cura?",
+    a: "O bruxismo pode ter diferentes causas e manifestações. Em muitos casos, o objetivo do tratamento é controlar os sintomas, proteger os dentes e reduzir os impactos do apertamento ao longo do tempo.",
+  },
+  {
+    q: "Onde fazer avaliação de bruxismo em Vila Formosa ou São Miguel Paulista?",
+    a: "A Dra. Jaqueline Martins atende em duas unidades em São Paulo: Vila Formosa e São Miguel Paulista. O agendamento da avaliação pode ser feito diretamente pelo WhatsApp.",
+  },
+  {
+    q: "Quando devo procurar uma avaliação?",
     a: "Quando houver dor frequente, desgaste nos dentes, sensibilidade, estalos, tensão facial ou suspeita de apertamento durante o sono ou ao longo do dia.",
   },
 ];
@@ -263,11 +278,13 @@ function LandingPage() {
               ))}
             </div>
 
-            <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-5">
-              <p className="text-sm text-graphite/60 italic font-display text-lg">
-                Esses sintomas parecem comigo.
+            <div className="mt-14 grid md:grid-cols-12 gap-8 items-center border-t border-border pt-10">
+              <p className="md:col-span-7 font-display text-xl md:text-2xl text-graphite/85 leading-snug italic">
+                Quando esses sinais aparecem com frequência, vale investigar. O bruxismo pode agir em silêncio antes de causar danos visíveis.
               </p>
-              <PrimaryCta href={ctaSecondaryHref} label="Quero conversar sobre meu caso" />
+              <div className="md:col-span-5 md:justify-self-end">
+                <PrimaryCta href={ctaSymptomsHref} label="Esses sintomas parecem comigo" />
+              </div>
             </div>
           </div>
         </section>
@@ -323,6 +340,13 @@ function LandingPage() {
                 </article>
               ))}
             </div>
+
+            <div className="mt-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-t border-border pt-10">
+              <p className="font-display text-xl md:text-2xl text-graphite/85 leading-snug max-w-xl">
+                Muitas dessas marcas começam silenciosas — e podem ser interrompidas com a avaliação certa.
+              </p>
+              <PrimaryCta href={ctaConsequencesHref} label="Quero entender se isso pode ser bruxismo" />
+            </div>
           </div>
         </section>
 
@@ -374,11 +398,11 @@ function LandingPage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
+            <div className="grid lg:grid-cols-12 gap-px bg-border border border-border">
               {treatments.map((t, i) => (
                 <article
                   key={t.title}
-                  className="bg-background p-8 md:p-10 transition-colors duration-300 hover:bg-accent-soft"
+                  className="bg-background p-8 md:p-10 transition-colors duration-300 hover:bg-accent-soft lg:col-span-4"
                 >
                   <span className="font-mono text-[10px] tracking-[0.2em] text-champagne">
                     T-{String(i + 1).padStart(2, "0")}
@@ -387,6 +411,22 @@ function LandingPage() {
                   <p className="text-sm text-graphite/65 leading-relaxed">{t.desc}</p>
                 </article>
               ))}
+              <figure className="relative lg:col-span-4 min-h-[280px] overflow-hidden">
+                <img
+                  src={tratamentosImg}
+                  alt="Detalhe editorial de bancada em mármore com instrumentos odontológicos em clínica premium."
+                  width={1280}
+                  height={1600}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <figcaption className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-graphite/70 via-graphite/10 to-transparent text-ivory">
+                  <span className="font-mono text-[10px] tracking-[0.2em] text-champagne mb-3">Nota clínica</span>
+                  <p className="font-display text-lg md:text-xl leading-snug max-w-xs">
+                    Cada conduta é desenhada para o seu caso — não para um padrão.
+                  </p>
+                </figcaption>
+              </figure>
             </div>
 
             <p className="mt-10 text-xs uppercase tracking-[0.2em] text-graphite/45">
@@ -396,30 +436,37 @@ function LandingPage() {
         </section>
 
         {/* AUTHORITY — Dra. Jaqueline */}
-        <section id="sobre" className="px-6 py-20 md:py-28 bg-bone border-y border-border">
-          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-center">
-            <div className="md:col-span-5 order-2 md:order-1">
+        <section id="sobre" className="px-6 py-24 md:py-32 bg-bone border-y border-border">
+          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-12 md:gap-20 items-center">
+            <div className="md:col-span-6 order-2 md:order-1">
               <div className="relative">
-                <div className="absolute -inset-3 border border-champagne/30 -z-10" aria-hidden />
+                <div className="absolute -inset-4 md:-inset-6 border border-champagne/40 -z-10" aria-hidden />
+                <div className="absolute -bottom-6 -right-6 hidden md:block bg-graphite text-ivory px-6 py-4 max-w-[220px]">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-champagne block mb-1">CRO-SP</span>
+                  <span className="font-display text-lg leading-tight">Dra. Jaqueline Martins</span>
+                </div>
                 <img
-                  src={clinicaImg}
-                  alt="Detalhe da clínica odontológica da Dra. Jaqueline Martins, com bancada em mármore e instrumentos."
-                  width={1280}
-                  height={896}
+                  src={heroImg}
+                  alt="Retrato da Dra. Jaqueline Martins, cirurgiã-dentista, em sua clínica em São Paulo."
+                  width={1120}
+                  height={1400}
                   loading="lazy"
-                  className="w-full aspect-[4/3] object-cover"
+                  className="w-full aspect-[4/5] object-cover"
                 />
               </div>
             </div>
-            <div className="md:col-span-7 order-1 md:order-2">
-              <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-5">
+            <div className="md:col-span-6 order-1 md:order-2">
+              <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-6">
                 [ 05 ] Dra. Jaqueline Martins
               </p>
-              <h2 className="font-display text-4xl md:text-5xl leading-[1.05] tracking-tight text-graphite mb-6">
-                Conheça a Dra. Jaqueline Martins.
+              <h2 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.02] tracking-tight text-graphite mb-8">
+                Autoridade clínica em estética e função do sorriso.
               </h2>
-              <p className="text-graphite/70 leading-relaxed mb-10 max-w-2xl">
-                Cirurgiã-dentista formada em 2004, com especialização em implantodontia, foco em odontologia estética e mais de 21 anos de experiência. Sua atuação une estética, função e cuidado individualizado para ajudar pacientes a preservarem a saúde bucal e a confiança no sorriso.
+              <p className="font-display text-xl md:text-2xl text-graphite/85 leading-snug mb-8">
+                A atuação da Dra. Jaqueline une estética, função e cuidado preventivo para preservar não apenas a aparência do sorriso, mas também sua saúde, conforto e estabilidade ao longo do tempo.
+              </p>
+              <p className="text-graphite/65 leading-relaxed mb-10 max-w-2xl">
+                Cirurgiã-dentista formada em 2004, especialista em implantodontia e com mais de 21 anos de experiência clínica. Atende em duas unidades em São Paulo — Vila Formosa e São Miguel Paulista — com um cuidado individualizado para cada paciente.
               </p>
 
               <dl className="grid grid-cols-3 gap-6 border-t border-border pt-8">
@@ -443,13 +490,25 @@ function LandingPage() {
         {/* CLINIC */}
         <section className="px-6 py-20 md:py-28">
           <div className="max-w-7xl mx-auto">
-            <div className="max-w-3xl mb-14">
-              <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-5">
-                [ 06 ] Estrutura
-              </p>
-              <h2 className="font-display text-4xl md:text-5xl leading-[1.05] tracking-tight text-graphite">
-                Uma clínica preparada para cuidar do seu sorriso com precisão e acolhimento.
-              </h2>
+            <div className="grid md:grid-cols-12 gap-10 md:gap-14 mb-14 items-end">
+              <div className="md:col-span-7">
+                <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-5">
+                  [ 06 ] Estrutura
+                </p>
+                <h2 className="font-display text-4xl md:text-5xl leading-[1.05] tracking-tight text-graphite">
+                  Uma clínica preparada para cuidar do seu sorriso com precisão e acolhimento.
+                </h2>
+              </div>
+              <div className="md:col-span-5">
+                <img
+                  src={clinicaImg}
+                  alt="Detalhe da clínica odontológica da Dra. Jaqueline Martins."
+                  width={1280}
+                  height={896}
+                  loading="lazy"
+                  className="w-full aspect-[4/3] object-cover"
+                />
+              </div>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {clinic.map((c, i) => (
@@ -558,6 +617,17 @@ function LandingPage() {
           </p>
         </div>
       </footer>
+
+      {/* Mobile sticky CTA */}
+      <a
+        href={ctaFinalHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="md:hidden fixed bottom-4 inset-x-4 z-50 inline-flex items-center justify-center bg-graphite text-ivory px-6 py-4 text-[12px] uppercase tracking-[0.18em] font-medium shadow-[var(--shadow-elevated)] hover:bg-champagne hover:text-graphite transition-colors"
+      >
+        Agendar avaliação
+      </a>
+      <div className="md:hidden h-20" aria-hidden />
     </div>
   );
 }
