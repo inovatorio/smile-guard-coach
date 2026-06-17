@@ -137,7 +137,7 @@ export function PlaquinhaScrollGuide({ wrapperRef }: { wrapperRef: React.RefObje
       className={
         isMobile
           ? "plaquinha fixed top-20 right-3 w-14 z-20 pointer-events-none will-change-transform"
-          : "plaquinha fixed top-[28vh] left-1/2 w-40 lg:w-48 z-20 pointer-events-none will-change-transform"
+          : "plaquinha fixed top-[32vh] left-1/2 w-32 lg:w-40 z-20 pointer-events-none will-change-transform"
       }
       style={{ opacity: 0, transform: "translate3d(-50%, 0, 0)" }}
     />
