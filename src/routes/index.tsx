@@ -398,11 +398,11 @@ function LandingPage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
+            <div className="grid lg:grid-cols-12 gap-px bg-border border border-border">
               {treatments.map((t, i) => (
                 <article
                   key={t.title}
-                  className="bg-background p-8 md:p-10 transition-colors duration-300 hover:bg-accent-soft"
+                  className="bg-background p-8 md:p-10 transition-colors duration-300 hover:bg-accent-soft lg:col-span-4"
                 >
                   <span className="font-mono text-[10px] tracking-[0.2em] text-champagne">
                     T-{String(i + 1).padStart(2, "0")}
@@ -411,6 +411,22 @@ function LandingPage() {
                   <p className="text-sm text-graphite/65 leading-relaxed">{t.desc}</p>
                 </article>
               ))}
+              <figure className="relative lg:col-span-4 min-h-[280px] overflow-hidden">
+                <img
+                  src={tratamentosImg}
+                  alt="Detalhe editorial de bancada em mármore com instrumentos odontológicos em clínica premium."
+                  width={1280}
+                  height={1600}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <figcaption className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-graphite/70 via-graphite/10 to-transparent text-ivory">
+                  <span className="font-mono text-[10px] tracking-[0.2em] text-champagne mb-3">Nota clínica</span>
+                  <p className="font-display text-lg md:text-xl leading-snug max-w-xs">
+                    Cada conduta é desenhada para o seu caso — não para um padrão.
+                  </p>
+                </figcaption>
+              </figure>
             </div>
 
             <p className="mt-10 text-xs uppercase tracking-[0.2em] text-graphite/45">
