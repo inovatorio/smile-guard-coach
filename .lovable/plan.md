@@ -1,91 +1,111 @@
-## Objetivo
+## Diagnóstico
 
-Substituir as imagens estáticas espalhadas da plaquinha por **uma única plaquinha** que percorre a página em scroll, conectando Hero → Sintomas → Consequências → Avaliação → Tratamentos, depois desaparece na Autoridade e ressurge em repouso no CTA final.
+Rodei Playwright contra `localhost:8080` e medi o `<img class="plaquinha">` em cada altura de scroll. A placa **está** sendo renderizada e animada corretamente — opacity sobe de 0 → 1 e a posição migra da direita para a esquerda como planejado:
 
-## Arquitetura
+| scrollY | opacity | left (px) | top (px) |
+| ------- | ------- | --------- | -------- |
+| 0       | 0       | 1228      | 161      |
+| 400     | 0       | 1228      | 161      |
+| 1200    | 0.46    | 1149      | 265      |
+| 2400    | 1.00    | 810       | 373      |
+| 3600    | 0.99    | 593       | 393      |
+| 4800    | 1.00    | 384       | 404      |
+| 6000    | 0       | 1157      | 512      |
 
-### 1. Novo componente `src/components/PlaquinhaScrollGuide.tsx`
+A coreografia funciona, a trava do hero funciona, ela some na Autoridade. **O problema é puramente perceptivo:**
 
-Renderiza **uma única `<img>`** da plaquinha dentro de um wrapper `position: absolute` que vive em um container `position: relative` (a "área de jornada"). A imagem usa `position: sticky; top: 40vh` para acompanhar o scroll, com `transform` calculado em JS via `requestAnimationFrame`.
+1. **Tamanho minúsculo.** `width: clamp(120px, 16vw, 260px)` × `scale 0.42` na entrada = **~86px de placa visível** num viewport de 1269px. No pico (scale 0.78) ainda dá só ~160px. A imagem-fonte tem detalhe fino (translúcida, acrílico), então em 86px ela desaparece visualmente.
+2. **Entrada longa e fraca.** Opacity sobe lentamente (0 → 0.45 → 0.80 → 1.00) ao longo de progress 0–0.24, que no wrapper de ~5400px equivale a ~1300px de scroll só pra ficar opaca. Em scroll rápido (o replay mostra o usuário rolando a página inteira em ~5s) a placa nunca atingiu opacity alta numa região onde ele estava olhando.
+3. **Sem micro-movimento entre waypoints.** Em pausas de scroll a placa fica 100% imóvel — sem a oscilação anterior, fica fácil de ignorar / confundir com decoração estática.
+4. **Cor translúcida sobre fundo claro.** Sem contraste suficiente na escala atual.
 
-```text
-<JourneyWrapper position:relative>
-  ├─ <PlaquinhaScrollGuide />   ← sticky layer, pointer-events:none, z-10
-  │     └─ <img plaquinha />    ← transform recalculado por rAF
-  └─ <Hero />
-  └─ <Symptoms />
-  └─ <Consequences />
-  └─ <Evaluation /> (bloco escuro)
-  └─ <Treatments />
-</JourneyWrapper>
+## Plano de correção
 
-<Authority />     ← fora da jornada (plaquinha não aparece)
-<FinalCTA />      ← plaquinha em repouso, estática, ao lado do CTA
+Mantém toda a arquitetura aprovada (componente único, waypoints, trava do hero, gate em scrollY > 22vh, fallback mobile). Ajusta apenas presença visual.
+
+### 1. Base maior
+
+`src/components/PlaquinhaJourney.tsx` — trocar:
+
+```ts
+width: "clamp(120px, 16vw, 260px)"
 ```
 
-### 2. Lógica de progresso
+por:
 
-Hook `usePlaquinhaProgress(wrapperRef)`:
-- Lê `wrapperRef.getBoundingClientRect()` em cada frame de scroll.
-- Calcula `progress = clamp((viewportCenter - wrapperTop) / wrapperHeight, 0, 1)`.
-- Throttle via `requestAnimationFrame` + flag, listener `scroll` passivo + `resize`.
-- Sem libs novas.
+```ts
+width: "clamp(200px, 22vw, 380px)"
+```
 
-### 3. Keyframes da plaquinha (mapeados ao progress)
+Em 1269px → ~280px de base. Com scale mínima 0.65 ainda dá ~180px visíveis.
 
-| Trecho        | progress   | translateX | translateY  | rotate | scale | opacity |
-| ------------- | ---------- | ---------- | ----------- | ------ | ----- | ------- |
-| Hero          | 0.00–0.15  | +18vw      | flutua leve | -4°    | 1.00  | 1       |
-| Sintomas      | 0.15–0.40  | +22vw      | desce       | +3°    | 0.92  | 1       |
-| Consequências | 0.40–0.60  | 0 (centro) | desce       | -2°    | 1.05  | 1       |
-| Avaliação     | 0.60–0.82  | -18vw      | desce       | +6°    | 0.95  | 1 + glow |
-| Tratamentos   | 0.82–1.00  | +20vw      | desce       | -3°    | 0.80  | 0.55    |
+### 2. Escalas mais generosas
 
-Interpolação linear entre keyframes. Aplicado como `transform` + `opacity` inline no `<img>`.
+Subir o piso de `scale` nos waypoints visíveis (mantendo o mesmo arco direita → centro → esquerda):
 
-### 4. SVG decorativo na Avaliação
+| progress | x   | y  | rotate | scale (novo) | opacity (novo) |
+| -------- | --- | -- | ------ | ------------ | -------------- |
+| 0.00     | 96  | 22 | -10    | 0.55         | 0              |
+| 0.06     | 90  | 30 |  -8    | 0.65         | 0.70           |
+| 0.14     | 82  | 44 |   0    | 0.78         | 1.00           |
+| 0.24     | 64  | 46 |   8    | 0.85         | 1.00           |
+| 0.38     | 20  | 52 | -12    | 0.88         | 1.00           |
+| 0.55     | 48  | 46 |   4    | 1.00         | 1.00           |
+| 0.72     | 24  | 50 |  -4    | 1.05         | 1.00           |
+| 0.86     | 68  | 56 |  10    | 0.72         | 0.55           |
+| 1.00     | 92  | 64 |  18    | 0.42         | 0              |
 
-Dentro do bloco escuro, sobrepor um SVG inline (linhas finas champagne, eixos, label `S-04 · DIAGNÓSTICO`) que aparece com `opacity` baseada em progress 0.60–0.82. Vive no `PlaquinhaScrollGuide` para acompanhar a plaquinha.
+Mudanças-chave: opacity chega em 1.0 já em progress 0.14 (não 0.24), e scale fica entre 0.78 e 1.05 durante toda a região visível. Posições laterais (x) ficam um pouco mais para dentro da tela para garantir que a placa fique inteira no viewport, não cortada pela borda.
 
-### 5. Linhas conectoras na Consequências
+### 3. Micro-flutuação contínua (versão suave)
 
-SVG inline fino (stroke champagne 1px, `stroke-dasharray` animado por `opacity`) ligando a posição central da plaquinha aos 5 cards. Renderizado dentro da seção Consequências, não no guide.
+Adicionar oscilação senoidal pequena sobreposta ao transform, para a placa "respirar" entre waypoints:
 
-### 6. CTA final — plaquinha em repouso
+```ts
+const t = performance.now() / 1000;
+const floatY = Math.sin(t * 0.8) * 0.4;   // ±0.4vh
+const floatX = Math.cos(t * 0.6) * 0.25;  // ±0.25vw
+const floatRot = Math.sin(t * 0.45) * 0.6; // ±0.6°
+```
 
-Componente separado, imagem estática (`plaquinhaRepouso`) ao lado do CTA, sem animação. Reforça simbolismo de proteção.
+E rodar `requestAnimationFrame` continuamente (em vez de só em scroll), com guarda: se `!hasScrolled || !inJourney`, mantém opacity 0 e não recalcula float. Custo: 60fps de transform style apenas enquanto a placa está visível.
 
-## Mobile (`< 768px`)
+### 4. Trava do hero — manter
 
-- `PlaquinhaScrollGuide` muda para `position: sticky; top: 80px`, canto superior direito.
-- Largura reduzida (~64px), `pointer-events:none`.
-- Apenas `opacity` e leve `translateY` baseados em progress — sem `translateX` que cubra texto.
-- Esconder na seção Tratamentos e abaixo (`opacity:0` quando progress > 0.82).
-- `prefers-reduced-motion`: plaquinha 100% estática, posicionada no topo direito do Hero.
+```ts
+const heroSafeScroll = window.scrollY > window.innerHeight * 0.22;
+const hasScrolled = window.scrollY > 16 && heroSafeScroll;
+```
 
-## Limpeza
+Já está implementada e funcionando.
 
-- Remover imports e usos de `plaquinhaHero`, `plaquinhaTecnica` em seções (Hero, Sintomas, Consequências, Avaliação, Tratamentos).
-- Manter apenas `plaquinhaHero` (usada pelo guide) e `plaquinhaRepouso` (CTA final).
-- Remover `.plaquinha-float` / `.plaquinha-drift` antigos do `styles.css` (substituídos pelo guide JS).
-- Manter classe base `.plaquinha` (drop-shadow) — reaproveitada pelo guide e pela repouso.
+### 5. Contraste — drop-shadow mais marcado fora da Avaliação
 
-## Acessibilidade
+```ts
+img.style.filter = inEvaluation
+  ? "drop-shadow(0 28px 40px oklch(0.265 0.005 75 / 0.40)) drop-shadow(0 0 36px oklch(0.74 0.075 75 / 0.60))"
+  : "drop-shadow(0 30px 44px oklch(0.265 0.005 75 / 0.32)) drop-shadow(0 6px 12px oklch(0.74 0.075 75 / 0.22))";
+```
 
-- `<img>` no guide: `alt=""` + `aria-hidden="true"` (decorativo).
-- Plaquinha repouso no CTA final: `alt=""` + `aria-hidden="true"` (símbolo, não informativa).
-- Linhas SVG decorativas: `aria-hidden="true"`.
-- Respeitar `prefers-reduced-motion`: desliga rAF, plaquinha fica estática.
+Sombra mais densa ajuda a placa translúcida a se destacar sobre o fundo bege/marfim.
+
+### 6. Validação obrigatória após build
+
+Rodar Playwright com viewport 1269×634 (igual ao do usuário) e capturar screenshots em scrollY = 0, 600, 1500, 2400, 3300, 4200, 5100. Confirmar visualmente que:
+
+- scrollY=0: placa invisível (gate ativo, ainda no hero).
+- scrollY=600: placa entrando pela direita, claramente visível, não sobre a foto da Dra.
+- scrollY=1500–4200: placa percorre direita → centro → esquerda com tamanho ≥180px.
+- scrollY=5100+: placa invisível (Autoridade).
+
+Se algum screenshot mostrar placa <150px ou opacity <0.7 na zona "ativa", iterar nos valores antes de fechar.
 
 ## Arquivos afetados
 
-- **Criar:** `src/components/PlaquinhaScrollGuide.tsx`
-- **Editar:** `src/routes/index.tsx` (envolver seções no JourneyWrapper, remover imagens inline da plaquinha, adicionar SVG conector em Consequências e plaquinha repouso no CTA final).
-- **Editar:** `src/styles.css` (remover keyframes obsoletos; manter `.plaquinha` base).
+- **Editar:** `src/components/PlaquinhaJourney.tsx` (apenas: largura base, valores de `WAYPOINTS`, micro-flutuação, sombra, loop rAF contínuo).
+
+Nenhuma mudança em `src/routes/index.tsx`, copy, paleta, tipografia, seções, SEO ou estrutura.
 
 ## Não-objetivos
 
-- Não mudar paleta, tipografia, copy clínica ou estrutura de seções.
-- Não instalar libs (sem framer-motion).
-- Não alterar SEO/JSON-LD.
-- Não tornar a plaquinha protagonista — ela conduz a leitura, a Dra. Jaqueline continua sendo o foco.
+Não mudar a arquitetura, não trocar waypoints por outra abordagem, não instalar libs, não tocar mobile (continua escondida), não tocar `prefers-reduced-motion` (continua escondida).

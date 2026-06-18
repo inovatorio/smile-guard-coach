@@ -3,35 +3,31 @@ import plaquinhaHero from "@/assets/plaquinha-hero.png";
 
 /**
  * PlaquinhaJourney — uma única plaquinha translúcida percorre a LP como
- * fio condutor narrativo. Trajetória coreografada por waypoints (não linear),
- * com entrada segura no Hero: a placa permanece invisível enquanto o usuário
- * estiver no topo, entra pela lateral direita extrema e atravessa a página
- * alternando direita → esquerda → centro → esquerda, antes de sair antes
- * da seção de Autoridade.
+ * fio condutor narrativo. Trajetória coreografada por waypoints, com
+ * entrada segura no Hero (placa invisível enquanto o topo da página está
+ * visível), micro-flutuação contínua entre waypoints e saída antes da
+ * seção de Autoridade.
  */
 
 type Waypoint = {
   progress: number;
-  x: number;       // vw — coordenada da quina superior esquerda da placa
-  y: number;       // vh — coordenada da quina superior da placa
+  x: number;       // vw — quina superior esquerda
+  y: number;       // vh — quina superior
   rotate: number;  // graus
   scale: number;
   opacity: number;
 };
 
-// Waypoints com entrada segura: começa fora da tela (x=96vw) e só ganha
-// presença depois que o usuário rolou o suficiente para deixar o rosto da
-// Dra. Jaqueline acima da viewport.
 const WAYPOINTS: Waypoint[] = [
-  { progress: 0.00, x: 96, y: 22, rotate: -10, scale: 0.42, opacity: 0    },
-  { progress: 0.08, x: 90, y: 34, rotate:  -6, scale: 0.48, opacity: 0.45 },
-  { progress: 0.16, x: 84, y: 48, rotate:   4, scale: 0.54, opacity: 0.80 },
-  { progress: 0.24, x: 68, y: 46, rotate:   8, scale: 0.62, opacity: 1    },
-  { progress: 0.38, x: 24, y: 54, rotate: -12, scale: 0.58, opacity: 0.95 },
-  { progress: 0.55, x: 52, y: 48, rotate:   4, scale: 0.72, opacity: 1    },
-  { progress: 0.72, x: 30, y: 52, rotate:  -4, scale: 0.78, opacity: 1    },
-  { progress: 0.86, x: 70, y: 56, rotate:  10, scale: 0.50, opacity: 0.45 },
-  { progress: 1.00, x: 92, y: 64, rotate:  18, scale: 0.32, opacity: 0    },
+  { progress: 0.00, x: 96, y: 22, rotate: -10, scale: 0.55, opacity: 0    },
+  { progress: 0.06, x: 90, y: 30, rotate:  -8, scale: 0.65, opacity: 0.70 },
+  { progress: 0.14, x: 82, y: 44, rotate:   0, scale: 0.78, opacity: 1.00 },
+  { progress: 0.24, x: 64, y: 46, rotate:   8, scale: 0.85, opacity: 1.00 },
+  { progress: 0.38, x: 20, y: 52, rotate: -12, scale: 0.88, opacity: 1.00 },
+  { progress: 0.55, x: 48, y: 46, rotate:   4, scale: 1.00, opacity: 1.00 },
+  { progress: 0.72, x: 24, y: 50, rotate:  -4, scale: 1.05, opacity: 1.00 },
+  { progress: 0.86, x: 68, y: 56, rotate:  10, scale: 0.72, opacity: 0.55 },
+  { progress: 1.00, x: 92, y: 64, rotate:  18, scale: 0.42, opacity: 0    },
 ];
 
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
@@ -76,61 +72,62 @@ export function PlaquinhaJourney({
     const isMobile = window.matchMedia("(max-width: 767px)").matches;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // Mobile e usuários com reduced-motion: placa animada não aparece.
-    // A plaquinha em repouso no CTA final preserva o simbolismo.
     if (isMobile || reduced) {
       img.style.display = "none";
       return;
     }
 
-    let ticking = false;
+    let rafId = 0;
+    let running = true;
 
-    const apply = () => {
-      ticking = false;
+    const frame = () => {
+      if (!running) return;
       const rect = wrapper.getBoundingClientRect();
       const viewH = window.innerHeight;
       const total = Math.max(rect.height - viewH, 1);
       const traveled = -rect.top;
       const progress = clamp01(traveled / total);
 
-      // Trava de segurança do Hero: enquanto o topo ainda estiver visível,
-      // a plaquinha permanece invisível, sem chance de cobrir o rosto da Dra.
+      // Trava de segurança do Hero: invisível enquanto o topo ainda está visível.
       const heroSafeScroll = window.scrollY > viewH * 0.22;
       const hasScrolled = window.scrollY > 16 && heroSafeScroll;
-
-      // Fora da jornada (acima do Hero ou já na Autoridade): força invisível.
       const inJourney = rect.bottom > 0 && rect.top < viewH;
 
       if (!hasScrolled || !inJourney) {
         img.style.opacity = "0";
         img.style.transform =
-          "translate3d(96vw, 22vh, 0) rotate(-10deg) scale(0.42)";
+          "translate3d(96vw, 22vh, 0) rotate(-10deg) scale(0.55)";
+        rafId = requestAnimationFrame(frame);
         return;
       }
 
       const s = sample(progress);
-      img.style.transform = `translate3d(${s.x}vw, ${s.y}vh, 0) rotate(${s.rotate}deg) scale(${s.scale})`;
+
+      // Micro-flutuação contínua: dá vida ao objeto entre waypoints.
+      const t = performance.now() / 1000;
+      const floatY = Math.sin(t * 0.8) * 0.4;
+      const floatX = Math.cos(t * 0.6) * 0.25;
+      const floatRot = Math.sin(t * 0.45) * 0.6;
+
+      const x = s.x + floatX;
+      const y = s.y + floatY;
+      const rot = s.rotate + floatRot;
+
+      img.style.transform = `translate3d(${x}vw, ${y}vh, 0) rotate(${rot}deg) scale(${s.scale})`;
       img.style.opacity = String(s.opacity);
 
-      // Glow extra na avaliação (bloco escuro), progress 0.62–0.80.
       const inEvaluation = progress >= 0.62 && progress <= 0.80;
       img.style.filter = inEvaluation
-        ? "drop-shadow(0 28px 40px oklch(0.265 0.005 75 / 0.38)) drop-shadow(0 0 32px oklch(0.74 0.075 75 / 0.55)) drop-shadow(0 0 64px oklch(0.74 0.075 75 / 0.22))"
-        : "drop-shadow(0 24px 32px oklch(0.265 0.005 75 / 0.20)) drop-shadow(0 4px 8px oklch(0.74 0.075 75 / 0.15))";
+        ? "drop-shadow(0 28px 40px oklch(0.265 0.005 75 / 0.40)) drop-shadow(0 0 36px oklch(0.74 0.075 75 / 0.60)) drop-shadow(0 0 64px oklch(0.74 0.075 75 / 0.25))"
+        : "drop-shadow(0 30px 44px oklch(0.265 0.005 75 / 0.32)) drop-shadow(0 6px 12px oklch(0.74 0.075 75 / 0.22))";
+
+      rafId = requestAnimationFrame(frame);
     };
 
-    const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(apply);
-    };
-
-    apply();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+    rafId = requestAnimationFrame(frame);
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      running = false;
+      cancelAnimationFrame(rafId);
     };
   }, [wrapperRef]);
 
@@ -144,10 +141,10 @@ export function PlaquinhaJourney({
       height={1024}
       className="plaquinha fixed top-0 left-0 z-20 pointer-events-none will-change-transform"
       style={{
-        width: "clamp(120px, 16vw, 260px)",
+        width: "clamp(200px, 22vw, 380px)",
         transformOrigin: "top left",
         opacity: 0,
-        transform: "translate3d(96vw, 22vh, 0) rotate(-10deg) scale(0.42)",
+        transform: "translate3d(96vw, 22vh, 0) rotate(-10deg) scale(0.55)",
       }}
     />
   );
