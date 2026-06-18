@@ -7,7 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
-import { PlaquinhaScrollGuide } from "@/components/PlaquinhaScrollGuide";
+import { PlaquinhaJourney } from "@/components/PlaquinhaJourney";
 import heroImg from "@/assets/dra-jaqueline-hero.jpg";
 import clinicaImg from "@/assets/clinica-detalhe.jpg";
 import tratamentosImg from "@/assets/tratamentos-detalhe.jpg";
@@ -217,7 +217,7 @@ function LandingPage() {
       <main id="top" className="pt-16 md:pt-20">
         {/* JOURNEY WRAPPER — single plaquinha follows the scroll across these sections */}
         <div ref={journeyRef} className="relative">
-          <PlaquinhaScrollGuide wrapperRef={journeyRef} />
+          <PlaquinhaJourney wrapperRef={journeyRef} />
 
         {/* HERO */}
         <section className="px-6 pt-12 md:pt-20 pb-16 md:pb-24">
