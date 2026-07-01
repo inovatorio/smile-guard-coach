@@ -1,79 +1,70 @@
-# Refinamentos da landing page da Dra. Jaqueline
+# Ajustes finais na LP - Dra. Jaqueline
 
-Mantendo 100% da identidade visual atual (Fraunces + Inter, paleta ivory/champagne/graphite, layout editorial). Todas as mudanças concentradas em `src/routes/index.tsx` e pequenos ajustes em `src/styles.css`.
+Identidade visual mantida. Todas mudanças em `src/routes/index.tsx` e pequenos ajustes em `src/styles.css`. Sem tocar em links de WhatsApp, tokens de tema, PlaquinhaJourney, LazyVideoPlayer ou dados de contato.
 
-## 1. Consistência "+21 anos"
+## 1. Remover micro-texto do hero
 
-Auditoria já feita: hero (linha 248), bio (490), stats (316) e CTA final (503) já dizem "+21 anos". Nenhuma menção a "+12 anos" foi encontrada. Vou fazer um `grep` final antes de fechar e, se surgir alguma variação ("12 anos", "doze anos", "desde 20XX"), padronizar para "+21 anos" / "formada em 2004". Sem alterações estruturais.
+Excluir o parágrafo `"Avaliação sem compromisso · resposta no mesmo dia"` abaixo do CTA principal do hero. Manter apenas: botão primário + link secundário sublinhado. Sem substituição.
 
-## 2. Nova seção de prova social (Google)
+## 2. Ícones inline nos cards (Sintomas e Consequências)
 
-Nova `<section id="avaliacoes">` inserida entre a seção da Dra. Jaqueline (termina ~linha 520) e a FAQ. Layout editorial em coluna única centralizada, com bastante respiro (`py-20 md:py-28`, fundo `bg-bone` com borders sutis para separar do bloco anterior).
+Nos cards de `symptoms` e `consequences`, mover o `<Item.icon />` para dentro do bloco do título:
 
-Composição:
+- Wrapper `flex items-center gap-3` contendo ícone + `<h3>` na mesma linha.
+- Ícone menor e mais firme: `size={18}`, `strokeWidth={1.4}`, `text-champagne shrink-0`.
+- Remover o `mb-4` que separava o ícone do título; título perde qualquer padding-top extra.
+- Reduzir padding vertical interno do card em um passo (`py-8` → `py-6`, `p-8` → `p-6`) para encurtar altura total. Ajuste também no gap do grid (`gap-6` mantém, mas remover margens verticais soltas).
+- Sintomas: objetivo é caber na viewport desktop; se ainda ficar longo, reduzir também `mt-*` do cabeçalho da seção.
 
-- Label mono champagne: "Reputação" (mesmo padrão de "Identifique-se", "Consequências").
-- Linha horizontal de 5 estrelas douradas preenchidas (`lucide-react` `Star` com `fill="currentColor"` e `text-champagne`, tamanho ~28px, gap generoso).
-- Bloco grande com "5,0" em Fraunces (`text-7xl md:text-8xl`, graphite) ao lado ou acima de "+670 avaliações no Google" (`text-2xl md:text-3xl` Fraunces italic champagne).
-- Texto de apoio pequeno em Inter graphite/70: "Somando as unidades de Vila Formosa e São Miguel Paulista."
-- Selo discreto do Google: pequeno ícone "G" colorido oficial (inline SVG com as 4 cores Google) + texto mono "Google Reviews" logo abaixo do bloco numérico. Alinhado à esquerda do bloco, discreto.
-- CTA secundário `GhostCta` opcional: "Agendar avaliação pelo WhatsApp" para não deixar a seção sem porta de saída.
+Consequências recebe o mesmo tratamento inline para manter consistência visual.
 
-Sem depoimentos individuais - apenas os números agregados solicitados.
+## 3. Seção do vídeo - alinhamento central
 
-## 3. Hero: unificar CTA principal
+No grid da seção Avaliação (`video | texto+etapas`), trocar o alinhamento do container para centralizar o bloco direito verticalmente em relação à altura do vídeo:
 
-Bloco atual (linhas 243-246) tem dois botões primários equivalentes. Novo tratamento:
+- Grid pai: `items-center` (hoje `items-start`).
+- Coluna direita: remover qualquer `self-start`; garantir `flex flex-col justify-center h-full`.
+- Cabeçalho da seção (label + título + parágrafo) e o grid 2x2 de fases seguem empilhados; o conjunto inteiro centraliza.
 
-- Manter apenas `PrimaryCta` com label "Agendar avaliação pelo WhatsApp" (usar `ctaPrimaryHref`).
-- Remover o `GhostCta` "Tenho dor na mandíbula" desse lugar; transformar em um `<a>` de texto secundário logo abaixo do botão: fonte Inter, `text-sm text-graphite/70 underline underline-offset-4 decoration-champagne/40 hover:text-graphite`, apontando para o mesmo WhatsApp com a mensagem antiga ("Tenho dor na mandíbula, quero avaliar").
-- Micro-texto de redução de risco imediatamente abaixo do botão (antes do link secundário): mono `text-[11px] uppercase tracking-[0.18em] text-graphite/60`, conteúdo "Avaliação sem compromisso · resposta no mesmo dia".
-- Constante `CTA_PRIMARY` atualizada para "Agendar avaliação pelo WhatsApp" (garantir que outras aparições do rótulo continuem coerentes; se algum uso pedir texto diferente, passar label explícito naquele CTA).
+## 4. Reduzir seção "Reputação" (Google)
 
-## 4. Sticky mobile CTA
+Reescrever o layout para uma faixa horizontal enxuta, centralizada:
 
-Já existe (linha 713-718) apontando para `ctaFinalHref`. Ajustes:
+- `<section>`: baixar padding para `py-12 md:py-16`, remover destaques grandes.
+- Uma única linha (desktop) com: label mono "Reputação" acima, e abaixo uma faixa flex centralizada `flex flex-wrap items-center justify-center gap-x-6 gap-y-3`:
+  - 5 estrelas `Star size={16}` champagne preenchidas.
+  - `"5,0"` em Fraunces `text-2xl md:text-3xl` graphite (não mais 7xl/8xl).
+  - Separador vertical fino `h-5 w-px bg-graphite/20`.
+  - `"+670 avaliações no Google"` em Inter `text-sm md:text-base` graphite/78.
+  - Selo Google: ícone G inline SVG `w-4 h-4` + texto mono `text-[11px]` "Google Reviews".
+- Texto de apoio "Somando as unidades..." em `text-xs md:text-sm text-graphite/70`, centralizado, abaixo da faixa.
+- Remover o CTA GhostCta desta seção (fica só a prova social; CTAs continuam nas seções adjacentes).
 
-- Trocar label para "Agendar pelo WhatsApp".
-- Substituir cores para reforçar identidade dourada: `bg-graphite text-champagne border border-champagne/40` com `hover:bg-champagne hover:text-graphite`. Manter shadow elevado e visibilidade só em `md:hidden`.
-- Ícone `MessageCircle` (lucide) 14px antes do texto.
-- Garantir `pb-24 md:pb-0` no `<main>` para o botão não cobrir conteúdo final no mobile.
+Resultado: bloco compacto, sóbrio, ocupando ~1/3 da altura anterior.
 
-## 5. Ajustes de estética e legibilidade
+## 5. Trocar sticky bar por FAB circular do WhatsApp
 
-### Contraste
-Passe global nas classes de texto de apoio (`text-graphite/55`, `/60`, `/65`) e labels champagne sobre fundo claro:
+- Remover o `<div>` sticky da barra preta inferior (mobile-only).
+- Remover o `pb-24 md:pb-0` do `<main>` se existir por causa dela.
+- Criar botão `<a>` fixo:
+  - Posição: `fixed bottom-5 right-5 md:bottom-8 md:right-8 z-50`.
+  - Formato: `w-14 h-14 md:w-16 md:h-16 rounded-full grid place-items-center`.
+  - Paleta: `bg-graphite text-champagne border border-champagne/50 hover:bg-champagne hover:text-graphite` (dourado no hover, grafite em repouso - dentro da identidade, longe do verde WhatsApp).
+  - Sombra: `shadow-[0_12px_32px_-8px_oklch(0.265_0.005_75/0.35)]`.
+  - Ícone: `MessageCircle` do lucide (já importado) `size={26}` `strokeWidth={1.6}`. Alternativa: SVG inline do glifo WhatsApp em `currentColor` para leitura mais imediata - vou usar SVG inline do WhatsApp em `currentColor` mantendo a paleta.
+  - `aria-label="Agendar pelo WhatsApp"`, `href={ctaFinalHref}`, `target="_blank" rel="noopener"`.
+  - Visível em desktop e mobile (sem `md:hidden`).
+- Animação sutil reaproveitando `.animate-cta-glow` já existente, opcional; se ficar pesado visualmente, aplicar apenas um `ring-1 ring-champagne/30`.
 
-- Textos de apoio cinza: subir de `/55` e `/60` para `/75`; `/65` vira `/78`. Mantém a leveza mas alcança contraste ≥ 4.5:1 sobre ivory/bone.
-- Labels mono champagne sobre fundo claro: escurecer o token champagne apenas quando usado como label pequeno criando classe utilitária `.label-mono` em `src/styles.css` (`color: color-mix(in oklch, var(--champagne) 78%, var(--graphite))`). Aplicar em todos os `<p className="font-mono ... text-champagne">` de labels de seção. Não muda a cor champagne dos elementos decorativos ou destaques em H1.
+## 6. Hero desktop lado a lado
 
-### Ícones nos cards de Sintomas e Consequências
-Adicionar um ícone `lucide-react` line-only (`strokeWidth={1.25}`, `size={22}`, `text-champagne`) no topo de cada card, acima do título, com `mb-4`. Mapear ícones semânticos por item:
+Reverter a ordem mobile-first sem quebrar desktop:
 
-- Sintomas: `Sunrise` (dor ao acordar), `Brain` (dor de cabeça), `Activity` (tensão facial), `Zap` (sensibilidade), `Waves` (estalos), `Moon` (ranger noturno) - ajustar conforme lista real no arquivo.
-- Consequências: `TriangleAlert`, `Layers`, `HeartPulse`, `Shield`, etc., um por card.
+- Coluna de texto: `order-1 md:order-1` (texto sempre à esquerda no desktop).
+- Coluna da imagem: `order-2 md:order-2` (foto à direita no desktop, abaixo no mobile).
+- Bloco de credenciais volta para dentro da coluna de texto (removendo o `order-3` separado), garantindo empilhamento mobile: headline → parágrafo → CTA → link secundário → credenciais → foto (a foto continua vindo depois no mobile por ser a segunda coluna).
+- Grid mantém `md:grid-cols-12` com `md:col-span-7` / `md:col-span-5` e `items-center`.
 
-Ícones ficam decorativos (`aria-hidden`), não substituem título. Traço fino preserva o tom editorial.
+## Fora de escopo
 
-### Hero mobile
-No grid do hero (linha 232), reordenar visualmente no mobile:
-
-- Adicionar `order-2 md:order-1` na coluna de texto principal mantendo `md:col-span-7`.
-- Coluna da imagem recebe `order-1 md:order-2`.
-- Separar o bloco de credenciais (`<ul>` linha 247-253) em um sub-fragmento com `order-3` que aparece depois da imagem no mobile.
-
-Estrutura mobile final: headline + parágrafo curto + CTA + micro-texto → foto → credenciais. Desktop permanece idêntico (texto à esquerda, foto à direita).
-
-## Detalhes técnicos
-
-- Novos imports em `src/routes/index.tsx`: `Star`, `MessageCircle` e ícones de cards do `lucide-react`.
-- Arrays `symptoms` e `consequences` ganham campo opcional `icon` (LucideIcon). Render usa `<Item.icon />` quando presente.
-- Constante `CTA_PRIMARY` renomeada só se necessário; caso contrário, sobrescrever label no local do hero.
-- `src/styles.css`: adicionar utilitária `.label-mono` (color-mix champagne/graphite) e nada mais - sem tocar em tokens base.
-- Sem mudanças em `PlaquinhaJourney`, LazyVideoPlayer, footer, FAQ ou dados de contato.
-- Nenhum link/número de WhatsApp alterado; reaproveitar helpers `ctaPrimaryHref`, `ctaSecondaryHref`, `ctaFinalHref` já existentes.
-
-## Fora do escopo
-
-- Nenhuma alteração de tipografia, paleta base, layout de footer, FAQ, seção Estrutura, vídeo, Plaquinha.
-- Nenhum depoimento textual inventado; apenas números agregados (5,0 e +670).
+Não alterar: PlaquinhaJourney, LazyVideoPlayer interno, footer, FAQ, seção Estrutura, tokens de tema, dados de contato, links de WhatsApp, tipografia base.

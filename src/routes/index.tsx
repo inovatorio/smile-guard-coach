@@ -260,9 +260,6 @@ function LandingPage() {
 
               <div className="order-5 flex flex-col items-start gap-3 mb-4">
                 <PrimaryCta href={ctaPrimaryHref} label="Agendar avaliação pelo WhatsApp" />
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-graphite/70">
-                  Avaliação sem compromisso · resposta no mesmo dia
-                </p>
                 <a
                   href={ctaSecondaryHref}
                   target="_blank"
@@ -272,6 +269,7 @@ function LandingPage() {
                   Tenho dor na mandíbula, quero falar sobre isso
                 </a>
               </div>
+
 
               <ul className="order-6 mt-6 flex flex-wrap gap-x-8 gap-y-3 text-[11px] uppercase tracking-[0.18em] text-graphite/75">
                 <li>+21 anos de experiência</li>
@@ -323,12 +321,15 @@ function LandingPage() {
                 return (
                   <article
                     key={s.title}
-                    className="group bg-background p-6 md:p-7 transition-colors duration-300 hover:bg-accent-soft"
+                    className="group bg-background p-5 md:p-6 transition-colors duration-300 hover:bg-accent-soft"
                   >
-                    <Icon aria-hidden strokeWidth={1.25} className="w-6 h-6 text-champagne mb-4" />
-                    <h3 className="font-display text-xl md:text-2xl text-graphite mb-2">{s.title}</h3>
+                    <div className="flex items-center gap-3 mb-2">
+                      <Icon aria-hidden strokeWidth={1.4} size={20} className="text-champagne shrink-0" />
+                      <h3 className="font-display text-lg md:text-xl text-graphite leading-tight">{s.title}</h3>
+                    </div>
                     <p className="text-sm text-graphite/75 leading-snug">{s.desc}</p>
                   </article>
+
                 );
               })}
             </div>
@@ -388,12 +389,15 @@ function LandingPage() {
                 return (
                   <article
                     key={c.title}
-                    className="bg-card border border-border p-6 md:p-7 transition-shadow duration-300 hover:shadow-[var(--shadow-soft)]"
+                    className="bg-card border border-border p-5 md:p-6 transition-shadow duration-300 hover:shadow-[var(--shadow-soft)]"
                   >
-                    <Icon aria-hidden strokeWidth={1.25} className="w-6 h-6 text-champagne mb-4" />
-                    <h3 className="font-display text-xl md:text-2xl text-graphite mb-2">{c.title}</h3>
+                    <div className="flex items-center gap-3 mb-2">
+                      <Icon aria-hidden strokeWidth={1.4} size={20} className="text-champagne shrink-0" />
+                      <h3 className="font-display text-lg md:text-xl text-graphite leading-tight">{c.title}</h3>
+                    </div>
                     <p className="text-sm text-graphite/75 leading-snug">{c.desc}</p>
                   </article>
+
                 );
               })}
             </div>
@@ -411,7 +415,7 @@ function LandingPage() {
         {/* EVALUATION - dark band */}
         <section className="px-6 py-14 md:py-20 bg-graphite text-ivory">
           <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
+            <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
               <div className="md:col-span-5">
                 <LazyVideoPlayer
                   src={draVideo.url}
@@ -594,48 +598,47 @@ function LandingPage() {
         </section>
 
         {/* SOCIAL PROOF - Google reviews */}
-        <section id="avaliacoes" className="px-6 py-20 md:py-28 border-t border-border">
+        <section id="avaliacoes" className="px-6 py-10 md:py-14 border-t border-border">
           <div className="max-w-4xl mx-auto text-center">
-            <p className="font-mono text-sm uppercase tracking-[0.2em] label-mono mb-8">
+            <p className="font-mono text-[11px] uppercase tracking-[0.24em] label-mono mb-5">
               Reputação
             </p>
 
-            <div className="flex items-center justify-center gap-2 md:gap-3 mb-10" aria-label="Avaliação 5 de 5 estrelas">
-              {[0, 1, 2, 3, 4].map((i) => (
-                <Star
-                  key={i}
-                  aria-hidden
-                  className="w-7 h-7 md:w-9 md:h-9 text-champagne"
-                  fill="currentColor"
-                  strokeWidth={0}
-                />
-              ))}
-            </div>
-
-            <div className="flex flex-col items-center gap-4 mb-8">
-              <span className="font-display text-7xl md:text-8xl lg:text-9xl text-graphite leading-none tracking-tight">
-                5,0
-              </span>
-              <span className="font-display italic text-2xl md:text-3xl text-champagne">
+            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-3">
+              <div className="flex items-center gap-1" aria-label="Avaliação 5 de 5 estrelas">
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <Star
+                    key={i}
+                    aria-hidden
+                    className="w-4 h-4 md:w-[18px] md:h-[18px] text-champagne"
+                    fill="currentColor"
+                    strokeWidth={0}
+                  />
+                ))}
+              </div>
+              <span className="font-display text-2xl md:text-3xl text-graphite leading-none">5,0</span>
+              <span className="hidden sm:block h-5 w-px bg-graphite/20" aria-hidden />
+              <span className="text-sm md:text-base text-graphite/80">
                 +670 avaliações no Google
               </span>
+              <span className="hidden sm:block h-5 w-px bg-graphite/20" aria-hidden />
+              <span className="inline-flex items-center gap-2">
+                <svg aria-hidden viewBox="0 0 48 48" className="w-4 h-4">
+                  <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
+                  <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
+                  <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
+                  <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
+                </svg>
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-graphite/75">Google Reviews</span>
+              </span>
             </div>
 
-            <p className="text-graphite/80 md:text-lg leading-relaxed max-w-xl mx-auto mb-10">
-              Somando as unidades de Vila Formosa e São Miguel Paulista - a confiança de quem já passou pela avaliação.
+            <p className="text-xs md:text-sm text-graphite/70 mt-5">
+              Somando as unidades de Vila Formosa e São Miguel Paulista.
             </p>
-
-            <div className="inline-flex items-center gap-3 border border-border bg-card px-5 py-3">
-              <svg aria-hidden viewBox="0 0 48 48" className="w-5 h-5">
-                <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
-                <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
-                <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
-                <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
-              </svg>
-              <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-graphite/85">Google Reviews</span>
-            </div>
           </div>
         </section>
+
 
         {/* FAQ */}
 
@@ -796,17 +799,24 @@ function LandingPage() {
          </div>
        </footer>
 
-      {/* Mobile sticky CTA */}
+      {/* Floating WhatsApp FAB - desktop & mobile */}
       <a
         href={ctaFinalHref}
         target="_blank"
         rel="noopener noreferrer"
-        className="md:hidden fixed bottom-4 inset-x-4 z-50 inline-flex items-center justify-center gap-2 bg-graphite text-champagne border border-champagne/40 px-6 py-4 text-[12px] uppercase tracking-[0.18em] font-medium shadow-[var(--shadow-elevated)] hover:bg-champagne hover:text-graphite hover:border-champagne transition-colors"
+        aria-label="Agendar pelo WhatsApp"
+        className="fixed bottom-5 right-5 md:bottom-8 md:right-8 z-50 w-14 h-14 md:w-16 md:h-16 rounded-full grid place-items-center bg-graphite text-champagne border border-champagne/50 shadow-[0_12px_32px_-8px_oklch(0.265_0.005_75/0.45)] hover:bg-champagne hover:text-graphite transition-colors duration-300"
       >
-        <MessageCircle className="w-4 h-4" aria-hidden />
-        <span>Agendar pelo WhatsApp</span>
+        <svg
+          aria-hidden
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className="w-6 h-6 md:w-7 md:h-7"
+        >
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
       </a>
-      <div className="md:hidden h-24" aria-hidden />
+
 
     </div>
   );
