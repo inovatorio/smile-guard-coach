@@ -14,7 +14,8 @@ export function AnimatedNumber({
   suffix = "",
   duration = 2000,
   className = "",
-}: AnimatedNumberProps) {
+  formatter,
+}: AnimatedNumberProps & { formatter?: (n: number) => string }) {
   const [display, setDisplay] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const hasAnimated = useRef(false);
@@ -46,14 +47,14 @@ export function AnimatedNumber({
     return () => observer.disconnect();
   }, [value, duration]);
 
-  const formatNumber = (num: number) => {
-    return num.toLocaleString("pt-BR");
-  };
+  const formatted = formatter
+    ? formatter(display)
+    : display.toLocaleString("pt-BR");
 
   return (
     <span ref={ref} className={className}>
       {prefix}
-      {formatNumber(display)}
+      {formatted}
       {suffix}
     </span>
   );
