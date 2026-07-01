@@ -545,7 +545,7 @@ function LandingPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-graphite/85 via-graphite/25 to-transparent" />
           <div className="relative w-full max-w-7xl mx-auto px-6 md:px-12 pb-16 md:pb-24">
             <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
-              Estrutura
+              {"\n"}
             </p>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-ivory max-w-4xl text-balance">
               Uma clínica preparada para cuidar do seu sorriso com precisão e acolhimento.
