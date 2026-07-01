@@ -636,47 +636,64 @@ function LandingPage() {
       </main>
 
       {/* FOOTER */}
-      <footer className="px-6 py-16 bg-background">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-12 gap-10 md:gap-12 pb-12 border-b border-border">
-            <div className="md:col-span-5">
-              <img
-                src={logoAsset.url}
-                alt="Dra. Jaqueline Martins - Odontologia Estética"
-                className="h-16 md:h-20 w-auto mb-5"
-              />
-              <p className="text-sm text-graphite/60 max-w-sm leading-relaxed">
-                Odontologia avançada com foco em estética, função e cuidado individualizado.
-              </p>
-            </div>
-            <div className="md:col-span-4">
-              <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne mb-4">Unidades</h3>
-              <ul className="space-y-2 text-sm text-graphite/70">
-                <li>Vila Formosa · São Paulo</li>
-                <li>São Miguel Paulista · São Paulo</li>
-              </ul>
-            </div>
-            <div className="md:col-span-3">
-              <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne mb-4">Contato</h3>
-              <ul className="space-y-2 text-sm text-graphite/70">
-                <li>
-                  <a href={ctaFinalHref} target="_blank" rel="noopener noreferrer" className="hover:text-champagne transition-colors">
-                    WhatsApp
-                  </a>
-                </li>
-                <li>
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-champagne transition-colors">
-                    Instagram
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <p className="mt-10 text-xs text-graphite/45 leading-relaxed max-w-2xl">
-            As informações desta página são educativas e não substituem uma avaliação odontológica individual.
-          </p>
-        </div>
-      </footer>
+       <footer className="px-6 py-16 bg-background">
+         <div className="max-w-7xl mx-auto">
+           <div className="grid md:grid-cols-12 gap-10 md:gap-12 pb-12 border-b border-border">
+             <div className="md:col-span-4">
+               <img
+                 src={logoAsset.url}
+                 alt="Dra. Jaqueline Martins - Odontologia Estética"
+                 className="h-16 md:h-20 w-auto mb-5"
+               />
+               <p className="text-sm text-graphite/60 max-w-sm leading-relaxed">
+                 Odontologia avançada com foco em estética, função e cuidado individualizado.
+               </p>
+             </div>
+             <div className="md:col-span-3">
+               <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne mb-4">Endereço</h3>
+               <p className="text-sm text-graphite/70 leading-relaxed">
+                 Av. Dr. Eduardo Cotching, 1472 - Sala 6<br />
+                 Vila Formosa - São Paulo
+               </p>
+             </div>
+             <div className="md:col-span-3">
+               <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne mb-4">Horários</h3>
+               <ul className="space-y-2 text-sm text-graphite/70">
+                 <li>Segunda à Sexta: 09:00 - 18:00</li>
+                 <li>Sábado: 09:00 - 12:00</li>
+               </ul>
+             </div>
+             <div className="md:col-span-2">
+               <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne mb-4">Contato</h3>
+               <ul className="space-y-2 text-sm text-graphite/70">
+                 <li>
+                   <a href="tel:1141160605" className="hover:text-champagne transition-colors">
+                     (11) 4116-0605
+                   </a>
+                 </li>
+                 <li>
+                   <a href={ctaFinalHref} target="_blank" rel="noopener noreferrer" className="hover:text-champagne transition-colors">
+                     WhatsApp
+                   </a>
+                 </li>
+               </ul>
+             </div>
+           </div>
+           <div className="mt-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+             <p className="text-xs text-graphite/45 leading-relaxed max-w-2xl">
+               As informações desta página são educativas e não substituem uma avaliação odontológica individual.
+             </p>
+             <div className="flex gap-5">
+               <a href="https://instagram.com/dra.jaquelinemartins" target="_blank" rel="noopener noreferrer" className="text-sm text-graphite/70 hover:text-champagne transition-colors">
+                 @dra.jaquelinemartins
+               </a>
+               <a href="https://instagram.com/jaqueline.martinsbarrientos" target="_blank" rel="noopener noreferrer" className="text-sm text-graphite/70 hover:text-champagne transition-colors">
+                 @jaqueline.martinsbarrientos
+               </a>
+             </div>
+           </div>
+         </div>
+       </footer>
 
       {/* Mobile sticky CTA */}
       <a
