@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Dra. Jaqueline Martins — design tokens
+ * Dra. Jaqueline Martins - design tokens
  * Paleta: branco quente, marfim, champagne/dourado, bege, rosé suave, grafite.
  * Tipografia: Cormorant Garamond (display) + Inter (sans) + JetBrains Mono (mono).
  */
@@ -121,7 +121,7 @@
   animation: reveal-up 0.9s var(--ease-out-expo) both;
 }
 
-/* Plaquinha — fio narrativo visual.
+/* Plaquinha - fio narrativo visual.
  * Sombra base reaproveitada pelo PlaquinhaScrollGuide e pela plaquinha em repouso (CTA final). */
 .plaquinha {
   filter: drop-shadow(0 24px 32px oklch(0.265 0.005 75 / 0.18))

@@ -14,7 +14,7 @@ import tratamentosImg from "@/assets/tratamentos-detalhe.jpg";
 import plaquinhaRepouso from "@/assets/plaquinha-repouso.png";
 import logoAsset from "@/assets/logo-jaqueline-martins.png.asset.json";
 
-const PAGE_TITLE = "Dra. Jaqueline Martins — Avaliação de Bruxismo";
+const PAGE_TITLE = "Dra. Jaqueline Martins - Avaliação de Bruxismo";
 const PAGE_DESC =
   "Dor na mandíbula, dentes sensíveis ou dor de cabeça ao acordar? Agende uma avaliação de bruxismo com a Dra. Jaqueline Martins.";
 
@@ -37,7 +37,7 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Dentist",
-          name: "Dra. Jaqueline Martins — Odontologia Avançada",
+          name: "Dra. Jaqueline Martins - Odontologia Avançada",
           description: PAGE_DESC,
           medicalSpecialty: ["Dentistry", "CosmeticDentistry"],
           areaServed: ["Vila Formosa", "São Miguel Paulista", "São Paulo"],
@@ -190,10 +190,10 @@ function LandingPage() {
       {/* HEADER */}
       <header className="fixed top-0 inset-x-0 z-50 bg-background/85 backdrop-blur-md border-b border-border">
         <div className="max-w-7xl mx-auto px-6 h-16 md:h-20 flex items-center justify-between">
-          <a href="#top" className="flex items-center" aria-label="Dra. Jaqueline Martins — Odontologia Estética">
+          <a href="#top" className="flex items-center" aria-label="Dra. Jaqueline Martins - Odontologia Estética">
             <img
               src={logoAsset.url}
-              alt="Dra. Jaqueline Martins — Odontologia Estética"
+              alt="Dra. Jaqueline Martins - Odontologia Estética"
               className="h-10 md:h-12 w-auto"
             />
           </a>
@@ -215,7 +215,7 @@ function LandingPage() {
       </header>
 
       <main id="top" className="pt-16 md:pt-20">
-        {/* JOURNEY WRAPPER — single plaquinha follows the scroll across these sections */}
+        {/* JOURNEY WRAPPER - single plaquinha follows the scroll across these sections */}
         <div ref={journeyRef} className="relative">
           <PlaquinhaJourney wrapperRef={journeyRef} />
 
@@ -265,7 +265,7 @@ function LandingPage() {
           </div>
         </section>
 
-        {/* SYMPTOMS — "O bruxismo deixa pistas." */}
+        {/* SYMPTOMS - "O bruxismo deixa pistas." */}
         <section id="sintomas" className="px-6 py-20 md:py-28 bg-bone border-y border-border">
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-end mb-12 md:mb-16">
@@ -358,14 +358,14 @@ function LandingPage() {
 
             <div className="mt-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-t border-border pt-10">
               <p className="font-display text-xl md:text-2xl text-graphite/85 leading-snug max-w-xl">
-                Muitas dessas marcas começam silenciosas — e podem ser interrompidas com a avaliação certa.
+                Muitas dessas marcas começam silenciosas - e podem ser interrompidas com a avaliação certa.
               </p>
               <PrimaryCta href={ctaConsequencesHref} label="Quero entender se isso pode ser bruxismo" />
             </div>
           </div>
         </section>
 
-        {/* EVALUATION — dark band */}
+        {/* EVALUATION - dark band */}
         <section className="px-6 py-20 md:py-28 bg-graphite text-ivory">
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-12 gap-8 md:gap-12 mb-14 items-end">
@@ -384,7 +384,7 @@ function LandingPage() {
               </div>
             </div>
 
-            {/* Diagnóstico — espaço reservado para a plaquinha condutora (PlaquinhaScrollGuide).
+            {/* Diagnóstico - espaço reservado para a plaquinha condutora (PlaquinhaScrollGuide).
                 Marcações editoriais finas reforçam a precisão clínica sem repetir a imagem. */}
             <div className="relative mb-16 md:mb-20 border-y border-ivory/15 py-16 md:py-24 grid md:grid-cols-12 gap-8 items-center">
               <div className="md:col-span-4 md:col-start-2 relative min-h-[220px] hidden md:block" aria-hidden="true">
@@ -408,7 +408,7 @@ function LandingPage() {
                   Cada caso tem sinais únicos. A avaliação revela o caminho.
                 </p>
                 <p className="text-sm text-ivory/60 leading-relaxed max-w-md">
-                  Quando indicada, a placa é confeccionada sob medida — depois de entender o seu caso, não antes.
+                  Quando indicada, a placa é confeccionada sob medida - depois de entender o seu caso, não antes.
                 </p>
               </div>
             </div>
@@ -438,7 +438,7 @@ function LandingPage() {
                 Cuidado personalizado para proteger seus dentes e reduzir desconfortos.
               </h2>
               <p className="text-graphite/65 leading-relaxed">
-                A placa pode fazer parte do cuidado, mas o tratamento começa com uma avaliação individual. A conduta envolve proteção dental, orientações específicas e acompanhamento clínico — sempre desenhada para o seu caso.
+                A placa pode fazer parte do cuidado, mas o tratamento começa com uma avaliação individual. A conduta envolve proteção dental, orientações específicas e acompanhamento clínico - sempre desenhada para o seu caso.
               </p>
             </div>
 
@@ -464,7 +464,7 @@ function LandingPage() {
                 <figcaption className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-graphite/70 via-graphite/10 to-transparent text-ivory">
                   <span className="font-mono text-[10px] tracking-[0.2em] text-champagne mb-3">Nota clínica</span>
                   <p className="font-display text-lg md:text-xl leading-snug max-w-xs">
-                    Cada conduta é desenhada para o seu caso — não para um padrão.
+                    Cada conduta é desenhada para o seu caso - não para um padrão.
                   </p>
                 </figcaption>
               </figure>
@@ -478,7 +478,7 @@ function LandingPage() {
         </div>
         {/* /JOURNEY WRAPPER */}
 
-        {/* AUTHORITY — Dra. Jaqueline */}
+        {/* AUTHORITY - Dra. Jaqueline */}
         <section id="sobre" className="px-6 py-24 md:py-32 bg-bone border-y border-border">
           <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-12 md:gap-20 items-center">
             <div className="md:col-span-6 order-2 md:order-1">
@@ -509,7 +509,7 @@ function LandingPage() {
                 A atuação da Dra. Jaqueline une estética, função e cuidado preventivo para preservar não apenas a aparência do sorriso, mas também sua saúde, conforto e estabilidade ao longo do tempo.
               </p>
               <p className="text-graphite/65 leading-relaxed mb-10 max-w-2xl">
-                Cirurgiã-dentista formada em 2004, especialista em implantodontia e com mais de 21 anos de experiência clínica. Atende em duas unidades em São Paulo — Vila Formosa e São Miguel Paulista — com um cuidado individualizado para cada paciente.
+                Cirurgiã-dentista formada em 2004, especialista em implantodontia e com mais de 21 anos de experiência clínica. Atende em duas unidades em São Paulo - Vila Formosa e São Miguel Paulista - com um cuidado individualizado para cada paciente.
               </p>
 
               <dl className="grid grid-cols-3 gap-6 border-t border-border pt-8">
@@ -642,7 +642,7 @@ function LandingPage() {
             <div className="md:col-span-5">
               <img
                 src={logoAsset.url}
-                alt="Dra. Jaqueline Martins — Odontologia Estética"
+                alt="Dra. Jaqueline Martins - Odontologia Estética"
                 className="h-16 md:h-20 w-auto mb-5"
               />
               <p className="text-sm text-graphite/60 max-w-sm leading-relaxed">

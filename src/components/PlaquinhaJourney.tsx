@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import plaquinhaHero from "@/assets/plaquinha-hero.png";
 
 /**
- * PlaquinhaJourney — uma única plaquinha translúcida percorre a LP como
+ * PlaquinhaJourney - uma única plaquinha translúcida percorre a LP como
  * fio condutor narrativo. Trajetória coreografada por waypoints, com
  * entrada segura no Hero (placa invisível enquanto o topo da página está
  * visível), micro-flutuação contínua entre waypoints e saída antes da
@@ -11,8 +11,8 @@ import plaquinhaHero from "@/assets/plaquinha-hero.png";
 
 type Waypoint = {
   progress: number;
-  x: number;       // vw — quina superior esquerda
-  y: number;       // vh — quina superior
+  x: number;       // vw - quina superior esquerda
+  y: number;       // vh - quina superior
   rotate: number;  // graus
   scale: number;
   opacity: number;
