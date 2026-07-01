@@ -195,12 +195,12 @@ function LandingPage() {
     <div className="min-h-screen bg-background text-foreground font-sans">
       {/* HEADER */}
       <header className="fixed top-0 inset-x-0 z-50 bg-background/85 backdrop-blur-md border-b border-border">
-        <div className="max-w-7xl mx-auto px-6 h-16 md:h-20 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 h-14 md:h-16 flex items-center justify-between">
           <a href="#top" className="flex items-center" aria-label="Dra. Jaqueline Martins - Odontologia Estética">
             <img
               src={logoAsset.url}
               alt="Dra. Jaqueline Martins - Odontologia Estética"
-              className="h-14 md:h-16 w-auto"
+              className="h-10 md:h-12 w-auto"
             />
 
           </a>
@@ -649,7 +649,7 @@ function LandingPage() {
                 <img
                   src={logoAsset.url}
                   alt="Dra. Jaqueline Martins - Odontologia Estética"
-                  className="h-28 md:h-36 w-auto mb-5"
+                  className="h-20 md:h-24 w-auto mb-5"
                 />
 
                 <p className="text-sm text-graphite/60 max-w-sm leading-relaxed">
