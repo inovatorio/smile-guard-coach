@@ -9,6 +9,7 @@ import {
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { PlaquinhaJourney } from "@/components/PlaquinhaJourney";
 import heroImg from "@/assets/dra-jaqueline-hero.jpg";
+import autoridadeImg from "@/assets/dra-jaqueline-autoridade.jpg.asset.json";
 import clinicaImg from "@/assets/clinica-estrutura.jpg";
 import tratamentosImg from "@/assets/tratamentos-detalhe.jpg";
 import plaquinhaRepouso from "@/assets/plaquinha-repouso.png";
