@@ -512,19 +512,19 @@ function LandingPage() {
                 <div>
                   <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-champagne mb-2">Pacientes</dt>
                   <dd className="font-display text-3xl md:text-4xl text-graphite">
-                    <AnimatedNumber value={24256} prefix="+" />
+                    +24.256
                   </dd>
                 </div>
                 <div>
                   <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-champagne mb-2">Carreira</dt>
                   <dd className="font-display text-3xl md:text-4xl text-graphite">
-                    <AnimatedNumber value={21} prefix="+" suffix=" anos" />
+                    +21 anos
                   </dd>
                 </div>
                 <div>
                   <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-champagne mb-2">Unidades</dt>
                   <dd className="font-display text-3xl md:text-4xl text-graphite">
-                    <AnimatedNumber value={2} formatter={(n) => String(n).padStart(2, "0")} />
+                    02
                   </dd>
                 </div>
               </dl>
