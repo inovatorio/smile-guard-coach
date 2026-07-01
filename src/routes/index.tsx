@@ -575,10 +575,10 @@ function LandingPage() {
         <section id="faq" className="px-6 py-20 md:py-28 bg-bone border-y border-border">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12 md:mb-16">
-                <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-5">
+                <p className="font-mono text-xs uppercase tracking-[0.28em] text-champagne mb-6">
                   Dúvidas frequentes
                 </p>
-                <h2 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-graphite">
+                <h2 className="font-display text-6xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight text-graphite">
                 Perguntas que escutamos no consultório.
               </h2>
             </div>
