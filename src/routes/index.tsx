@@ -82,12 +82,12 @@ const ctaConsequencesHref = buildWhatsAppUrl(
 );
 
 const symptoms = [
-  { code: "S-01", title: "Dor ou cansaço na mandíbula", desc: "Sente dor ou cansaço na mandíbula ao acordar ou ao mastigar?" },
-  { code: "S-02", title: "Dores de cabeça ao acordar", desc: "Acorda com dor de cabeça nas têmporas ou na região frontal com frequência?" },
-  { code: "S-03", title: "Dentes sensíveis", desc: "Seus dentes ficaram sensíveis ao frio, calor ou doce sem causa aparente?" },
-  { code: "S-04", title: "Desgaste ou pequenas fraturas", desc: "Notou os dentes mais curtos, com bordas lascadas ou pequenas trincas?" },
-  { code: "S-05", title: "Estalos ou desconforto na ATM", desc: "Sua mandíbula estala, trava ou incomoda ao abrir a boca?" },
-  { code: "S-06", title: "Tensão facial e travamento", desc: "Percebe o rosto tenso ou a mandíbula travada em momentos de estresse?" },
+  { title: "Dor ou cansaço na mandíbula", desc: "Sente dor ou cansaço na mandíbula ao acordar ou ao mastigar?" },
+  { title: "Dores de cabeça ao acordar", desc: "Acorda com dor de cabeça nas têmporas ou na região frontal com frequência?" },
+  { title: "Dentes sensíveis", desc: "Seus dentes ficaram sensíveis ao frio, calor ou doce sem causa aparente?" },
+  { title: "Desgaste ou pequenas fraturas", desc: "Notou os dentes mais curtos, com bordas lascadas ou pequenas trincas?" },
+  { title: "Estalos ou desconforto na ATM", desc: "Sua mandíbula estala, trava ou incomoda ao abrir a boca?" },
+  { title: "Tensão facial e travamento", desc: "Percebe o rosto tenso ou a mandíbula travada em momentos de estresse?" },
 ];
 
 const consequences = [
