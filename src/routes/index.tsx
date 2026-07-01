@@ -275,7 +275,7 @@ function LandingPage() {
         {/* SYMPTOMS - "O bruxismo deixa pistas." */}
         <section id="sintomas" className="px-6 py-14 md:py-20 bg-bone border-y border-border">
           <div className="max-w-7xl mx-auto">
-            <div className="mb-12 md:mb-16 max-w-4xl">
+            <div className="mb-8 md:mb-10 max-w-4xl">
               <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
                 Identifique-se
               </p>
@@ -333,7 +333,7 @@ function LandingPage() {
         {/* CONSEQUENCES */}
         <section className="px-6 py-14 md:py-20">
           <div className="max-w-7xl mx-auto">
-            <div className="max-w-3xl mb-14">
+            <div className="max-w-3xl mb-8 md:mb-10">
                 <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
                   Consequências
                 </p>
@@ -369,7 +369,7 @@ function LandingPage() {
         {/* EVALUATION - dark band */}
         <section className="px-6 py-14 md:py-20 bg-graphite text-ivory">
           <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-12 gap-8 md:gap-12 mb-14 items-end">
+            <div className="grid md:grid-cols-12 gap-8 md:gap-12 mb-10 items-end">
               <div className="md:col-span-7">
                 <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
                   Avaliação
@@ -425,7 +425,7 @@ function LandingPage() {
         {/* TREATMENTS */}
         <section id="tratamento" className="px-6 py-14 md:py-20">
           <div className="max-w-7xl mx-auto">
-            <div className="max-w-3xl mb-14">
+            <div className="max-w-3xl mb-8 md:mb-10">
                 <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
                   Tratamentos
                 </p>
@@ -573,7 +573,7 @@ function LandingPage() {
         {/* FAQ */}
         <section id="faq" className="px-6 py-14 md:py-20 bg-bone border-y border-border">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12 md:mb-16">
+            <div className="text-center mb-8 md:mb-10">
                 <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
                   Dúvidas frequentes
                 </p>
