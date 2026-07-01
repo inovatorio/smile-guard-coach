@@ -129,10 +129,15 @@
 }
 
 @keyframes cta-glow {
-  0%, 100% { box-shadow: 0 0 0 0 oklch(0.74 0.075 75 / 0.35); }
-  50% { box-shadow: 0 0 18px 3px oklch(0.74 0.075 75 / 0.12); }
+  0%, 100% {
+    box-shadow: 0 0 0 0 oklch(0.74 0.075 75 / 0.55), 0 10px 30px -10px oklch(0.265 0.005 75 / 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 8px oklch(0.74 0.075 75 / 0), 0 14px 34px -8px oklch(0.74 0.075 75 / 0.45);
+  }
 }
 
-@utility animate-cta-glow {
-  animation: cta-glow 2.4s ease-in-out infinite;
+.animate-cta-glow {
+  animation: cta-glow 2.2s ease-in-out infinite;
 }
+
