@@ -389,12 +389,15 @@ function LandingPage() {
                 return (
                   <article
                     key={c.title}
-                    className="bg-card border border-border p-6 md:p-7 transition-shadow duration-300 hover:shadow-[var(--shadow-soft)]"
+                    className="bg-card border border-border p-5 md:p-6 transition-shadow duration-300 hover:shadow-[var(--shadow-soft)]"
                   >
-                    <Icon aria-hidden strokeWidth={1.25} className="w-6 h-6 text-champagne mb-4" />
-                    <h3 className="font-display text-xl md:text-2xl text-graphite mb-2">{c.title}</h3>
+                    <div className="flex items-center gap-3 mb-2">
+                      <Icon aria-hidden strokeWidth={1.4} size={20} className="text-champagne shrink-0" />
+                      <h3 className="font-display text-lg md:text-xl text-graphite leading-tight">{c.title}</h3>
+                    </div>
                     <p className="text-sm text-graphite/75 leading-snug">{c.desc}</p>
                   </article>
+
                 );
               })}
             </div>
