@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Phone, MapPin, Clock, Instagram, MessageCircle } from "lucide-react";
+import { Phone, MapPin, Clock, Instagram, MessageCircle, Star, Sunrise, Brain, Snowflake, Layers, Waves, Activity, ShieldAlert, Thermometer, HeartPulse, RotateCw, TriangleAlert, Sparkles } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { PlaquinhaJourney } from "@/components/PlaquinhaJourney";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
