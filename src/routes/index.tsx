@@ -222,7 +222,7 @@ function LandingPage() {
           <PlaquinhaJourney wrapperRef={journeyRef} />
 
         {/* HERO */}
-        <section className="px-6 pt-12 md:pt-20 pb-16 md:pb-24">
+        <section className="px-6 pt-10 md:pt-14 pb-12 md:pb-16">
 
           <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-12 items-end">
             <div className="md:col-span-7 animate-reveal">
@@ -268,7 +268,7 @@ function LandingPage() {
         </section>
 
         {/* SYMPTOMS - "O bruxismo deixa pistas." */}
-        <section id="sintomas" className="px-6 py-20 md:py-28 bg-bone border-y border-border">
+        <section id="sintomas" className="px-6 py-14 md:py-20 bg-bone border-y border-border">
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-end mb-12 md:mb-16">
               <div className="md:col-span-7">
@@ -298,7 +298,7 @@ function LandingPage() {
               ))}
             </div>
 
-            <div className="mt-14 grid md:grid-cols-12 gap-8 items-center border-t border-border pt-10">
+            <div className="mt-10 grid md:grid-cols-12 gap-6 items-center border-t border-border pt-8">
               <p className="md:col-span-7 font-display text-xl md:text-2xl text-graphite/85 leading-snug italic">
                 Quando esses sinais aparecem com frequência, vale investigar. O bruxismo pode agir em silêncio antes de causar danos visíveis.
               </p>
@@ -332,7 +332,7 @@ function LandingPage() {
         </section>
 
         {/* CONSEQUENCES */}
-        <section className="px-6 py-20 md:py-28">
+        <section className="px-6 py-14 md:py-20">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-3xl mb-14">
                 <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
@@ -358,7 +358,7 @@ function LandingPage() {
               ))}
             </div>
 
-            <div className="mt-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-t border-border pt-10">
+            <div className="mt-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-5 border-t border-border pt-8">
               <p className="font-display text-xl md:text-2xl text-graphite/85 leading-snug max-w-xl">
                 Muitas dessas marcas começam silenciosas - e podem ser interrompidas com a avaliação certa.
               </p>
@@ -368,7 +368,7 @@ function LandingPage() {
         </section>
 
         {/* EVALUATION - dark band */}
-        <section className="px-6 py-20 md:py-28 bg-graphite text-ivory">
+        <section className="px-6 py-14 md:py-20 bg-graphite text-ivory">
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-12 gap-8 md:gap-12 mb-14 items-end">
               <div className="md:col-span-7">
@@ -386,10 +386,8 @@ function LandingPage() {
               </div>
             </div>
 
-            {/* Diagnóstico - espaço reservado para a plaquinha condutora (PlaquinhaScrollGuide).
-                Marcações editoriais finas reforçam a precisão clínica sem repetir a imagem. */}
-            <div className="relative mb-16 md:mb-20 border-y border-ivory/15 py-16 md:py-24 grid md:grid-cols-12 gap-8 items-center">
-              <div className="md:col-span-4 md:col-start-2 relative min-h-[220px] hidden md:block" aria-hidden="true">
+            <div className="relative mb-12 md:mb-14 border-y border-ivory/15 py-12 md:py-16 grid md:grid-cols-12 gap-8 items-center">
+              <div className="md:col-span-4 md:col-start-2 relative min-h-[180px] hidden md:block" aria-hidden="true">
                 <svg
                   className="absolute inset-0 w-full h-full pointer-events-none text-champagne/40"
                   viewBox="0 0 200 200"
@@ -430,7 +428,7 @@ function LandingPage() {
         </section>
 
         {/* TREATMENTS */}
-        <section id="tratamento" className="px-6 py-20 md:py-28">
+        <section id="tratamento" className="px-6 py-14 md:py-20">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-3xl mb-14">
                 <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
@@ -481,7 +479,7 @@ function LandingPage() {
         {/* /JOURNEY WRAPPER */}
 
         {/* AUTHORITY - Dra. Jaqueline */}
-        <section id="sobre" className="px-6 py-24 md:py-32 bg-bone border-y border-border">
+        <section id="sobre" className="px-6 py-16 md:py-24 bg-bone border-y border-border">
           <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-12 md:gap-20 items-center">
             <div className="md:col-span-6 order-2 md:order-1">
               <div className="relative">
@@ -534,7 +532,7 @@ function LandingPage() {
         </section>
 
         {/* CLINIC - full-bleed image */}
-        <section className="relative w-full min-h-[70vh] md:min-h-[85vh] flex items-end overflow-hidden">
+        <section className="relative w-full min-h-[50vh] md:min-h-[60vh] flex items-end overflow-hidden">
           <img
             src={clinicaImg}
             alt="Interior da clínica odontológica da Dra. Jaqueline Martins, com luz natural e ambiente acolhedor."
@@ -555,7 +553,7 @@ function LandingPage() {
         </section>
 
         {/* CLINIC - diferenciais */}
-        <section className="px-6 py-20 md:py-28">
+        <section className="px-6 py-14 md:py-20">
           <div className="max-w-7xl mx-auto">
             <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-10">
               O que você encontra
@@ -572,7 +570,7 @@ function LandingPage() {
         </section>
 
         {/* FAQ */}
-        <section id="faq" className="px-6 py-20 md:py-28 bg-bone border-y border-border">
+        <section id="faq" className="px-6 py-14 md:py-20 bg-bone border-y border-border">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12 md:mb-16">
                 <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
@@ -603,16 +601,16 @@ function LandingPage() {
         </section>
 
         {/* FINAL CTA */}
-        <section className="px-6 py-24 md:py-32 bg-graphite text-ivory overflow-hidden">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-12 gap-12 items-center">
-            <div className="md:col-span-7">
-              <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
+        <section className="px-6 py-16 md:py-24 bg-graphite text-ivory overflow-hidden">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-12 gap-10 items-center">
+            <div className="md:col-span-6">
+              <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-5">
                 Agende sua avaliação
               </p>
-              <h2 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-ivory mb-6 text-balance">
+              <h2 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-ivory mb-5 text-balance">
                 Não espere o desgaste aparecer para cuidar do seu sorriso.
               </h2>
-              <p className="text-ivory/70 leading-relaxed mb-10 max-w-xl">
+              <p className="text-ivory/70 leading-relaxed mb-8 max-w-xl">
                 Agende uma avaliação e entenda se seus sintomas podem estar relacionados ao bruxismo ou apertamento dental.
               </p>
               <a
@@ -623,18 +621,18 @@ function LandingPage() {
               >
                 Agendar avaliação pelo WhatsApp
               </a>
-              <p className="mt-8 font-mono text-[10px] uppercase tracking-[0.24em] text-ivory/45">
+              <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.24em] text-ivory/45">
                 A avaliação revela o caminho
               </p>
             </div>
-            <div className="md:col-span-5 relative flex justify-center md:justify-end" aria-hidden="true">
+            <div className="md:col-span-6 relative flex justify-center md:justify-end" aria-hidden="true">
               <img
                 src={plaquinhaRepouso}
                 alt=""
                 width={1024}
                 height={1024}
                 loading="lazy"
-                className="plaquinha w-56 md:w-72"
+                className="plaquinha w-72 md:w-96 lg:w-[28rem]"
                 style={{ filter: "drop-shadow(0 20px 40px oklch(0 0 0 / 0.5))" }}
               />
             </div>
