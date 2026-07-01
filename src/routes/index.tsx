@@ -9,6 +9,7 @@ import {
 import { Phone, MapPin, Clock, Instagram, MessageCircle } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { PlaquinhaJourney } from "@/components/PlaquinhaJourney";
+import { AnimatedNumber } from "@/components/AnimatedNumber";
 import heroImg from "@/assets/dra-jaqueline-hero.jpg";
 import autoridadeImg from "@/assets/dra-jaqueline-autoridade.jpg.asset.json";
 import clinicaImg from "@/assets/clinica-estrutura.jpg";
