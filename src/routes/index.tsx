@@ -369,16 +369,7 @@ function LandingPage() {
         {/* EVALUATION - dark band */}
         <section className="px-6 py-14 md:py-20 bg-graphite text-ivory">
           <div className="max-w-7xl mx-auto">
-            <div className="max-w-2xl mx-auto text-center mb-10 md:mb-12">
-              <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-5">
-                Avaliação
-              </p>
-              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-ivory">
-                O tratamento começa entendendo o seu caso.
-              </h2>
-            </div>
-
-            <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+            <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
               <div className="md:col-span-5">
                 <LazyVideoPlayer
                   src={draVideo.url}
@@ -389,6 +380,12 @@ function LandingPage() {
               </div>
 
               <div className="md:col-span-7">
+                <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-5">
+                  Avaliação
+                </p>
+                <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-ivory mb-6">
+                  O tratamento começa entendendo o seu caso.
+                </h2>
                 <p className="text-ivory/70 leading-relaxed mb-8 md:mb-10 max-w-xl">
                   Nem todo bruxismo é igual. A avaliação odontológica é essencial para identificar sinais de desgaste, pontos de dor, hábitos associados e possíveis fatores que estejam contribuindo para o apertamento.
                 </p>
