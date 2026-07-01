@@ -82,12 +82,12 @@ const ctaConsequencesHref = buildWhatsAppUrl(
 );
 
 const symptoms = [
-  { code: "S-01", title: "Dor ou cansaço na mandíbula", desc: "Sente dor ou cansaço na mandíbula ao acordar ou ao mastigar?" },
-  { code: "S-02", title: "Dores de cabeça ao acordar", desc: "Acorda com dor de cabeça nas têmporas ou na região frontal com frequência?" },
-  { code: "S-03", title: "Dentes sensíveis", desc: "Seus dentes ficaram sensíveis ao frio, calor ou doce sem causa aparente?" },
-  { code: "S-04", title: "Desgaste ou pequenas fraturas", desc: "Notou os dentes mais curtos, com bordas lascadas ou pequenas trincas?" },
-  { code: "S-05", title: "Estalos ou desconforto na ATM", desc: "Sua mandíbula estala, trava ou incomoda ao abrir a boca?" },
-  { code: "S-06", title: "Tensão facial e travamento", desc: "Percebe o rosto tenso ou a mandíbula travada em momentos de estresse?" },
+  { title: "Dor ou cansaço na mandíbula", desc: "Sente dor ou cansaço na mandíbula ao acordar ou ao mastigar?" },
+  { title: "Dores de cabeça ao acordar", desc: "Acorda com dor de cabeça nas têmporas ou na região frontal com frequência?" },
+  { title: "Dentes sensíveis", desc: "Seus dentes ficaram sensíveis ao frio, calor ou doce sem causa aparente?" },
+  { title: "Desgaste ou pequenas fraturas", desc: "Notou os dentes mais curtos, com bordas lascadas ou pequenas trincas?" },
+  { title: "Estalos ou desconforto na ATM", desc: "Sua mandíbula estala, trava ou incomoda ao abrir a boca?" },
+  { title: "Tensão facial e travamento", desc: "Percebe o rosto tenso ou a mandíbula travada em momentos de estresse?" },
 ];
 
 const consequences = [
@@ -287,11 +287,10 @@ function LandingPage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
               {symptoms.map((s) => (
                 <article
-                  key={s.code}
+                  key={s.title}
                   className="group bg-background p-8 md:p-10 transition-colors duration-300 hover:bg-accent-soft"
                 >
-                  <span className="font-mono text-[10px] tracking-[0.2em] text-champagne">{s.code}</span>
-                  <h3 className="font-display text-2xl text-graphite mt-5 mb-3">{s.title}</h3>
+                  <h3 className="font-display text-2xl text-graphite mb-3">{s.title}</h3>
                   <p className="text-sm text-graphite/65 leading-relaxed">{s.desc}</p>
                 </article>
               ))}
@@ -406,7 +405,7 @@ function LandingPage() {
               </div>
               <div className="md:col-span-6 md:col-start-7">
                 <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne mb-4">
-                  S-04 · Diagnóstico
+                  Diagnóstico
                 </p>
                 <p className="font-display text-2xl md:text-3xl text-ivory leading-snug mb-4">
                   Cada caso tem sinais únicos. A avaliação revela o caminho.
