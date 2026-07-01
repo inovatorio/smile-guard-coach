@@ -230,30 +230,59 @@ function LandingPage() {
         <section className="px-6 pt-10 md:pt-14 pb-12 md:pb-16">
 
           <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-12 items-center">
-            <div className="md:col-span-7 animate-reveal">
-              <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-8">
+            <div className="md:col-span-7 animate-reveal order-1 md:order-1 flex flex-col">
+              <p className="font-mono text-[10px] uppercase tracking-[0.32em] label-mono mb-8 order-1">
                 Odontologia Estética e Funcional · Bruxismo
               </p>
-              <h1 className="font-display font-medium text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[0.95] tracking-tight text-balance text-graphite mb-8">
+              <h1 className="font-display font-medium text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[0.95] tracking-tight text-balance text-graphite mb-8 order-2">
                 Você pode estar <em className="italic font-medium text-champagne">apertando</em> os dentes sem perceber.
               </h1>
-              <p className="text-base md:text-lg text-graphite/70 max-w-xl leading-relaxed mb-10">
+              <p className="text-base md:text-lg text-graphite/80 max-w-xl leading-relaxed mb-10 order-3">
                 Dor na mandíbula, dores de cabeça ao acordar, sensibilidade nos dentes e tensão facial podem ser sinais de bruxismo ou apertamento dental. Uma avaliação cuidadosa ajuda a entender o seu caso e proteger seu sorriso.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10">
-                <PrimaryCta href={ctaPrimaryHref} label={CTA_PRIMARY} />
-                <GhostCta href={ctaSecondaryHref} label={CTA_SECONDARY} />
+
+              {/* Foto aparece aqui só no mobile - traz o rosto humano cedo */}
+              <div className="order-4 md:hidden mb-8">
+                <div className="relative">
+                  <div className="absolute -inset-3 border border-champagne/30 -z-10" aria-hidden />
+                  <img
+                    src={heroImg}
+                    alt="Dra. Jaqueline Martins, cirurgiã-dentista, em sua clínica odontológica em São Paulo."
+                    width={896}
+                    height={1152}
+                    className="w-full aspect-[4/5] object-cover relative"
+                  />
+                  <p className="absolute -bottom-4 left-4 bg-background px-3 py-1 font-mono text-[9px] uppercase tracking-[0.24em] text-graphite/75">
+                    O bruxismo deixa pistas
+                  </p>
+                </div>
               </div>
-              <ul className="flex flex-wrap gap-x-8 gap-y-3 text-[11px] uppercase tracking-[0.18em] text-graphite/55">
+
+              <div className="order-5 flex flex-col items-start gap-3 mb-4">
+                <PrimaryCta href={ctaPrimaryHref} label="Agendar avaliação pelo WhatsApp" />
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-graphite/70">
+                  Avaliação sem compromisso · resposta no mesmo dia
+                </p>
+                <a
+                  href={ctaSecondaryHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-graphite/75 underline underline-offset-[6px] decoration-champagne/50 hover:text-graphite hover:decoration-champagne transition-colors"
+                >
+                  Tenho dor na mandíbula, quero falar sobre isso
+                </a>
+              </div>
+
+              <ul className="order-6 mt-6 flex flex-wrap gap-x-8 gap-y-3 text-[11px] uppercase tracking-[0.18em] text-graphite/75">
                 <li>+21 anos de experiência</li>
-                <li className="hidden sm:block text-champagne/60">·</li>
+                <li className="hidden sm:block text-champagne/70">·</li>
                 <li>Odontologia estética e funcional</li>
-                <li className="hidden sm:block text-champagne/60">·</li>
+                <li className="hidden sm:block text-champagne/70">·</li>
                 <li>Vila Formosa e São Miguel Paulista</li>
               </ul>
             </div>
 
-            <div className="md:col-span-5 animate-reveal" style={{ animationDelay: "200ms" }}>
+            <div className="hidden md:block md:col-span-5 animate-reveal" style={{ animationDelay: "200ms" }}>
               <div className="relative">
                 {/* Plaquinha condutora vive no PlaquinhaScrollGuide */}
                 <div className="absolute -inset-3 border border-champagne/30 -z-10" aria-hidden />
@@ -264,12 +293,13 @@ function LandingPage() {
                   height={1152}
                   className="w-full aspect-[4/5] object-cover relative"
                 />
-                <p className="absolute -bottom-4 left-4 md:left-6 bg-background px-3 py-1 font-mono text-[9px] uppercase tracking-[0.24em] text-graphite/60">
+                <p className="absolute -bottom-4 left-4 md:left-6 bg-background px-3 py-1 font-mono text-[9px] uppercase tracking-[0.24em] text-graphite/75">
                   O bruxismo deixa pistas
                 </p>
               </div>
             </div>
           </div>
+
         </section>
 
         {/* SYMPTOMS - "O bruxismo deixa pistas." */}
