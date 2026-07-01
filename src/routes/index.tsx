@@ -422,13 +422,13 @@ function LandingPage() {
               </div>
 
               <div className="md:col-span-7">
-                <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-5">
+                <p className="font-mono text-sm uppercase tracking-[0.2em] label-mono mb-5">
                   Avaliação
                 </p>
                 <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-ivory mb-6">
                   O tratamento começa entendendo o seu caso.
                 </h2>
-                <p className="text-ivory/70 leading-relaxed mb-8 md:mb-10 max-w-xl">
+                <p className="text-ivory/85 leading-relaxed mb-8 md:mb-10 max-w-xl">
                   Nem todo bruxismo é igual. A avaliação odontológica é essencial para identificar sinais de desgaste, pontos de dor, hábitos associados e possíveis fatores que estejam contribuindo para o apertamento.
                 </p>
 
@@ -436,7 +436,7 @@ function LandingPage() {
                   {steps.map((step) => (
                     <li key={step.title} className="border-l border-ivory/15 pl-5">
                       <h3 className="font-display text-2xl md:text-3xl text-ivory mb-2 leading-tight">{step.title}</h3>
-                      <p className="text-sm text-ivory/65 leading-relaxed">{step.desc}</p>
+                      <p className="text-sm text-ivory/75 leading-relaxed">{step.desc}</p>
                     </li>
                   ))}
                 </ol>
@@ -449,13 +449,13 @@ function LandingPage() {
         <section id="tratamento" className="px-6 py-14 md:py-20">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-3xl mb-8 md:mb-10">
-                <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
+                <p className="font-mono text-sm uppercase tracking-[0.2em] label-mono mb-6">
                   Tratamentos
                 </p>
                 <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-graphite mb-6">
                 Cuidado personalizado para proteger seus dentes e reduzir desconfortos.
               </h2>
-              <p className="text-graphite/65 leading-relaxed">
+              <p className="text-graphite/78 leading-relaxed">
                 A placa pode fazer parte do cuidado, mas o tratamento começa com uma avaliação individual. A conduta envolve proteção dental, orientações específicas e acompanhamento clínico - sempre desenhada para o seu caso.
               </p>
             </div>
@@ -467,7 +467,7 @@ function LandingPage() {
                   className="bg-background p-6 md:p-7 transition-colors duration-300 hover:bg-accent-soft lg:col-span-4"
                 >
                   <h3 className="font-display text-xl md:text-2xl text-graphite mb-2">{t.title}</h3>
-                  <p className="text-sm text-graphite/65 leading-snug">{t.desc}</p>
+                  <p className="text-sm text-graphite/78 leading-snug">{t.desc}</p>
                 </article>
               ))}
               <figure className="relative lg:col-span-4 min-h-[220px] overflow-hidden">
@@ -480,7 +480,7 @@ function LandingPage() {
                   className="absolute inset-0 w-full h-full object-cover"
                 />
                 <figcaption className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-graphite/70 via-graphite/10 to-transparent text-ivory">
-                  <span className="font-mono text-[10px] tracking-[0.2em] text-champagne mb-2">Nota clínica</span>
+                  <span className="font-mono text-[10px] tracking-[0.2em] label-mono mb-2">Nota clínica</span>
                   <p className="font-display text-base md:text-lg leading-snug max-w-xs">
                     Cada conduta é desenhada para o seu caso - não para um padrão.
                   </p>
@@ -488,7 +488,7 @@ function LandingPage() {
               </figure>
             </div>
 
-            <p className="mt-10 text-xs uppercase tracking-[0.2em] text-graphite/45">
+            <p className="mt-10 text-xs uppercase tracking-[0.2em] text-graphite/70">
               · O tratamento indicado depende da avaliação individual de cada paciente.
             </p>
           </div>
@@ -503,7 +503,7 @@ function LandingPage() {
               <div className="relative">
                 <div className="absolute -inset-4 md:-inset-6 border border-champagne/40 -z-10" aria-hidden />
                 <div className="absolute -bottom-6 -right-6 hidden md:block bg-graphite text-ivory px-6 py-4 max-w-[220px] z-10">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-champagne block mb-1">CRO-SP 86932</span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.24em] label-mono block mb-1">CRO-SP 86932</span>
                   <span className="font-display text-lg leading-tight">Dra. Jaqueline Martins</span>
                 </div>
                 <img
@@ -518,7 +518,7 @@ function LandingPage() {
               </div>
             </div>
             <div className="md:col-span-6 order-1 md:order-2">
-              <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
+              <p className="font-mono text-sm uppercase tracking-[0.2em] label-mono mb-6">
                 Dra. Jaqueline Martins
               </p>
               <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-tight text-graphite mb-8">
@@ -527,25 +527,25 @@ function LandingPage() {
               <p className="font-display text-xl md:text-2xl text-graphite/85 leading-snug mb-8">
                 A atuação da Dra. Jaqueline une estética, função e cuidado preventivo para preservar não apenas a aparência do sorriso, mas também sua saúde, conforto e estabilidade ao longo do tempo.
               </p>
-              <p className="text-graphite/65 leading-relaxed mb-10 max-w-2xl">
+              <p className="text-graphite/78 leading-relaxed mb-10 max-w-2xl">
                 Cirurgiã-dentista formada em 2004, especialista em implantodontia e com mais de 21 anos de experiência clínica. Atende em duas unidades em São Paulo - Vila Formosa e São Miguel Paulista - com um cuidado individualizado para cada paciente.
               </p>
 
               <dl className="grid grid-cols-3 gap-6 border-t border-border pt-8">
                 <div>
-                  <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-champagne mb-2">Pacientes</dt>
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.2em] label-mono mb-2">Pacientes</dt>
                   <dd className="font-display text-3xl md:text-4xl text-graphite">
                     +24.256
                   </dd>
                 </div>
                 <div>
-                  <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-champagne mb-2">Carreira</dt>
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.2em] label-mono mb-2">Carreira</dt>
                   <dd className="font-display text-3xl md:text-4xl text-graphite">
                     +21 anos
                   </dd>
                 </div>
                 <div>
-                  <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-champagne mb-2">Unidades</dt>
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.2em] label-mono mb-2">Unidades</dt>
                   <dd className="font-display text-3xl md:text-4xl text-graphite">
                     02
                   </dd>
@@ -567,7 +567,7 @@ function LandingPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-graphite/85 via-graphite/25 to-transparent" />
           <div className="relative w-full max-w-7xl mx-auto px-6 md:px-12 pb-16 md:pb-24">
-            <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
+            <p className="font-mono text-sm uppercase tracking-[0.2em] label-mono mb-6">
               {"\n"}
             </p>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-ivory max-w-4xl text-balance">
@@ -579,14 +579,14 @@ function LandingPage() {
         {/* CLINIC - diferenciais */}
         <section className="px-6 py-14 md:py-20">
           <div className="max-w-7xl mx-auto">
-            <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-10">
+            <p className="font-mono text-[10px] uppercase tracking-[0.32em] label-mono mb-10">
               O que você encontra
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
               {clinic.map((c) => (
                 <article key={c.title} className="border border-border bg-card p-6 md:p-7">
                   <h3 className="font-display text-xl md:text-2xl text-graphite mb-2">{c.title}</h3>
-                  <p className="text-sm text-graphite/65 leading-snug">{c.desc}</p>
+                  <p className="text-sm text-graphite/78 leading-snug">{c.desc}</p>
                 </article>
               ))}
             </div>
@@ -642,7 +642,7 @@ function LandingPage() {
         <section id="faq" className="px-6 py-14 md:py-20 bg-bone border-y border-border">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8 md:mb-10">
-                <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
+                <p className="font-mono text-sm uppercase tracking-[0.2em] label-mono mb-6">
                   Dúvidas frequentes
                 </p>
                 <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-graphite">
@@ -673,13 +673,13 @@ function LandingPage() {
         <section className="px-6 py-16 md:py-24 bg-graphite text-ivory overflow-hidden">
           <div className="max-w-6xl mx-auto grid md:grid-cols-12 gap-10 items-center">
             <div className="md:col-span-6">
-              <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-5">
+              <p className="font-mono text-sm uppercase tracking-[0.2em] label-mono mb-5">
                 Agende sua avaliação
               </p>
               <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-tight text-ivory mb-5 text-balance">
                 Não espere o desgaste aparecer para cuidar do seu sorriso.
               </h2>
-              <p className="text-ivory/70 leading-relaxed mb-8 max-w-xl">
+              <p className="text-ivory/85 leading-relaxed mb-8 max-w-xl">
                 Agende uma avaliação e entenda se seus sintomas podem estar relacionados ao bruxismo ou apertamento dental.
               </p>
               <a
@@ -690,7 +690,7 @@ function LandingPage() {
               >
                 Agendar avaliação pelo WhatsApp
               </a>
-              <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.24em] text-ivory/45">
+              <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.24em] text-ivory/75">
                 A avaliação revela o caminho
               </p>
             </div>
@@ -720,12 +720,12 @@ function LandingPage() {
                   className="h-20 md:h-24 w-auto mb-5"
                 />
 
-                <p className="text-sm text-graphite/60 max-w-sm leading-relaxed">
+                <p className="text-sm text-graphite/75 max-w-sm leading-relaxed">
                   Odontologia avançada com foco em estética, função e cuidado individualizado.
                 </p>
               </div>
               <div className="md:col-span-4">
-                <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne mb-5">Unidades</h3>
+                <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] label-mono mb-5">Unidades</h3>
                 <div className="space-y-5">
                   <div>
                     <p className="text-sm font-medium text-graphite/90 mb-1">Vila Formosa</p>
@@ -752,7 +752,7 @@ function LandingPage() {
                 </div>
               </div>
               <div className="md:col-span-2">
-                <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne mb-4">Horários</h3>
+                <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] label-mono mb-4">Horários</h3>
                 <ul className="space-y-2 text-sm text-graphite/70">
                   <li className="flex items-start gap-2">
                     <Clock className="w-4 h-4 mt-0.5 shrink-0 text-champagne/70" />
@@ -763,10 +763,10 @@ function LandingPage() {
                     <span>Sábado: 09:00 - 12:00</span>
                   </li>
                 </ul>
-                <p className="text-[11px] text-graphite/45 mt-3 leading-relaxed">Horários iguais nas duas unidades.</p>
+                <p className="text-[11px] text-graphite/70 mt-3 leading-relaxed">Horários iguais nas duas unidades.</p>
               </div>
               <div className="md:col-span-2">
-                <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne mb-4">Contato</h3>
+                <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] label-mono mb-4">Contato</h3>
                 <ul className="space-y-2 text-sm text-graphite/70">
                   <li>
                     <a href={ctaFinalHref} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-champagne transition-colors">
@@ -788,10 +788,10 @@ function LandingPage() {
               </div>
             </div>
             <div className="mt-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <p className="text-xs text-graphite/45 leading-relaxed max-w-2xl">
+              <p className="text-xs text-graphite/70 leading-relaxed max-w-2xl">
                 As informações desta página são educativas e não substituem uma avaliação odontológica individual.
               </p>
-              <p className="text-xs text-graphite/45">CRO-SP 86932</p>
+              <p className="text-xs text-graphite/70">CRO-SP 86932</p>
             </div>
          </div>
        </footer>
