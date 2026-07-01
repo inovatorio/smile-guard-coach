@@ -229,7 +229,7 @@ function LandingPage() {
         {/* HERO */}
         <section className="px-6 pt-10 md:pt-14 pb-12 md:pb-16">
 
-          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-12 items-end">
+          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-12 items-center">
             <div className="md:col-span-7 animate-reveal">
               <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-8">
                 Odontologia Estética e Funcional · Bruxismo
