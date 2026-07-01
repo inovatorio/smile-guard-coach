@@ -1,31 +1,42 @@
-## Objetivo
-Inserir o vídeo enviado (`video_Dra_Jaqueline.mp4`) no espaço marcado da seção "Avaliação", com botão de play manual (sem autoplay) e otimizado para não pesar no carregamento.
+# Plano: Compactação Editorial Premium
 
-## Passos
+## Diagnóstico dos anexos
 
-1. **Registrar o vídeo como asset via Lovable Assets**
-   - Rodar `lovable-assets create --file /mnt/user-uploads/video_Dra_Jaqueline.mp4` gerando `src/assets/video-dra-jaqueline.mp4.asset.json`.
-   - Isso mantém o binário fora do repo e serve via CDN (carregamento sob demanda).
+1. **Cards Sintomas / Consequências / Tratamentos / Estrutura**: padding interno ~48-56px, títulos serifados em text-3xl/4xl, descrições em text-lg com line-height 1.75 - cada card ocupa ~200px de altura desnecessariamente.
+2. **Bloco de estatísticas (+21 / +24.256 / 02)**: números em text-8xl/9xl com padding vertical ~120px, empurram outras seções para fora da fold.
+3. **Gaps entre cards**: gap-8/gap-12 no grid está gerando muito ar entre elementos.
 
-2. **Gerar um poster estático leve (thumbnail)**
-   - Extrair um frame do vídeo com `ffmpeg` (ex.: segundo 1) → `src/assets/video-dra-jaqueline-poster.jpg` (comprimido, ~1280px).
-   - Serve como imagem de capa antes do play - carrega rápido e evita baixar o MP4 no load inicial.
+## Ajustes (Compacto Editorial)
 
-3. **Criar componente `LazyVideoPlayer`** (`src/components/LazyVideoPlayer.tsx`)
-   - Estado `isPlaying`. Enquanto `false`: renderiza apenas o `<img>` do poster + botão de play sobreposto (ícone `Play` do lucide, círculo champagne com blur, hover scale).
-   - Ao clicar: monta o `<video>` com `preload="none"`, `controls`, `playsInline`, `src` do asset, e dá `.play()`.
-   - Isso garante zero download do MP4 até o usuário clicar (performance).
-   - Aspect ratio fixo (16:9 ou proporção original) para evitar layout shift.
+**Cards de conteúdo** (`Sintomas`, `Consequências`, `Tratamentos`, `Estrutura`):
+- Padding: `p-10/p-12` → `p-6 md:p-7`
+- Título do card: `text-3xl/4xl` → `text-xl md:text-2xl`
+- Descrição: `text-lg leading-relaxed` → `text-sm md:text-base leading-snug`
+- Gap do grid: `gap-8/12` → `gap-4 md:gap-5`
+- Altura mínima removida onde exista
 
-4. **Integrar na seção Avaliação em `src/routes/index.tsx`**
-   - Localizar o bloco vazio abaixo do título "O tratamento começa entendendo o seu caso." (coluna esquerda, acima do bloco "Diagnóstico").
-   - Substituir/preencher esse espaço pelo `<LazyVideoPlayer>` com bordas sutis e tratamento visual coerente (moldura fina champagne, radius pequeno) para casar com a estética editorial.
+**Bloco de estatísticas** (faixa horizontal enxuta):
+- Container: reduzir `py-24/py-32` → `py-12 md:py-14`
+- Números: `text-8xl/9xl` → `text-5xl md:text-6xl`
+- Labels (EXPERIÊNCIA/PACIENTES/ESTRUTURA): manter `text-xs tracking-widest`
+- Descrições abaixo: `text-base` → `text-sm`, max-width menor
+- Layout: garantir 3 colunas em uma linha só (desktop), sem quebra
+- Manter animação de contagem do `AnimatedNumber`
 
-5. **Validação**
-   - `bun run build` para garantir integridade.
-   - Verificar via preview que: (a) o poster aparece imediatamente, (b) o botão de play está visível e centralizado, (c) o vídeo só carrega ao clicar, (d) responsividade mobile mantida.
+**Espaçamentos globais de seção**:
+- Manter títulos H2 principais (`Identifique-se`, `Consequências`) no tamanho atual - o usuário aprovou.
+- Reduzir `py-20/24` das seções internas de cards para `py-14 md:py-16`.
+- Reduzir margin entre header da seção e grid de cards de `mt-16` para `mt-8/10`.
 
-## Detalhes técnicos
-- `preload="none"` no `<video>` é o que evita o download antecipado.
-- Poster JPG de ~80-150KB substitui os megabytes do MP4 no primeiro paint.
-- Sem autoplay, sem loop, com controles nativos após o play.
+## Arquivos afetados
+
+- `src/routes/index.tsx` - ajustar classes Tailwind nos 4 blocos de cards + bloco de estatísticas.
+- Nenhum novo componente, nenhuma mudança de estrutura, nenhuma mudança de copy.
+
+## Resultado esperado
+
+No desktop 1440px, o lead verá:
+- Bloco de estatísticas inteiro em uma tela.
+- Grid de 4 cards (Sintomas/Consequências) visível em uma tela sem scroll.
+- Redução aproximada de 30-35% na altura total da LP.
+- Direção visual, cores, fontes e narrativa da plaquinha permanecem intactas.
