@@ -371,28 +371,33 @@ function LandingPage() {
         <section className="px-6 py-14 md:py-20">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-3xl mb-8 md:mb-10">
-                <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
+                <p className="font-mono text-sm uppercase tracking-[0.2em] label-mono mb-6">
                   Consequências
                 </p>
                 <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-graphite mb-6">
                 O bruxismo pode deixar marcas no seu sorriso e na sua qualidade de vida.
               </h2>
-              <p className="text-graphite/65 leading-relaxed">
+              <p className="text-graphite/80 leading-relaxed">
                 Quando os dentes recebem força excessiva de forma repetida, o impacto pode aparecer nos dentes, na musculatura e na articulação da mandíbula.
               </p>
             </div>
 
             <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-5">
-              {consequences.map((c, i) => (
-                <article
-                  key={c.title}
-                  className="bg-card border border-border p-6 md:p-7 transition-shadow duration-300 hover:shadow-[var(--shadow-soft)]"
-                >
-                  <h3 className="font-display text-xl md:text-2xl text-graphite mb-2">{c.title}</h3>
-                  <p className="text-sm text-graphite/65 leading-snug">{c.desc}</p>
-                </article>
-              ))}
+              {consequences.map((c) => {
+                const Icon = c.icon;
+                return (
+                  <article
+                    key={c.title}
+                    className="bg-card border border-border p-6 md:p-7 transition-shadow duration-300 hover:shadow-[var(--shadow-soft)]"
+                  >
+                    <Icon aria-hidden strokeWidth={1.25} className="w-6 h-6 text-champagne mb-4" />
+                    <h3 className="font-display text-xl md:text-2xl text-graphite mb-2">{c.title}</h3>
+                    <p className="text-sm text-graphite/75 leading-snug">{c.desc}</p>
+                  </article>
+                );
+              })}
             </div>
+
 
             <div className="mt-10 flex flex-col items-center text-center gap-5 border-t border-border pt-8">
               <p className="font-display text-xl md:text-2xl text-graphite/85 leading-snug max-w-xl">
