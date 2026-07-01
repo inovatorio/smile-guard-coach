@@ -405,7 +405,7 @@ function LandingPage() {
               </div>
               <div className="md:col-span-6 md:col-start-7">
                 <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne mb-4">
-                  S-04 · Diagnóstico
+                  Diagnóstico
                 </p>
                 <p className="font-display text-2xl md:text-3xl text-ivory leading-snug mb-4">
                   Cada caso tem sinais únicos. A avaliação revela o caminho.
