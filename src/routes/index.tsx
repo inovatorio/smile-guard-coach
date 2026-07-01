@@ -16,7 +16,7 @@ import autoridadeImg from "@/assets/dra-jaqueline-autoridade.jpg.asset.json";
 import clinicaImg from "@/assets/clinica-estrutura.jpg";
 import tratamentosImg from "@/assets/tratamentos-detalhe.jpg";
 import plaquinhaRepouso from "@/assets/plaquinha-repouso.png";
-import logoAsset from "@/assets/logo-jaqueline-martins.png.asset.json";
+import logoAsset from "@/assets/jm-monogram.png.asset.json";
 import draVideo from "@/assets/dra-jaqueline-video.mp4.asset.json";
 import draVideoPoster from "@/assets/dra-jaqueline-video-poster.jpg.asset.json";
 
@@ -200,8 +200,9 @@ function LandingPage() {
             <img
               src={logoAsset.url}
               alt="Dra. Jaqueline Martins - Odontologia Estética"
-              className="h-10 md:h-12 w-auto"
+              className="h-14 md:h-16 w-auto"
             />
+
           </a>
           <nav className="hidden md:flex items-center gap-8 text-[11px] uppercase tracking-[0.18em] text-graphite/70">
             <a href="#sintomas" className="hover:text-champagne transition-colors">Sintomas</a>
@@ -648,8 +649,9 @@ function LandingPage() {
                 <img
                   src={logoAsset.url}
                   alt="Dra. Jaqueline Martins - Odontologia Estética"
-                  className="h-16 md:h-20 w-auto mb-5"
+                  className="h-28 md:h-36 w-auto mb-5"
                 />
+
                 <p className="text-sm text-graphite/60 max-w-sm leading-relaxed">
                   Odontologia avançada com foco em estética, função e cuidado individualizado.
                 </p>
