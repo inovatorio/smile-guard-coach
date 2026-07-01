@@ -415,7 +415,7 @@ function LandingPage() {
         {/* EVALUATION - dark band */}
         <section className="px-6 py-14 md:py-20 bg-graphite text-ivory">
           <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
+            <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
               <div className="md:col-span-5">
                 <LazyVideoPlayer
                   src={draVideo.url}
