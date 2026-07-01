@@ -275,7 +275,7 @@ function LandingPage() {
         {/* SYMPTOMS - "O bruxismo deixa pistas." */}
         <section id="sintomas" className="px-6 py-14 md:py-20 bg-bone border-y border-border">
           <div className="max-w-7xl mx-auto">
-            <div className="mb-12 md:mb-16 max-w-4xl">
+            <div className="mb-8 md:mb-10 max-w-4xl">
               <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
                 Identifique-se
               </p>
@@ -291,10 +291,10 @@ function LandingPage() {
               {symptoms.map((s) => (
                 <article
                   key={s.title}
-                  className="group bg-background p-8 md:p-10 transition-colors duration-300 hover:bg-accent-soft"
+                  className="group bg-background p-6 md:p-7 transition-colors duration-300 hover:bg-accent-soft"
                 >
-                  <h3 className="font-display text-2xl text-graphite mb-3">{s.title}</h3>
-                  <p className="text-sm text-graphite/65 leading-relaxed">{s.desc}</p>
+                  <h3 className="font-display text-xl md:text-2xl text-graphite mb-2">{s.title}</h3>
+                  <p className="text-sm text-graphite/65 leading-snug">{s.desc}</p>
                 </article>
               ))}
             </div>
@@ -316,15 +316,15 @@ function LandingPage() {
               { tag: "Pacientes", value: 24256, prefix: "+", unit: "atendidos", desc: "histórias acompanhadas ao longo da carreira." },
               { tag: "Estrutura", value: 2, formatter: (n: number) => String(n).padStart(2, "0"), unit: "unidades", desc: "Vila Formosa e São Miguel Paulista, em São Paulo." },
             ] as const).map((stat) => (
-              <div key={stat.tag} className="p-10 md:p-14">
-                <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne block mb-4">
+              <div key={stat.tag} className="px-8 py-8 md:px-10 md:py-10">
+                <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne block mb-3">
                   {stat.tag}
                 </span>
-                <div className="font-display text-5xl md:text-6xl text-graphite leading-none mb-2">
+                <div className="font-display text-4xl md:text-5xl lg:text-6xl text-graphite leading-none mb-2">
                   <AnimatedNumber value={stat.value} prefix={"prefix" in stat ? stat.prefix : undefined} formatter={"formatter" in stat ? stat.formatter : undefined} />{" "}
-                  <span className="text-xl md:text-2xl text-graphite/60 align-middle">{stat.unit}</span>
+                  <span className="text-base md:text-lg text-graphite/60 align-middle">{stat.unit}</span>
                 </div>
-                <p className="text-sm text-graphite/60 mt-4 leading-relaxed max-w-xs">{stat.desc}</p>
+                <p className="text-[13px] text-graphite/60 mt-3 leading-snug max-w-xs">{stat.desc}</p>
               </div>
             ))}
           </div>
@@ -333,7 +333,7 @@ function LandingPage() {
         {/* CONSEQUENCES */}
         <section className="px-6 py-14 md:py-20">
           <div className="max-w-7xl mx-auto">
-            <div className="max-w-3xl mb-14">
+            <div className="max-w-3xl mb-8 md:mb-10">
                 <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
                   Consequências
                 </p>
@@ -345,14 +345,14 @@ function LandingPage() {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-5">
               {consequences.map((c, i) => (
                 <article
                   key={c.title}
-                  className="bg-card border border-border p-8 transition-shadow duration-300 hover:shadow-[var(--shadow-soft)]"
+                  className="bg-card border border-border p-6 md:p-7 transition-shadow duration-300 hover:shadow-[var(--shadow-soft)]"
                 >
-                  <h3 className="font-display text-xl text-graphite mt-5 mb-3">{c.title}</h3>
-                  <p className="text-sm text-graphite/65 leading-relaxed">{c.desc}</p>
+                  <h3 className="font-display text-xl md:text-2xl text-graphite mb-2">{c.title}</h3>
+                  <p className="text-sm text-graphite/65 leading-snug">{c.desc}</p>
                 </article>
               ))}
             </div>
@@ -369,7 +369,7 @@ function LandingPage() {
         {/* EVALUATION - dark band */}
         <section className="px-6 py-14 md:py-20 bg-graphite text-ivory">
           <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-12 gap-8 md:gap-12 mb-14 items-end">
+            <div className="grid md:grid-cols-12 gap-8 md:gap-12 mb-10 items-end">
               <div className="md:col-span-7">
                 <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
                   Avaliação
@@ -425,7 +425,7 @@ function LandingPage() {
         {/* TREATMENTS */}
         <section id="tratamento" className="px-6 py-14 md:py-20">
           <div className="max-w-7xl mx-auto">
-            <div className="max-w-3xl mb-14">
+            <div className="max-w-3xl mb-8 md:mb-10">
                 <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
                   Tratamentos
                 </p>
@@ -441,13 +441,13 @@ function LandingPage() {
               {treatments.map((t, i) => (
                 <article
                   key={t.title}
-                  className="bg-background p-8 md:p-10 transition-colors duration-300 hover:bg-accent-soft lg:col-span-4"
+                  className="bg-background p-6 md:p-7 transition-colors duration-300 hover:bg-accent-soft lg:col-span-4"
                 >
-                  <h3 className="font-display text-2xl text-graphite mt-5 mb-3">{t.title}</h3>
-                  <p className="text-sm text-graphite/65 leading-relaxed">{t.desc}</p>
+                  <h3 className="font-display text-xl md:text-2xl text-graphite mb-2">{t.title}</h3>
+                  <p className="text-sm text-graphite/65 leading-snug">{t.desc}</p>
                 </article>
               ))}
-              <figure className="relative lg:col-span-4 min-h-[280px] overflow-hidden">
+              <figure className="relative lg:col-span-4 min-h-[220px] overflow-hidden">
                 <img
                   src={tratamentosImg}
                   alt="Detalhe editorial de bancada em mármore com instrumentos odontológicos em clínica premium."
@@ -456,9 +456,9 @@ function LandingPage() {
                   loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
-                <figcaption className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-graphite/70 via-graphite/10 to-transparent text-ivory">
-                  <span className="font-mono text-[10px] tracking-[0.2em] text-champagne mb-3">Nota clínica</span>
-                  <p className="font-display text-lg md:text-xl leading-snug max-w-xs">
+                <figcaption className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-graphite/70 via-graphite/10 to-transparent text-ivory">
+                  <span className="font-mono text-[10px] tracking-[0.2em] text-champagne mb-2">Nota clínica</span>
+                  <p className="font-display text-base md:text-lg leading-snug max-w-xs">
                     Cada conduta é desenhada para o seu caso - não para um padrão.
                   </p>
                 </figcaption>
@@ -559,11 +559,11 @@ function LandingPage() {
             <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-10">
               O que você encontra
             </p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
               {clinic.map((c) => (
-                <article key={c.title} className="border border-border bg-card p-8">
-                  <h3 className="font-display text-xl text-graphite mt-5 mb-3">{c.title}</h3>
-                  <p className="text-sm text-graphite/65 leading-relaxed">{c.desc}</p>
+                <article key={c.title} className="border border-border bg-card p-6 md:p-7">
+                  <h3 className="font-display text-xl md:text-2xl text-graphite mb-2">{c.title}</h3>
+                  <p className="text-sm text-graphite/65 leading-snug">{c.desc}</p>
                 </article>
               ))}
             </div>
@@ -573,7 +573,7 @@ function LandingPage() {
         {/* FAQ */}
         <section id="faq" className="px-6 py-14 md:py-20 bg-bone border-y border-border">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12 md:mb-16">
+            <div className="text-center mb-8 md:mb-10">
                 <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
                   Dúvidas frequentes
                 </p>
