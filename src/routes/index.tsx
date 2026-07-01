@@ -486,7 +486,7 @@ function LandingPage() {
               <div className="relative">
                 <div className="absolute -inset-4 md:-inset-6 border border-champagne/40 -z-10" aria-hidden />
                 <div className="absolute -bottom-6 -right-6 hidden md:block bg-graphite text-ivory px-6 py-4 max-w-[220px] z-10">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-champagne block mb-1">CRO-SP</span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-champagne block mb-1">CRO-SP 86932</span>
                   <span className="font-display text-lg leading-tight">Dra. Jaqueline Martins</span>
                 </div>
                 <img
