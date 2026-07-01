@@ -484,9 +484,9 @@ function LandingPage() {
                   className="absolute inset-0 w-full h-full object-cover"
                 />
                 <figcaption className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-graphite/70 via-graphite/10 to-transparent text-ivory">
-                  <span className="font-mono text-[10px] tracking-[0.2em] text-champagne mb-2">Nota clínica</span>
+                  <span className="font-mono text-[10px] tracking-[0.2em] text-champagne mb-2">{"\n"}</span>
                   <p className="font-display text-base md:text-lg leading-snug max-w-xs">
-                    Cada conduta é desenhada para o seu caso - não para um padrão.
+                    Cada conduta é desenhada para o seu caso não para um padrão.
                   </p>
                 </figcaption>
               </figure>
