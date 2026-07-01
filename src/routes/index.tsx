@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Phone, MapPin, Clock, Instagram, MessageCircle } from "lucide-react";
+import { Phone, MapPin, Clock, Instagram, MessageCircle, Star, Sunrise, Brain, Snowflake, Layers, Waves, Activity, ShieldAlert, Thermometer, HeartPulse, RotateCw, TriangleAlert, Sparkles } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { PlaquinhaJourney } from "@/components/PlaquinhaJourney";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
@@ -88,21 +88,21 @@ const ctaConsequencesHref = buildWhatsAppUrl(
 );
 
 const symptoms = [
-  { title: "Dor ou cansaço na mandíbula", desc: "Sente dor ou cansaço na mandíbula ao acordar ou ao mastigar?" },
-  { title: "Dores de cabeça ao acordar", desc: "Acorda com dor de cabeça nas têmporas ou na região frontal com frequência?" },
-  { title: "Dentes sensíveis", desc: "Seus dentes ficaram sensíveis ao frio, calor ou doce sem causa aparente?" },
-  { title: "Desgaste ou pequenas fraturas", desc: "Notou os dentes mais curtos, com bordas lascadas ou pequenas trincas?" },
-  { title: "Estalos ou desconforto na ATM", desc: "Sua mandíbula estala, trava ou incomoda ao abrir a boca?" },
-  { title: "Tensão facial e travamento", desc: "Percebe o rosto tenso ou a mandíbula travada em momentos de estresse?" },
+  { icon: Sunrise, title: "Dor ou cansaço na mandíbula", desc: "Sente dor ou cansaço na mandíbula ao acordar ou ao mastigar?" },
+  { icon: Brain, title: "Dores de cabeça ao acordar", desc: "Acorda com dor de cabeça nas têmporas ou na região frontal com frequência?" },
+  { icon: Snowflake, title: "Dentes sensíveis", desc: "Seus dentes ficaram sensíveis ao frio, calor ou doce sem causa aparente?" },
+  { icon: Layers, title: "Desgaste ou pequenas fraturas", desc: "Notou os dentes mais curtos, com bordas lascadas ou pequenas trincas?" },
+  { icon: Waves, title: "Estalos ou desconforto na ATM", desc: "Sua mandíbula estala, trava ou incomoda ao abrir a boca?" },
+  { icon: Activity, title: "Tensão facial e travamento", desc: "Percebe o rosto tenso ou a mandíbula travada em momentos de estresse?" },
 ];
 
 const consequences = [
-  { title: "Desgaste do esmalte dental", desc: "A força repetida fragiliza a camada que protege o dente." },
-  { title: "Sensibilidade nos dentes", desc: "A perda de estrutura expõe regiões sensíveis a estímulos do dia a dia." },
-  { title: "Dor muscular e facial", desc: "Os músculos da face podem ficar sobrecarregados e doloridos." },
-  { title: "Sobrecarga na ATM", desc: "A articulação que move a mandíbula sofre com o esforço excessivo." },
-  { title: "Fraturas em dentes ou restaurações", desc: "Pequenas fissuras podem evoluir para perdas estruturais." },
-  { title: "Comprometimento estético do sorriso", desc: "O desgaste muda a forma dos dentes e a harmonia do sorriso." },
+  { icon: ShieldAlert, title: "Desgaste do esmalte dental", desc: "A força repetida fragiliza a camada que protege o dente." },
+  { icon: Thermometer, title: "Sensibilidade nos dentes", desc: "A perda de estrutura expõe regiões sensíveis a estímulos do dia a dia." },
+  { icon: HeartPulse, title: "Dor muscular e facial", desc: "Os músculos da face podem ficar sobrecarregados e doloridos." },
+  { icon: RotateCw, title: "Sobrecarga na ATM", desc: "A articulação que move a mandíbula sofre com o esforço excessivo." },
+  { icon: TriangleAlert, title: "Fraturas em dentes ou restaurações", desc: "Pequenas fissuras podem evoluir para perdas estruturais." },
+  { icon: Sparkles, title: "Comprometimento estético do sorriso", desc: "O desgaste muda a forma dos dentes e a harmonia do sorriso." },
 ];
 
 const steps = [
@@ -230,30 +230,59 @@ function LandingPage() {
         <section className="px-6 pt-10 md:pt-14 pb-12 md:pb-16">
 
           <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-12 items-center">
-            <div className="md:col-span-7 animate-reveal">
-              <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-8">
+            <div className="md:col-span-7 animate-reveal order-1 md:order-1 flex flex-col">
+              <p className="font-mono text-[10px] uppercase tracking-[0.32em] label-mono mb-8 order-1">
                 Odontologia Estética e Funcional · Bruxismo
               </p>
-              <h1 className="font-display font-medium text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[0.95] tracking-tight text-balance text-graphite mb-8">
+              <h1 className="font-display font-medium text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[0.95] tracking-tight text-balance text-graphite mb-8 order-2">
                 Você pode estar <em className="italic font-medium text-champagne">apertando</em> os dentes sem perceber.
               </h1>
-              <p className="text-base md:text-lg text-graphite/70 max-w-xl leading-relaxed mb-10">
+              <p className="text-base md:text-lg text-graphite/80 max-w-xl leading-relaxed mb-10 order-3">
                 Dor na mandíbula, dores de cabeça ao acordar, sensibilidade nos dentes e tensão facial podem ser sinais de bruxismo ou apertamento dental. Uma avaliação cuidadosa ajuda a entender o seu caso e proteger seu sorriso.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10">
-                <PrimaryCta href={ctaPrimaryHref} label={CTA_PRIMARY} />
-                <GhostCta href={ctaSecondaryHref} label={CTA_SECONDARY} />
+
+              {/* Foto aparece aqui só no mobile - traz o rosto humano cedo */}
+              <div className="order-4 md:hidden mb-8">
+                <div className="relative">
+                  <div className="absolute -inset-3 border border-champagne/30 -z-10" aria-hidden />
+                  <img
+                    src={heroImg}
+                    alt="Dra. Jaqueline Martins, cirurgiã-dentista, em sua clínica odontológica em São Paulo."
+                    width={896}
+                    height={1152}
+                    className="w-full aspect-[4/5] object-cover relative"
+                  />
+                  <p className="absolute -bottom-4 left-4 bg-background px-3 py-1 font-mono text-[9px] uppercase tracking-[0.24em] text-graphite/75">
+                    O bruxismo deixa pistas
+                  </p>
+                </div>
               </div>
-              <ul className="flex flex-wrap gap-x-8 gap-y-3 text-[11px] uppercase tracking-[0.18em] text-graphite/55">
+
+              <div className="order-5 flex flex-col items-start gap-3 mb-4">
+                <PrimaryCta href={ctaPrimaryHref} label="Agendar avaliação pelo WhatsApp" />
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-graphite/70">
+                  Avaliação sem compromisso · resposta no mesmo dia
+                </p>
+                <a
+                  href={ctaSecondaryHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-graphite/75 underline underline-offset-[6px] decoration-champagne/50 hover:text-graphite hover:decoration-champagne transition-colors"
+                >
+                  Tenho dor na mandíbula, quero falar sobre isso
+                </a>
+              </div>
+
+              <ul className="order-6 mt-6 flex flex-wrap gap-x-8 gap-y-3 text-[11px] uppercase tracking-[0.18em] text-graphite/75">
                 <li>+21 anos de experiência</li>
-                <li className="hidden sm:block text-champagne/60">·</li>
+                <li className="hidden sm:block text-champagne/70">·</li>
                 <li>Odontologia estética e funcional</li>
-                <li className="hidden sm:block text-champagne/60">·</li>
+                <li className="hidden sm:block text-champagne/70">·</li>
                 <li>Vila Formosa e São Miguel Paulista</li>
               </ul>
             </div>
 
-            <div className="md:col-span-5 animate-reveal" style={{ animationDelay: "200ms" }}>
+            <div className="hidden md:block md:col-span-5 animate-reveal" style={{ animationDelay: "200ms" }}>
               <div className="relative">
                 {/* Plaquinha condutora vive no PlaquinhaScrollGuide */}
                 <div className="absolute -inset-3 border border-champagne/30 -z-10" aria-hidden />
@@ -264,40 +293,46 @@ function LandingPage() {
                   height={1152}
                   className="w-full aspect-[4/5] object-cover relative"
                 />
-                <p className="absolute -bottom-4 left-4 md:left-6 bg-background px-3 py-1 font-mono text-[9px] uppercase tracking-[0.24em] text-graphite/60">
+                <p className="absolute -bottom-4 left-4 md:left-6 bg-background px-3 py-1 font-mono text-[9px] uppercase tracking-[0.24em] text-graphite/75">
                   O bruxismo deixa pistas
                 </p>
               </div>
             </div>
           </div>
+
         </section>
 
         {/* SYMPTOMS - "O bruxismo deixa pistas." */}
         <section id="sintomas" className="px-6 py-14 md:py-20 bg-bone border-y border-border">
           <div className="max-w-7xl mx-auto">
             <div className="mb-8 md:mb-10 max-w-4xl">
-              <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
+              <p className="font-mono text-sm uppercase tracking-[0.2em] label-mono mb-6">
                 Identifique-se
               </p>
               <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-tight text-graphite mb-6">
                 O bruxismo deixa pistas.
               </h2>
-              <p className="text-graphite/65 leading-relaxed md:text-lg">
+              <p className="text-graphite/80 leading-relaxed md:text-lg">
                 Muitas pessoas convivem com sinais de bruxismo por meses ou anos sem perceber. Ele pode acontecer durante o sono ou ao longo do dia, em momentos de tensão, concentração ou ansiedade.
               </p>
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
-              {symptoms.map((s) => (
-                <article
-                  key={s.title}
-                  className="group bg-background p-6 md:p-7 transition-colors duration-300 hover:bg-accent-soft"
-                >
-                  <h3 className="font-display text-xl md:text-2xl text-graphite mb-2">{s.title}</h3>
-                  <p className="text-sm text-graphite/65 leading-snug">{s.desc}</p>
-                </article>
-              ))}
+              {symptoms.map((s) => {
+                const Icon = s.icon;
+                return (
+                  <article
+                    key={s.title}
+                    className="group bg-background p-6 md:p-7 transition-colors duration-300 hover:bg-accent-soft"
+                  >
+                    <Icon aria-hidden strokeWidth={1.25} className="w-6 h-6 text-champagne mb-4" />
+                    <h3 className="font-display text-xl md:text-2xl text-graphite mb-2">{s.title}</h3>
+                    <p className="text-sm text-graphite/75 leading-snug">{s.desc}</p>
+                  </article>
+                );
+              })}
             </div>
+
 
             <div className="mt-10 flex flex-col items-center text-center border-t border-border pt-8 gap-6">
               <p className="font-display text-xl md:text-2xl text-graphite/85 leading-snug italic max-w-2xl">
@@ -318,14 +353,15 @@ function LandingPage() {
               { tag: "Estrutura", value: 2, formatter: (n: number) => String(n).padStart(2, "0"), unit: "unidades", desc: "Vila Formosa e São Miguel Paulista, em São Paulo." },
             ] as const).map((stat) => (
               <div key={stat.tag} className="px-8 py-8 md:px-10 md:py-10">
-                <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne block mb-3">
+                <span className="font-mono text-[10px] uppercase tracking-[0.28em] label-mono block mb-3">
                   {stat.tag}
                 </span>
                 <div className="font-display text-4xl md:text-5xl lg:text-6xl text-graphite leading-none mb-2">
                   <AnimatedNumber value={stat.value} prefix={"prefix" in stat ? stat.prefix : undefined} formatter={"formatter" in stat ? stat.formatter : undefined} />{" "}
-                  <span className="text-base md:text-lg text-graphite/60 align-middle">{stat.unit}</span>
+                  <span className="text-base md:text-lg text-graphite/75 align-middle">{stat.unit}</span>
                 </div>
-                <p className="text-[13px] text-graphite/60 mt-3 leading-snug max-w-xs">{stat.desc}</p>
+                <p className="text-[13px] text-graphite/75 mt-3 leading-snug max-w-xs">{stat.desc}</p>
+
               </div>
             ))}
           </div>
@@ -335,28 +371,33 @@ function LandingPage() {
         <section className="px-6 py-14 md:py-20">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-3xl mb-8 md:mb-10">
-                <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
+                <p className="font-mono text-sm uppercase tracking-[0.2em] label-mono mb-6">
                   Consequências
                 </p>
                 <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-graphite mb-6">
                 O bruxismo pode deixar marcas no seu sorriso e na sua qualidade de vida.
               </h2>
-              <p className="text-graphite/65 leading-relaxed">
+              <p className="text-graphite/80 leading-relaxed">
                 Quando os dentes recebem força excessiva de forma repetida, o impacto pode aparecer nos dentes, na musculatura e na articulação da mandíbula.
               </p>
             </div>
 
             <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-5">
-              {consequences.map((c, i) => (
-                <article
-                  key={c.title}
-                  className="bg-card border border-border p-6 md:p-7 transition-shadow duration-300 hover:shadow-[var(--shadow-soft)]"
-                >
-                  <h3 className="font-display text-xl md:text-2xl text-graphite mb-2">{c.title}</h3>
-                  <p className="text-sm text-graphite/65 leading-snug">{c.desc}</p>
-                </article>
-              ))}
+              {consequences.map((c) => {
+                const Icon = c.icon;
+                return (
+                  <article
+                    key={c.title}
+                    className="bg-card border border-border p-6 md:p-7 transition-shadow duration-300 hover:shadow-[var(--shadow-soft)]"
+                  >
+                    <Icon aria-hidden strokeWidth={1.25} className="w-6 h-6 text-champagne mb-4" />
+                    <h3 className="font-display text-xl md:text-2xl text-graphite mb-2">{c.title}</h3>
+                    <p className="text-sm text-graphite/75 leading-snug">{c.desc}</p>
+                  </article>
+                );
+              })}
             </div>
+
 
             <div className="mt-10 flex flex-col items-center text-center gap-5 border-t border-border pt-8">
               <p className="font-display text-xl md:text-2xl text-graphite/85 leading-snug max-w-xl">
@@ -387,7 +428,7 @@ function LandingPage() {
                 <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-ivory mb-6">
                   O tratamento começa entendendo o seu caso.
                 </h2>
-                <p className="text-ivory/70 leading-relaxed mb-8 md:mb-10 max-w-xl">
+                <p className="text-ivory/85 leading-relaxed mb-8 md:mb-10 max-w-xl">
                   Nem todo bruxismo é igual. A avaliação odontológica é essencial para identificar sinais de desgaste, pontos de dor, hábitos associados e possíveis fatores que estejam contribuindo para o apertamento.
                 </p>
 
@@ -395,7 +436,7 @@ function LandingPage() {
                   {steps.map((step) => (
                     <li key={step.title} className="border-l border-ivory/15 pl-5">
                       <h3 className="font-display text-2xl md:text-3xl text-ivory mb-2 leading-tight">{step.title}</h3>
-                      <p className="text-sm text-ivory/65 leading-relaxed">{step.desc}</p>
+                      <p className="text-sm text-ivory/75 leading-relaxed">{step.desc}</p>
                     </li>
                   ))}
                 </ol>
@@ -408,13 +449,13 @@ function LandingPage() {
         <section id="tratamento" className="px-6 py-14 md:py-20">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-3xl mb-8 md:mb-10">
-                <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
+                <p className="font-mono text-sm uppercase tracking-[0.2em] label-mono mb-6">
                   Tratamentos
                 </p>
                 <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-graphite mb-6">
                 Cuidado personalizado para proteger seus dentes e reduzir desconfortos.
               </h2>
-              <p className="text-graphite/65 leading-relaxed">
+              <p className="text-graphite/78 leading-relaxed">
                 A placa pode fazer parte do cuidado, mas o tratamento começa com uma avaliação individual. A conduta envolve proteção dental, orientações específicas e acompanhamento clínico - sempre desenhada para o seu caso.
               </p>
             </div>
@@ -426,7 +467,7 @@ function LandingPage() {
                   className="bg-background p-6 md:p-7 transition-colors duration-300 hover:bg-accent-soft lg:col-span-4"
                 >
                   <h3 className="font-display text-xl md:text-2xl text-graphite mb-2">{t.title}</h3>
-                  <p className="text-sm text-graphite/65 leading-snug">{t.desc}</p>
+                  <p className="text-sm text-graphite/78 leading-snug">{t.desc}</p>
                 </article>
               ))}
               <figure className="relative lg:col-span-4 min-h-[220px] overflow-hidden">
@@ -447,7 +488,7 @@ function LandingPage() {
               </figure>
             </div>
 
-            <p className="mt-10 text-xs uppercase tracking-[0.2em] text-graphite/45">
+            <p className="mt-10 text-xs uppercase tracking-[0.2em] text-graphite/70">
               · O tratamento indicado depende da avaliação individual de cada paciente.
             </p>
           </div>
@@ -477,7 +518,7 @@ function LandingPage() {
               </div>
             </div>
             <div className="md:col-span-6 order-1 md:order-2">
-              <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
+              <p className="font-mono text-sm uppercase tracking-[0.2em] label-mono mb-6">
                 Dra. Jaqueline Martins
               </p>
               <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-tight text-graphite mb-8">
@@ -486,25 +527,25 @@ function LandingPage() {
               <p className="font-display text-xl md:text-2xl text-graphite/85 leading-snug mb-8">
                 A atuação da Dra. Jaqueline une estética, função e cuidado preventivo para preservar não apenas a aparência do sorriso, mas também sua saúde, conforto e estabilidade ao longo do tempo.
               </p>
-              <p className="text-graphite/65 leading-relaxed mb-10 max-w-2xl">
+              <p className="text-graphite/78 leading-relaxed mb-10 max-w-2xl">
                 Cirurgiã-dentista formada em 2004, especialista em implantodontia e com mais de 21 anos de experiência clínica. Atende em duas unidades em São Paulo - Vila Formosa e São Miguel Paulista - com um cuidado individualizado para cada paciente.
               </p>
 
               <dl className="grid grid-cols-3 gap-6 border-t border-border pt-8">
                 <div>
-                  <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-champagne mb-2">Pacientes</dt>
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.2em] label-mono mb-2">Pacientes</dt>
                   <dd className="font-display text-3xl md:text-4xl text-graphite">
                     +24.256
                   </dd>
                 </div>
                 <div>
-                  <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-champagne mb-2">Carreira</dt>
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.2em] label-mono mb-2">Carreira</dt>
                   <dd className="font-display text-3xl md:text-4xl text-graphite">
                     +21 anos
                   </dd>
                 </div>
                 <div>
-                  <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-champagne mb-2">Unidades</dt>
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.2em] label-mono mb-2">Unidades</dt>
                   <dd className="font-display text-3xl md:text-4xl text-graphite">
                     02
                   </dd>
@@ -526,7 +567,7 @@ function LandingPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-graphite/85 via-graphite/25 to-transparent" />
           <div className="relative w-full max-w-7xl mx-auto px-6 md:px-12 pb-16 md:pb-24">
-            <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
+            <p className="font-mono text-sm uppercase tracking-[0.2em] label-mono mb-6">
               {"\n"}
             </p>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-ivory max-w-4xl text-balance">
@@ -538,25 +579,70 @@ function LandingPage() {
         {/* CLINIC - diferenciais */}
         <section className="px-6 py-14 md:py-20">
           <div className="max-w-7xl mx-auto">
-            <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-10">
+            <p className="font-mono text-[10px] uppercase tracking-[0.32em] label-mono mb-10">
               O que você encontra
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
               {clinic.map((c) => (
                 <article key={c.title} className="border border-border bg-card p-6 md:p-7">
                   <h3 className="font-display text-xl md:text-2xl text-graphite mb-2">{c.title}</h3>
-                  <p className="text-sm text-graphite/65 leading-snug">{c.desc}</p>
+                  <p className="text-sm text-graphite/78 leading-snug">{c.desc}</p>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
+        {/* SOCIAL PROOF - Google reviews */}
+        <section id="avaliacoes" className="px-6 py-20 md:py-28 border-t border-border">
+          <div className="max-w-4xl mx-auto text-center">
+            <p className="font-mono text-sm uppercase tracking-[0.2em] label-mono mb-8">
+              Reputação
+            </p>
+
+            <div className="flex items-center justify-center gap-2 md:gap-3 mb-10" aria-label="Avaliação 5 de 5 estrelas">
+              {[0, 1, 2, 3, 4].map((i) => (
+                <Star
+                  key={i}
+                  aria-hidden
+                  className="w-7 h-7 md:w-9 md:h-9 text-champagne"
+                  fill="currentColor"
+                  strokeWidth={0}
+                />
+              ))}
+            </div>
+
+            <div className="flex flex-col items-center gap-4 mb-8">
+              <span className="font-display text-7xl md:text-8xl lg:text-9xl text-graphite leading-none tracking-tight">
+                5,0
+              </span>
+              <span className="font-display italic text-2xl md:text-3xl text-champagne">
+                +670 avaliações no Google
+              </span>
+            </div>
+
+            <p className="text-graphite/80 md:text-lg leading-relaxed max-w-xl mx-auto mb-10">
+              Somando as unidades de Vila Formosa e São Miguel Paulista - a confiança de quem já passou pela avaliação.
+            </p>
+
+            <div className="inline-flex items-center gap-3 border border-border bg-card px-5 py-3">
+              <svg aria-hidden viewBox="0 0 48 48" className="w-5 h-5">
+                <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
+                <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
+                <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
+                <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
+              </svg>
+              <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-graphite/85">Google Reviews</span>
+            </div>
+          </div>
+        </section>
+
         {/* FAQ */}
+
         <section id="faq" className="px-6 py-14 md:py-20 bg-bone border-y border-border">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8 md:mb-10">
-                <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
+                <p className="font-mono text-sm uppercase tracking-[0.2em] label-mono mb-6">
                   Dúvidas frequentes
                 </p>
                 <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-graphite">
@@ -593,7 +679,7 @@ function LandingPage() {
               <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-tight text-ivory mb-5 text-balance">
                 Não espere o desgaste aparecer para cuidar do seu sorriso.
               </h2>
-              <p className="text-ivory/70 leading-relaxed mb-8 max-w-xl">
+              <p className="text-ivory/85 leading-relaxed mb-8 max-w-xl">
                 Agende uma avaliação e entenda se seus sintomas podem estar relacionados ao bruxismo ou apertamento dental.
               </p>
               <a
@@ -604,7 +690,7 @@ function LandingPage() {
               >
                 Agendar avaliação pelo WhatsApp
               </a>
-              <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.24em] text-ivory/45">
+              <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.24em] text-ivory/75">
                 A avaliação revela o caminho
               </p>
             </div>
@@ -634,12 +720,12 @@ function LandingPage() {
                   className="h-20 md:h-24 w-auto mb-5"
                 />
 
-                <p className="text-sm text-graphite/60 max-w-sm leading-relaxed">
+                <p className="text-sm text-graphite/75 max-w-sm leading-relaxed">
                   Odontologia avançada com foco em estética, função e cuidado individualizado.
                 </p>
               </div>
               <div className="md:col-span-4">
-                <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne mb-5">Unidades</h3>
+                <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] label-mono mb-5">Unidades</h3>
                 <div className="space-y-5">
                   <div>
                     <p className="text-sm font-medium text-graphite/90 mb-1">Vila Formosa</p>
@@ -666,7 +752,7 @@ function LandingPage() {
                 </div>
               </div>
               <div className="md:col-span-2">
-                <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne mb-4">Horários</h3>
+                <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] label-mono mb-4">Horários</h3>
                 <ul className="space-y-2 text-sm text-graphite/70">
                   <li className="flex items-start gap-2">
                     <Clock className="w-4 h-4 mt-0.5 shrink-0 text-champagne/70" />
@@ -677,10 +763,10 @@ function LandingPage() {
                     <span>Sábado: 09:00 - 12:00</span>
                   </li>
                 </ul>
-                <p className="text-[11px] text-graphite/45 mt-3 leading-relaxed">Horários iguais nas duas unidades.</p>
+                <p className="text-[11px] text-graphite/70 mt-3 leading-relaxed">Horários iguais nas duas unidades.</p>
               </div>
               <div className="md:col-span-2">
-                <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne mb-4">Contato</h3>
+                <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] label-mono mb-4">Contato</h3>
                 <ul className="space-y-2 text-sm text-graphite/70">
                   <li>
                     <a href={ctaFinalHref} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-champagne transition-colors">
@@ -702,10 +788,10 @@ function LandingPage() {
               </div>
             </div>
             <div className="mt-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <p className="text-xs text-graphite/45 leading-relaxed max-w-2xl">
+              <p className="text-xs text-graphite/70 leading-relaxed max-w-2xl">
                 As informações desta página são educativas e não substituem uma avaliação odontológica individual.
               </p>
-              <p className="text-xs text-graphite/45">CRO-SP 86932</p>
+              <p className="text-xs text-graphite/70">CRO-SP 86932</p>
             </div>
          </div>
        </footer>
@@ -715,11 +801,13 @@ function LandingPage() {
         href={ctaFinalHref}
         target="_blank"
         rel="noopener noreferrer"
-        className="md:hidden fixed bottom-4 inset-x-4 z-50 inline-flex items-center justify-center bg-graphite text-ivory px-6 py-4 text-[12px] uppercase tracking-[0.18em] font-medium shadow-[var(--shadow-elevated)] hover:bg-champagne hover:text-graphite transition-colors"
+        className="md:hidden fixed bottom-4 inset-x-4 z-50 inline-flex items-center justify-center gap-2 bg-graphite text-champagne border border-champagne/40 px-6 py-4 text-[12px] uppercase tracking-[0.18em] font-medium shadow-[var(--shadow-elevated)] hover:bg-champagne hover:text-graphite hover:border-champagne transition-colors"
       >
-        Agendar avaliação
+        <MessageCircle className="w-4 h-4" aria-hidden />
+        <span>Agendar pelo WhatsApp</span>
       </a>
-      <div className="md:hidden h-20" aria-hidden />
+      <div className="md:hidden h-24" aria-hidden />
+
     </div>
   );
 }
