@@ -287,11 +287,10 @@ function LandingPage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
               {symptoms.map((s) => (
                 <article
-                  key={s.code}
+                  key={s.title}
                   className="group bg-background p-8 md:p-10 transition-colors duration-300 hover:bg-accent-soft"
                 >
-                  <span className="font-mono text-[10px] tracking-[0.2em] text-champagne">{s.code}</span>
-                  <h3 className="font-display text-2xl text-graphite mt-5 mb-3">{s.title}</h3>
+                  <h3 className="font-display text-2xl text-graphite mb-3">{s.title}</h3>
                   <p className="text-sm text-graphite/65 leading-relaxed">{s.desc}</p>
                 </article>
               ))}
