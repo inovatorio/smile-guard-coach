@@ -270,20 +270,16 @@ function LandingPage() {
         {/* SYMPTOMS - "O bruxismo deixa pistas." */}
         <section id="sintomas" className="px-6 py-14 md:py-20 bg-bone border-y border-border">
           <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-end mb-12 md:mb-16">
-              <div className="md:col-span-7">
-                <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
-                  Identifique-se
-                </p>
-                <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-tight text-graphite">
-                  O bruxismo deixa pistas.
-                </h2>
-              </div>
-              <div className="md:col-span-5">
-                <p className="text-graphite/65 leading-relaxed">
-                  Muitas pessoas convivem com sinais de bruxismo por meses ou anos sem perceber. Ele pode acontecer durante o sono ou ao longo do dia, em momentos de tensão, concentração ou ansiedade.
-                </p>
-              </div>
+            <div className="mb-12 md:mb-16 max-w-4xl">
+              <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
+                Identifique-se
+              </p>
+              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-tight text-graphite mb-6">
+                O bruxismo deixa pistas.
+              </h2>
+              <p className="text-graphite/65 leading-relaxed md:text-lg">
+                Muitas pessoas convivem com sinais de bruxismo por meses ou anos sem perceber. Ele pode acontecer durante o sono ou ao longo do dia, em momentos de tensão, concentração ou ansiedade.
+              </p>
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
