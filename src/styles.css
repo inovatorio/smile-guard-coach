@@ -141,3 +141,9 @@
   animation: cta-glow 2.2s ease-in-out infinite;
 }
 
+/* Label mono champagne com contraste mais firme sobre fundos claros (ivory/bone). */
+.label-mono {
+  color: color-mix(in oklch, var(--champagne) 62%, var(--graphite));
+}
+
+
