@@ -272,7 +272,7 @@ function LandingPage() {
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-end mb-12 md:mb-16">
               <div className="md:col-span-7">
-                <p className="font-mono text-xs uppercase tracking-[0.28em] text-champagne mb-6">
+                <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
                   Identifique-se
                 </p>
                 <h2 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-graphite">
@@ -335,7 +335,7 @@ function LandingPage() {
         <section className="px-6 py-20 md:py-28">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-3xl mb-14">
-                <p className="font-mono text-xs uppercase tracking-[0.28em] text-champagne mb-6">
+                <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
                   Consequências
                 </p>
                 <h2 className="font-display text-6xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight text-graphite mb-6">
@@ -372,7 +372,7 @@ function LandingPage() {
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-12 gap-8 md:gap-12 mb-14 items-end">
               <div className="md:col-span-7">
-                <p className="font-mono text-xs uppercase tracking-[0.28em] text-champagne mb-6">
+                <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
                   Avaliação
                 </p>
                 <h2 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-ivory">
@@ -433,7 +433,7 @@ function LandingPage() {
         <section id="tratamento" className="px-6 py-20 md:py-28">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-3xl mb-14">
-                <p className="font-mono text-xs uppercase tracking-[0.28em] text-champagne mb-6">
+                <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
                   Tratamentos
                 </p>
                 <h2 className="font-display text-6xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight text-graphite mb-6">
@@ -502,7 +502,7 @@ function LandingPage() {
               </div>
             </div>
             <div className="md:col-span-6 order-1 md:order-2">
-              <p className="font-mono text-xs uppercase tracking-[0.28em] text-champagne mb-6">
+              <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
                 Dra. Jaqueline Martins
               </p>
               <h2 className="font-display text-6xl md:text-7xl lg:text-8xl leading-[1.02] tracking-tight text-graphite mb-8">
@@ -545,7 +545,7 @@ function LandingPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-graphite/85 via-graphite/25 to-transparent" />
           <div className="relative w-full max-w-7xl mx-auto px-6 md:px-12 pb-16 md:pb-24">
-            <p className="font-mono text-xs uppercase tracking-[0.28em] text-champagne mb-6">
+            <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
               Estrutura
             </p>
             <h2 className="font-display text-6xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight text-ivory max-w-4xl text-balance">
@@ -575,7 +575,7 @@ function LandingPage() {
         <section id="faq" className="px-6 py-20 md:py-28 bg-bone border-y border-border">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12 md:mb-16">
-                <p className="font-mono text-xs uppercase tracking-[0.28em] text-champagne mb-6">
+                <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
                   Dúvidas frequentes
                 </p>
                 <h2 className="font-display text-6xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight text-graphite">
@@ -606,7 +606,7 @@ function LandingPage() {
         <section className="px-6 py-24 md:py-32 bg-graphite text-ivory overflow-hidden">
           <div className="max-w-6xl mx-auto grid md:grid-cols-12 gap-12 items-center">
             <div className="md:col-span-7">
-              <p className="font-mono text-xs uppercase tracking-[0.28em] text-champagne mb-6">
+              <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
                 Agende sua avaliação
               </p>
               <h2 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-ivory mb-6 text-balance">
