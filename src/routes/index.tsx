@@ -6,6 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Phone, MapPin, Clock, Instagram, MessageCircle } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { PlaquinhaJourney } from "@/components/PlaquinhaJourney";
 import heroImg from "@/assets/dra-jaqueline-hero.jpg";
@@ -660,22 +661,24 @@ function LandingPage() {
                 <div className="space-y-5">
                   <div>
                     <p className="text-sm font-medium text-graphite/90 mb-1">Vila Formosa</p>
-                    <p className="text-sm text-graphite/70 leading-relaxed">
-                      Av. Dr. Eduardo Cotching, 1472 - Sala 6<br />
-                      São Paulo
-                    </p>
-                    <a href="tel:1141160605" className="text-sm text-graphite/70 hover:text-champagne transition-colors mt-1 inline-block">
-                      (11) 4116-0605
+                    <div className="flex items-start gap-2 text-sm text-graphite/70 leading-relaxed">
+                      <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-champagne/70" />
+                      <span>Av. Dr. Eduardo Cotching, 1472 - Sala 6<br />São Paulo</span>
+                    </div>
+                    <a href="tel:1141160605" className="flex items-center gap-2 text-sm text-graphite/70 hover:text-champagne transition-colors mt-1">
+                      <Phone className="w-4 h-4 shrink-0 text-champagne/70" />
+                      <span>(11) 4116-0605</span>
                     </a>
                   </div>
                   <div>
                     <p className="text-sm font-medium text-graphite/90 mb-1">São Miguel Paulista</p>
-                    <p className="text-sm text-graphite/70 leading-relaxed">
-                      Rua Pedro Avelino, 70<br />
-                      São Paulo
-                    </p>
-                    <a href="tel:1120371211" className="text-sm text-graphite/70 hover:text-champagne transition-colors mt-1 inline-block">
-                      (11) 2037-1211
+                    <div className="flex items-start gap-2 text-sm text-graphite/70 leading-relaxed">
+                      <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-champagne/70" />
+                      <span>Rua Pedro Avelino, 70<br />São Paulo</span>
+                    </div>
+                    <a href="tel:1120371211" className="flex items-center gap-2 text-sm text-graphite/70 hover:text-champagne transition-colors mt-1">
+                      <Phone className="w-4 h-4 shrink-0 text-champagne/70" />
+                      <span>(11) 2037-1211</span>
                     </a>
                   </div>
                 </div>
@@ -683,8 +686,14 @@ function LandingPage() {
               <div className="md:col-span-2">
                 <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne mb-4">Horários</h3>
                 <ul className="space-y-2 text-sm text-graphite/70">
-                  <li>Segunda à Sexta: 09:00 - 18:00</li>
-                  <li>Sábado: 09:00 - 12:00</li>
+                  <li className="flex items-start gap-2">
+                    <Clock className="w-4 h-4 mt-0.5 shrink-0 text-champagne/70" />
+                    <span>Segunda à Sexta: 09:00 - 18:00</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Clock className="w-4 h-4 mt-0.5 shrink-0 text-champagne/70" />
+                    <span>Sábado: 09:00 - 12:00</span>
+                  </li>
                 </ul>
                 <p className="text-[11px] text-graphite/45 mt-3 leading-relaxed">Horários iguais nas duas unidades.</p>
               </div>
@@ -692,17 +701,20 @@ function LandingPage() {
                 <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne mb-4">Contato</h3>
                 <ul className="space-y-2 text-sm text-graphite/70">
                   <li>
-                    <a href={ctaFinalHref} target="_blank" rel="noopener noreferrer" className="hover:text-champagne transition-colors">
-                      WhatsApp
+                    <a href={ctaFinalHref} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-champagne transition-colors">
+                      <MessageCircle className="w-4 h-4 shrink-0 text-champagne/70" />
+                      <span>WhatsApp</span>
                     </a>
                   </li>
                 </ul>
                 <div className="mt-5 space-y-2">
-                  <a href="https://instagram.com/dra.jaquelinemartins" target="_blank" rel="noopener noreferrer" className="text-sm text-graphite/70 hover:text-champagne transition-colors block">
-                    @dra.jaquelinemartins
+                  <a href="https://instagram.com/dra.jaquelinemartins" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-graphite/70 hover:text-champagne transition-colors">
+                    <Instagram className="w-4 h-4 shrink-0 text-champagne/70" />
+                    <span>@dra.jaquelinemartins</span>
                   </a>
-                  <a href="https://instagram.com/jaqueline.martinsbarrientos" target="_blank" rel="noopener noreferrer" className="text-sm text-graphite/70 hover:text-champagne transition-colors block">
-                    @jaqueline.martinsbarrientos
+                  <a href="https://instagram.com/jaqueline.martinsbarrientos" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-graphite/70 hover:text-champagne transition-colors">
+                    <Instagram className="w-4 h-4 shrink-0 text-champagne/70" />
+                    <span>@jaqueline.martinsbarrientos</span>
                   </a>
                 </div>
               </div>
