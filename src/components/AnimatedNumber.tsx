@@ -24,28 +24,30 @@ export function AnimatedNumber({
     const el = ref.current;
     if (!el) return;
 
+    const startAnimation = () => {
+      if (hasAnimated.current) return;
+      hasAnimated.current = true;
+      const start = performance.now();
+      const animate = (now: number) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        setDisplay(Math.round(eased * value));
+        if (progress < 1) requestAnimationFrame(animate);
+      };
+      requestAnimationFrame(animate);
+    };
+
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting && !hasAnimated.current) {
-          hasAnimated.current = true;
-          const start = performance.now();
-          const animate = (now: number) => {
-            const progress = Math.min((now - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            setDisplay(Math.round(eased * value));
-            if (progress < 1) {
-              requestAnimationFrame(animate);
-            }
-          };
-          requestAnimationFrame(animate);
-        }
+        if (entries[0].isIntersecting) startAnimation();
       },
-      { threshold: 0.3 }
+      { threshold: 0.01, rootMargin: "0px 0px -10% 0px" }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
   }, [value, duration]);
+
 
   const formatted = formatter
     ? formatter(display)
