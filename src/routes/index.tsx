@@ -634,7 +634,7 @@ function LandingPage() {
             </div>
 
             <p className="text-xs md:text-sm text-graphite/70 mt-5">
-              Somando as unidades de Vila Formosa e São Miguel Paulista.
+              {"\n"}
             </p>
           </div>
         </section>
