@@ -88,21 +88,21 @@ const ctaConsequencesHref = buildWhatsAppUrl(
 );
 
 const symptoms = [
-  { title: "Dor ou cansaço na mandíbula", desc: "Sente dor ou cansaço na mandíbula ao acordar ou ao mastigar?" },
-  { title: "Dores de cabeça ao acordar", desc: "Acorda com dor de cabeça nas têmporas ou na região frontal com frequência?" },
-  { title: "Dentes sensíveis", desc: "Seus dentes ficaram sensíveis ao frio, calor ou doce sem causa aparente?" },
-  { title: "Desgaste ou pequenas fraturas", desc: "Notou os dentes mais curtos, com bordas lascadas ou pequenas trincas?" },
-  { title: "Estalos ou desconforto na ATM", desc: "Sua mandíbula estala, trava ou incomoda ao abrir a boca?" },
-  { title: "Tensão facial e travamento", desc: "Percebe o rosto tenso ou a mandíbula travada em momentos de estresse?" },
+  { icon: Sunrise, title: "Dor ou cansaço na mandíbula", desc: "Sente dor ou cansaço na mandíbula ao acordar ou ao mastigar?" },
+  { icon: Brain, title: "Dores de cabeça ao acordar", desc: "Acorda com dor de cabeça nas têmporas ou na região frontal com frequência?" },
+  { icon: Snowflake, title: "Dentes sensíveis", desc: "Seus dentes ficaram sensíveis ao frio, calor ou doce sem causa aparente?" },
+  { icon: Layers, title: "Desgaste ou pequenas fraturas", desc: "Notou os dentes mais curtos, com bordas lascadas ou pequenas trincas?" },
+  { icon: Waves, title: "Estalos ou desconforto na ATM", desc: "Sua mandíbula estala, trava ou incomoda ao abrir a boca?" },
+  { icon: Activity, title: "Tensão facial e travamento", desc: "Percebe o rosto tenso ou a mandíbula travada em momentos de estresse?" },
 ];
 
 const consequences = [
-  { title: "Desgaste do esmalte dental", desc: "A força repetida fragiliza a camada que protege o dente." },
-  { title: "Sensibilidade nos dentes", desc: "A perda de estrutura expõe regiões sensíveis a estímulos do dia a dia." },
-  { title: "Dor muscular e facial", desc: "Os músculos da face podem ficar sobrecarregados e doloridos." },
-  { title: "Sobrecarga na ATM", desc: "A articulação que move a mandíbula sofre com o esforço excessivo." },
-  { title: "Fraturas em dentes ou restaurações", desc: "Pequenas fissuras podem evoluir para perdas estruturais." },
-  { title: "Comprometimento estético do sorriso", desc: "O desgaste muda a forma dos dentes e a harmonia do sorriso." },
+  { icon: ShieldAlert, title: "Desgaste do esmalte dental", desc: "A força repetida fragiliza a camada que protege o dente." },
+  { icon: Thermometer, title: "Sensibilidade nos dentes", desc: "A perda de estrutura expõe regiões sensíveis a estímulos do dia a dia." },
+  { icon: HeartPulse, title: "Dor muscular e facial", desc: "Os músculos da face podem ficar sobrecarregados e doloridos." },
+  { icon: RotateCw, title: "Sobrecarga na ATM", desc: "A articulação que move a mandíbula sofre com o esforço excessivo." },
+  { icon: TriangleAlert, title: "Fraturas em dentes ou restaurações", desc: "Pequenas fissuras podem evoluir para perdas estruturais." },
+  { icon: Sparkles, title: "Comprometimento estético do sorriso", desc: "O desgaste muda a forma dos dentes e a harmonia do sorriso." },
 ];
 
 const steps = [
