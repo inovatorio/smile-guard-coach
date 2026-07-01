@@ -369,24 +369,17 @@ function LandingPage() {
         {/* EVALUATION - dark band */}
         <section className="px-6 py-14 md:py-20 bg-graphite text-ivory">
           <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-12 gap-8 md:gap-12 mb-10 items-end">
-              <div className="md:col-span-7">
-                <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
-                  Avaliação
-                </p>
-                <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-tight text-ivory">
-                  O tratamento começa entendendo o seu caso.
-                </h2>
-              </div>
-              <div className="md:col-span-5">
-                <p className="text-ivory/70 leading-relaxed">
-                  Nem todo bruxismo é igual. A avaliação odontológica é essencial para identificar sinais de desgaste, pontos de dor, hábitos associados e possíveis fatores que estejam contribuindo para o apertamento.
-                </p>
-              </div>
+            <div className="max-w-2xl mx-auto text-center mb-10 md:mb-12">
+              <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-5">
+                Avaliação
+              </p>
+              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-ivory">
+                O tratamento começa entendendo o seu caso.
+              </h2>
             </div>
 
-            <div className="relative mb-12 md:mb-14 border-y border-ivory/15 py-12 md:py-16 grid md:grid-cols-12 gap-8 items-center">
-              <div className="md:col-span-4 md:col-start-2">
+            <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+              <div className="md:col-span-5">
                 <LazyVideoPlayer
                   src={draVideo.url}
                   poster={draVideoPoster.url}
@@ -395,30 +388,21 @@ function LandingPage() {
                 />
               </div>
 
-              <div className="md:col-span-6 md:col-start-7">
-                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne mb-4">
-                  Diagnóstico
+              <div className="md:col-span-7">
+                <p className="text-ivory/70 leading-relaxed mb-8 md:mb-10 max-w-xl">
+                  Nem todo bruxismo é igual. A avaliação odontológica é essencial para identificar sinais de desgaste, pontos de dor, hábitos associados e possíveis fatores que estejam contribuindo para o apertamento.
                 </p>
-                <p className="font-display text-2xl md:text-3xl text-ivory leading-snug mb-4">
-                  Cada caso tem sinais únicos. A avaliação revela o caminho.
-                </p>
-                <p className="text-sm text-ivory/60 leading-relaxed max-w-md">
-                  Quando indicada, a placa é confeccionada sob medida - depois de entender o seu caso, não antes.
-                </p>
+
+                <ol className="grid sm:grid-cols-2 gap-x-8 gap-y-8">
+                  {steps.map((step) => (
+                    <li key={step.title} className="border-l border-ivory/15 pl-5">
+                      <h3 className="font-display text-2xl md:text-3xl text-ivory mb-2 leading-tight">{step.title}</h3>
+                      <p className="text-sm text-ivory/65 leading-relaxed">{step.desc}</p>
+                    </li>
+                  ))}
+                </ol>
               </div>
             </div>
-
-            <ol className="grid md:grid-cols-4 gap-10 md:gap-12">
-              {steps.map((step) => (
-                <li key={step.phase} className="border-l border-ivory/15 pl-6">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne block mb-4">
-                    {step.phase}
-                  </span>
-                  <h3 className="font-display text-2xl md:text-3xl text-ivory mb-3">{step.title}</h3>
-                  <p className="text-sm text-ivory/65 leading-relaxed">{step.desc}</p>
-                </li>
-              ))}
-            </ol>
           </div>
         </section>
 
