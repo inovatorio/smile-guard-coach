@@ -353,14 +353,15 @@ function LandingPage() {
               { tag: "Estrutura", value: 2, formatter: (n: number) => String(n).padStart(2, "0"), unit: "unidades", desc: "Vila Formosa e São Miguel Paulista, em São Paulo." },
             ] as const).map((stat) => (
               <div key={stat.tag} className="px-8 py-8 md:px-10 md:py-10">
-                <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne block mb-3">
+                <span className="font-mono text-[10px] uppercase tracking-[0.28em] label-mono block mb-3">
                   {stat.tag}
                 </span>
                 <div className="font-display text-4xl md:text-5xl lg:text-6xl text-graphite leading-none mb-2">
                   <AnimatedNumber value={stat.value} prefix={"prefix" in stat ? stat.prefix : undefined} formatter={"formatter" in stat ? stat.formatter : undefined} />{" "}
-                  <span className="text-base md:text-lg text-graphite/60 align-middle">{stat.unit}</span>
+                  <span className="text-base md:text-lg text-graphite/75 align-middle">{stat.unit}</span>
                 </div>
-                <p className="text-[13px] text-graphite/60 mt-3 leading-snug max-w-xs">{stat.desc}</p>
+                <p className="text-[13px] text-graphite/75 mt-3 leading-snug max-w-xs">{stat.desc}</p>
+
               </div>
             ))}
           </div>
