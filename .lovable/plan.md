@@ -1,42 +1,32 @@
-# Plano: Compactação Editorial Premium
+## Reestruturação da seção Avaliação
 
-## Diagnóstico dos anexos
+**Objetivo:** eliminar o espaço vazio ao lado do vídeo e encurtar a seção, integrando as 4 fases (Escuta / Exame clínico / Identificação / Plano de cuidado) diretamente ao lado do vídeo. Remover a duplicação de rótulo/título nos cards.
 
-1. **Cards Sintomas / Consequências / Tratamentos / Estrutura**: padding interno ~48-56px, títulos serifados em text-3xl/4xl, descrições em text-lg com line-height 1.75 - cada card ocupa ~200px de altura desnecessariamente.
-2. **Bloco de estatísticas (+21 / +24.256 / 02)**: números em text-8xl/9xl com padding vertical ~120px, empurram outras seções para fora da fold.
-3. **Gaps entre cards**: gap-8/gap-12 no grid está gerando muito ar entre elementos.
+### Mudanças em `src/routes/index.tsx` (seção Avaliação, ~linhas 369-423)
 
-## Ajustes (Compacto Editorial)
+1. **Remover o bloco intermediário "Diagnóstico / Cada caso tem sinais únicos..."** (linhas 388-409) - é ele que cria o vazio ao lado do vídeo.
+2. **Remover o cabeçalho grande em grid separado** (linhas 372-386) e transformá-lo em um cabeçalho compacto centralizado acima do novo bloco.
+3. **Criar um único bloco `md:grid-cols-12`** com:
+   - **Coluna esquerda (col-span-5):** o `LazyVideoPlayer` (mesma proporção vertical).
+   - **Coluna direita (col-span-7):** cabeçalho curto + as 4 fases em `grid-cols-2` compacto (Escuta, Exame clínico, Identificação, Plano de cuidado).
+4. **Corrigir duplicação nos cards de fase:** hoje `phase` e `title` têm o mesmo texto ("Escuta" / "Escuta"). Manter apenas o `title` (Fraunces) e remover a exibição do `phase` acima. A estrutura de dados `steps` não muda - apenas o JSX deixa de renderizar `{step.phase}`.
+5. **Preservar:** copy do H2 ("O tratamento começa entendendo o seu caso."), texto de apoio, paleta grafite/champagne, animações da plaquinha e todo o resto da página.
 
-**Cards de conteúdo** (`Sintomas`, `Consequências`, `Tratamentos`, `Estrutura`):
-- Padding: `p-10/p-12` → `p-6 md:p-7`
-- Título do card: `text-3xl/4xl` → `text-xl md:text-2xl`
-- Descrição: `text-lg leading-relaxed` → `text-sm md:text-base leading-snug`
-- Gap do grid: `gap-8/12` → `gap-4 md:gap-5`
-- Altura mínima removida onde exista
+### Resultado visual esperado
 
-**Bloco de estatísticas** (faixa horizontal enxuta):
-- Container: reduzir `py-24/py-32` → `py-12 md:py-14`
-- Números: `text-8xl/9xl` → `text-5xl md:text-6xl`
-- Labels (EXPERIÊNCIA/PACIENTES/ESTRUTURA): manter `text-xs tracking-widest`
-- Descrições abaixo: `text-base` → `text-sm`, max-width menor
-- Layout: garantir 3 colunas em uma linha só (desktop), sem quebra
-- Manter animação de contagem do `AnimatedNumber`
+```text
+┌─────────────────── AVALIAÇÃO ───────────────────┐
+│  [pequeno cabeçalho centralizado]               │
+│                                                  │
+│  ┌─────────┐   O tratamento começa entendendo   │
+│  │         │   o seu caso.                       │
+│  │  VÍDEO  │   [parágrafo de apoio]              │
+│  │ (9:16)  │   ─────────────────────             │
+│  │         │   ┌ Escuta      ┌ Exame clínico    │
+│  │  ▶      │   └ desc curta  └ desc curta       │
+│  │         │   ┌ Identificação ┌ Plano cuidado  │
+│  └─────────┘   └ desc curta    └ desc curta     │
+└──────────────────────────────────────────────────┘
+```
 
-**Espaçamentos globais de seção**:
-- Manter títulos H2 principais (`Identifique-se`, `Consequências`) no tamanho atual - o usuário aprovou.
-- Reduzir `py-20/24` das seções internas de cards para `py-14 md:py-16`.
-- Reduzir margin entre header da seção e grid de cards de `mt-16` para `mt-8/10`.
-
-## Arquivos afetados
-
-- `src/routes/index.tsx` - ajustar classes Tailwind nos 4 blocos de cards + bloco de estatísticas.
-- Nenhum novo componente, nenhuma mudança de estrutura, nenhuma mudança de copy.
-
-## Resultado esperado
-
-No desktop 1440px, o lead verá:
-- Bloco de estatísticas inteiro em uma tela.
-- Grid de 4 cards (Sintomas/Consequências) visível em uma tela sem scroll.
-- Redução aproximada de 30-35% na altura total da LP.
-- Direção visual, cores, fontes e narrativa da plaquinha permanecem intactas.
+Redução estimada de altura da seção: ~35-40% no desktop, eliminando os dois grandes vazios marcados em vermelho.
