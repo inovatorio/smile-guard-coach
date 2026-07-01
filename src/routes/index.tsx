@@ -500,9 +500,9 @@ function LandingPage() {
             </div>
             <div className="md:col-span-6 order-1 md:order-2">
               <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-6">
-                [ 05 ] Dra. Jaqueline Martins
+                Dra. Jaqueline Martins
               </p>
-              <h2 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.02] tracking-tight text-graphite mb-8">
+              <h2 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-graphite mb-8">
                 Autoridade clínica em estética e função do sorriso.
               </h2>
               <p className="font-display text-xl md:text-2xl text-graphite/85 leading-snug mb-8">
@@ -536,9 +536,9 @@ function LandingPage() {
             <div className="grid md:grid-cols-12 gap-10 md:gap-14 mb-14 items-end">
               <div className="md:col-span-7">
                 <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-5">
-                  [ 06 ] Estrutura
+                  Estrutura
                 </p>
-                <h2 className="font-display text-4xl md:text-5xl leading-[1.05] tracking-tight text-graphite">
+                <h2 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-graphite">
                   Uma clínica preparada para cuidar do seu sorriso com precisão e acolhimento.
                 </h2>
               </div>
@@ -556,9 +556,6 @@ function LandingPage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {clinic.map((c, i) => (
                 <article key={c.title} className="border border-border bg-card p-8">
-                  <span className="font-mono text-[10px] tracking-[0.2em] text-champagne">
-                    E-{String(i + 1).padStart(2, "0")}
-                  </span>
                   <h3 className="font-display text-xl text-graphite mt-5 mb-3">{c.title}</h3>
                   <p className="text-sm text-graphite/65 leading-relaxed">{c.desc}</p>
                 </article>
@@ -571,10 +568,10 @@ function LandingPage() {
         <section id="faq" className="px-6 py-20 md:py-28 bg-bone border-y border-border">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12 md:mb-16">
-              <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-5">
-                [ 07 ] Dúvidas frequentes
-              </p>
-              <h2 className="font-display text-4xl md:text-5xl leading-[1.05] tracking-tight text-graphite">
+                <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-5">
+                  Dúvidas frequentes
+                </p>
+                <h2 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-graphite">
                 Perguntas que escutamos no consultório.
               </h2>
             </div>
