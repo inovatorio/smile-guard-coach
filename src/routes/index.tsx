@@ -164,7 +164,7 @@ function PrimaryCta({ href, label, className = "" }: { href: string; label: stri
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center bg-graphite text-ivory px-8 py-4 text-[13px] tracking-wide font-medium hover:bg-champagne hover:text-graphite transition-colors duration-300 ${className}`}
+      className={`inline-flex items-center justify-center bg-graphite text-ivory px-8 py-4 text-[13px] tracking-wide font-medium hover:bg-champagne hover:text-graphite transition-all duration-300 hover:scale-[1.03] animate-cta-glow ${className}`}
     >
       {label}
     </a>
