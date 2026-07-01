@@ -100,10 +100,10 @@ const consequences = [
 ];
 
 const steps = [
-  { phase: "Fase 01", title: "Escuta", desc: "Conversamos sobre seus sintomas, rotina e histórico de saúde." },
-  { phase: "Fase 02", title: "Exame clínico", desc: "Avaliação dos dentes, da mordida, da musculatura e da ATM." },
-  { phase: "Fase 03", title: "Identificação", desc: "Mapeamento de sinais de desgaste, sensibilidade ou fraturas." },
-  { phase: "Fase 04", title: "Plano de cuidado", desc: "Conduta personalizada de proteção, alívio e prevenção." },
+  { phase: "Escuta", title: "Escuta", desc: "Conversamos sobre seus sintomas, rotina e histórico de saúde." },
+  { phase: "Exame clínico", title: "Exame clínico", desc: "Avaliação dos dentes, da mordida, da musculatura e da ATM." },
+  { phase: "Identificação", title: "Identificação", desc: "Mapeamento de sinais de desgaste, sensibilidade ou fraturas." },
+  { phase: "Plano de cuidado", title: "Plano de cuidado", desc: "Conduta personalizada de proteção, alívio e prevenção." },
 ];
 
 const treatments = [
@@ -271,7 +271,7 @@ function LandingPage() {
             <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-end mb-12 md:mb-16">
               <div className="md:col-span-7">
                 <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-5">
-                  [ 01 ] Identifique-se
+                  Identifique-se
                 </p>
                 <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-tight text-graphite">
                   O bruxismo deixa pistas.
@@ -311,9 +311,9 @@ function LandingPage() {
         <section className="bg-card border-b border-border">
           <div className="max-w-7xl mx-auto grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border">
             {[
-              { tag: "[01] Experiência", number: "+21", unit: "anos", desc: "de atuação clínica em odontologia estética e funcional." },
-              { tag: "[02] Pacientes", number: "+24.256", unit: "atendidos", desc: "histórias acompanhadas ao longo da carreira." },
-              { tag: "[03] Estrutura", number: "02", unit: "unidades", desc: "Vila Formosa e São Miguel Paulista, em São Paulo." },
+              { tag: "Experiência", number: "+21", unit: "anos", desc: "de atuação clínica em odontologia estética e funcional." },
+              { tag: "Pacientes", number: "+24.256", unit: "atendidos", desc: "histórias acompanhadas ao longo da carreira." },
+              { tag: "Estrutura", number: "02", unit: "unidades", desc: "Vila Formosa e São Miguel Paulista, em São Paulo." },
             ].map((stat) => (
               <div key={stat.tag} className="p-10 md:p-14">
                 <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne block mb-4">
