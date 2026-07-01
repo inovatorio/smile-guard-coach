@@ -353,7 +353,7 @@ function LandingPage() {
               ))}
             </div>
 
-            <div className="mt-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-5 border-t border-border pt-8">
+            <div className="mt-10 flex flex-col items-center text-center gap-5 border-t border-border pt-8">
               <p className="font-display text-xl md:text-2xl text-graphite/85 leading-snug max-w-xl">
                 Muitas dessas marcas começam silenciosas - e podem ser interrompidas com a avaliação certa.
               </p>
