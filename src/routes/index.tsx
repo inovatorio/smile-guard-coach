@@ -476,7 +476,7 @@ function LandingPage() {
               ))}
               <figure className="relative lg:col-span-4 min-h-[220px] overflow-hidden">
                 <img
-                  src={tratamentosImg}
+                  src={tratamentosImg.url}
                   alt="Detalhe editorial de bancada em mármore com instrumentos odontológicos em clínica premium."
                   width={1280}
                   height={1600}
