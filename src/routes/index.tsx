@@ -301,7 +301,8 @@ function LandingPage() {
 
             <div className="mt-10 flex flex-col items-center text-center border-t border-border pt-8 gap-6">
               <p className="font-display text-xl md:text-2xl text-graphite/85 leading-snug italic max-w-2xl">
-                Se esses sinais aparecem com frequência, é hora de investigar. O bruxismo age em silêncio antes de deixar marcas visíveis.
+                Se esses sinais aparecem com frequência, é hora de investigar.{"\u00a0"}<br />
+                O bruxismo age em silêncio antes de deixar marcas visíveis.
               </p>
               <PrimaryCta href={ctaSymptomsHref} label="Esses sintomas parecem comigo" />
             </div>
@@ -359,7 +360,7 @@ function LandingPage() {
 
             <div className="mt-10 flex flex-col items-center text-center gap-5 border-t border-border pt-8">
               <p className="font-display text-xl md:text-2xl text-graphite/85 leading-snug max-w-xl">
-                Muitas dessas marcas começam silenciosas - e podem ser interrompidas com a avaliação certa.
+                Muitas dessas marcas começam silenciosas e podem ser interrompidas com a avaliação certa.
               </p>
               <PrimaryCta href={ctaConsequencesHref} label="Quero entender se isso pode ser bruxismo" />
             </div>
