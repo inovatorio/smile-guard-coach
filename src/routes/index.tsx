@@ -307,17 +307,17 @@ function LandingPage() {
         {/* AUTHORITY STATS STRIP */}
         <section className="bg-card border-b border-border">
           <div className="max-w-7xl mx-auto grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border">
-            {[
-              { tag: "Experiência", number: "+21", unit: "anos", desc: "de atuação clínica em odontologia estética e funcional." },
-              { tag: "Pacientes", number: "+24.256", unit: "atendidos", desc: "histórias acompanhadas ao longo da carreira." },
-              { tag: "Estrutura", number: "02", unit: "unidades", desc: "Vila Formosa e São Miguel Paulista, em São Paulo." },
-            ].map((stat) => (
+            {([
+              { tag: "Experiência", value: 21, prefix: "+", unit: "anos", desc: "de atuação clínica em odontologia estética e funcional." },
+              { tag: "Pacientes", value: 24256, prefix: "+", unit: "atendidos", desc: "histórias acompanhadas ao longo da carreira." },
+              { tag: "Estrutura", value: 2, formatter: (n: number) => String(n).padStart(2, "0"), unit: "unidades", desc: "Vila Formosa e São Miguel Paulista, em São Paulo." },
+            ] as const).map((stat) => (
               <div key={stat.tag} className="p-10 md:p-14">
                 <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne block mb-4">
                   {stat.tag}
                 </span>
                 <div className="font-display text-5xl md:text-6xl text-graphite leading-none mb-2">
-                  {stat.number}{" "}
+                  <AnimatedNumber value={stat.value} prefix={"prefix" in stat ? stat.prefix : undefined} formatter={"formatter" in stat ? stat.formatter : undefined} />{" "}
                   <span className="text-xl md:text-2xl text-graphite/60 align-middle">{stat.unit}</span>
                 </div>
                 <p className="text-sm text-graphite/60 mt-4 leading-relaxed max-w-xs">{stat.desc}</p>
