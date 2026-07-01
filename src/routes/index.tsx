@@ -422,7 +422,7 @@ function LandingPage() {
               </div>
 
               <div className="md:col-span-7">
-                <p className="font-mono text-sm uppercase tracking-[0.2em] label-mono mb-5">
+                <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-5">
                   Avaliação
                 </p>
                 <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-ivory mb-6">
@@ -480,7 +480,7 @@ function LandingPage() {
                   className="absolute inset-0 w-full h-full object-cover"
                 />
                 <figcaption className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-graphite/70 via-graphite/10 to-transparent text-ivory">
-                  <span className="font-mono text-[10px] tracking-[0.2em] label-mono mb-2">Nota clínica</span>
+                  <span className="font-mono text-[10px] tracking-[0.2em] text-champagne mb-2">Nota clínica</span>
                   <p className="font-display text-base md:text-lg leading-snug max-w-xs">
                     Cada conduta é desenhada para o seu caso - não para um padrão.
                   </p>
@@ -503,7 +503,7 @@ function LandingPage() {
               <div className="relative">
                 <div className="absolute -inset-4 md:-inset-6 border border-champagne/40 -z-10" aria-hidden />
                 <div className="absolute -bottom-6 -right-6 hidden md:block bg-graphite text-ivory px-6 py-4 max-w-[220px] z-10">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.24em] label-mono block mb-1">CRO-SP 86932</span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-champagne block mb-1">CRO-SP 86932</span>
                   <span className="font-display text-lg leading-tight">Dra. Jaqueline Martins</span>
                 </div>
                 <img
@@ -673,7 +673,7 @@ function LandingPage() {
         <section className="px-6 py-16 md:py-24 bg-graphite text-ivory overflow-hidden">
           <div className="max-w-6xl mx-auto grid md:grid-cols-12 gap-10 items-center">
             <div className="md:col-span-6">
-              <p className="font-mono text-sm uppercase tracking-[0.2em] label-mono mb-5">
+              <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-5">
                 Agende sua avaliação
               </p>
               <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-tight text-ivory mb-5 text-balance">
