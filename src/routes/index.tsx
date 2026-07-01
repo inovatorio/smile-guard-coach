@@ -9,6 +9,7 @@ import {
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { PlaquinhaJourney } from "@/components/PlaquinhaJourney";
 import heroImg from "@/assets/dra-jaqueline-hero.jpg";
+import autoridadeImg from "@/assets/dra-jaqueline-autoridade.jpg.asset.json";
 import clinicaImg from "@/assets/clinica-estrutura.jpg";
 import tratamentosImg from "@/assets/tratamentos-detalhe.jpg";
 import plaquinhaRepouso from "@/assets/plaquinha-repouso.png";
@@ -484,18 +485,19 @@ function LandingPage() {
             <div className="md:col-span-6 order-2 md:order-1">
               <div className="relative">
                 <div className="absolute -inset-4 md:-inset-6 border border-champagne/40 -z-10" aria-hidden />
-                <div className="absolute -bottom-6 -right-6 hidden md:block bg-graphite text-ivory px-6 py-4 max-w-[220px]">
+                <div className="absolute -bottom-6 -right-6 hidden md:block bg-graphite text-ivory px-6 py-4 max-w-[220px] z-10">
                   <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-champagne block mb-1">CRO-SP</span>
                   <span className="font-display text-lg leading-tight">Dra. Jaqueline Martins</span>
                 </div>
                 <img
-                  src={heroImg}
+                  src={autoridadeImg.url}
                   alt="Retrato da Dra. Jaqueline Martins, cirurgiã-dentista, em sua clínica em São Paulo."
                   width={1120}
                   height={1400}
                   loading="lazy"
-                  className="w-full aspect-[4/5] object-cover"
+                  className="w-full aspect-[4/5] object-cover saturate-[0.82] brightness-[1.03] contrast-[1.02]"
                 />
+                <div className="absolute inset-0 bg-bone/20 mix-blend-overlay pointer-events-none" aria-hidden="true" />
               </div>
             </div>
             <div className="md:col-span-6 order-1 md:order-2">
