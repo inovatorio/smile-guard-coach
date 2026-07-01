@@ -260,9 +260,6 @@ function LandingPage() {
 
               <div className="order-5 flex flex-col items-start gap-3 mb-4">
                 <PrimaryCta href={ctaPrimaryHref} label="Agendar avaliação pelo WhatsApp" />
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-graphite/70">
-                  Avaliação sem compromisso · resposta no mesmo dia
-                </p>
                 <a
                   href={ctaSecondaryHref}
                   target="_blank"
@@ -272,6 +269,7 @@ function LandingPage() {
                   Tenho dor na mandíbula, quero falar sobre isso
                 </a>
               </div>
+
 
               <ul className="order-6 mt-6 flex flex-wrap gap-x-8 gap-y-3 text-[11px] uppercase tracking-[0.18em] text-graphite/75">
                 <li>+21 anos de experiência</li>
