@@ -190,6 +190,16 @@ function GhostCta({ href, label, className = "" }: { href: string; label: string
 
 function LandingPage() {
   const journeyRef = useRef<HTMLDivElement>(null);
+  const [fabVisible, setFabVisible] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setFabVisible(window.scrollY > 320);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
