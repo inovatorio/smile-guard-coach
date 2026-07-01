@@ -801,11 +801,13 @@ function LandingPage() {
         href={ctaFinalHref}
         target="_blank"
         rel="noopener noreferrer"
-        className="md:hidden fixed bottom-4 inset-x-4 z-50 inline-flex items-center justify-center bg-graphite text-ivory px-6 py-4 text-[12px] uppercase tracking-[0.18em] font-medium shadow-[var(--shadow-elevated)] hover:bg-champagne hover:text-graphite transition-colors"
+        className="md:hidden fixed bottom-4 inset-x-4 z-50 inline-flex items-center justify-center gap-2 bg-graphite text-champagne border border-champagne/40 px-6 py-4 text-[12px] uppercase tracking-[0.18em] font-medium shadow-[var(--shadow-elevated)] hover:bg-champagne hover:text-graphite hover:border-champagne transition-colors"
       >
-        Agendar avaliação
+        <MessageCircle className="w-4 h-4" aria-hidden />
+        <span>Agendar pelo WhatsApp</span>
       </a>
-      <div className="md:hidden h-20" aria-hidden />
+      <div className="md:hidden h-24" aria-hidden />
+
     </div>
   );
 }
