@@ -10,12 +10,15 @@ import { Phone, MapPin, Clock, Instagram, MessageCircle } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { PlaquinhaJourney } from "@/components/PlaquinhaJourney";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
+import { LazyVideoPlayer } from "@/components/LazyVideoPlayer";
 import heroImg from "@/assets/dra-jaqueline-hero.jpg";
 import autoridadeImg from "@/assets/dra-jaqueline-autoridade.jpg.asset.json";
 import clinicaImg from "@/assets/clinica-estrutura.jpg";
 import tratamentosImg from "@/assets/tratamentos-detalhe.jpg";
 import plaquinhaRepouso from "@/assets/plaquinha-repouso.png";
 import logoAsset from "@/assets/logo-jaqueline-martins.png.asset.json";
+import draVideo from "@/assets/dra-jaqueline-video.mp4.asset.json";
+import draVideoPoster from "@/assets/dra-jaqueline-video-poster.jpg.asset.json";
 
 const PAGE_TITLE = "Dra. Jaqueline Martins - Avaliação de Bruxismo";
 const PAGE_DESC =
