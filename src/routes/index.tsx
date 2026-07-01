@@ -10,12 +10,15 @@ import { Phone, MapPin, Clock, Instagram, MessageCircle } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { PlaquinhaJourney } from "@/components/PlaquinhaJourney";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
+import { LazyVideoPlayer } from "@/components/LazyVideoPlayer";
 import heroImg from "@/assets/dra-jaqueline-hero.jpg";
 import autoridadeImg from "@/assets/dra-jaqueline-autoridade.jpg.asset.json";
 import clinicaImg from "@/assets/clinica-estrutura.jpg";
 import tratamentosImg from "@/assets/tratamentos-detalhe.jpg";
 import plaquinhaRepouso from "@/assets/plaquinha-repouso.png";
 import logoAsset from "@/assets/logo-jaqueline-martins.png.asset.json";
+import draVideo from "@/assets/dra-jaqueline-video.mp4.asset.json";
+import draVideoPoster from "@/assets/dra-jaqueline-video-poster.jpg.asset.json";
 
 const PAGE_TITLE = "Dra. Jaqueline Martins - Avaliação de Bruxismo";
 const PAGE_DESC =
@@ -382,19 +385,15 @@ function LandingPage() {
             </div>
 
             <div className="relative mb-12 md:mb-14 border-y border-ivory/15 py-12 md:py-16 grid md:grid-cols-12 gap-8 items-center">
-              <div className="md:col-span-4 md:col-start-2 relative min-h-[180px] hidden md:block" aria-hidden="true">
-                <svg
-                  className="absolute inset-0 w-full h-full pointer-events-none text-champagne/40"
-                  viewBox="0 0 200 200"
-                  preserveAspectRatio="none"
-                >
-                  <line x1="0" y1="40" x2="80" y2="40" stroke="currentColor" strokeWidth="0.3" />
-                  <line x1="120" y1="160" x2="200" y2="160" stroke="currentColor" strokeWidth="0.3" />
-                  <line x1="100" y1="0" x2="100" y2="30" stroke="currentColor" strokeWidth="0.3" />
-                  <line x1="100" y1="170" x2="100" y2="200" stroke="currentColor" strokeWidth="0.3" />
-                  <circle cx="100" cy="100" r="0.8" className="fill-champagne" />
-                </svg>
+              <div className="md:col-span-4 md:col-start-2">
+                <LazyVideoPlayer
+                  src={draVideo.url}
+                  poster={draVideoPoster.url}
+                  label="Assistir mensagem da Dra. Jaqueline Martins"
+                  className="rounded-sm shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
+                />
               </div>
+
               <div className="md:col-span-6 md:col-start-7">
                 <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne mb-4">
                   Diagnóstico

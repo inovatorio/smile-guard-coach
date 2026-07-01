@@ -1,35 +1,31 @@
 ## Objetivo
+Inserir o vídeo enviado (`video_Dra_Jaqueline.mp4`) no espaço marcado da seção "Avaliação", com botão de play manual (sem autoplay) e otimizado para não pesar no carregamento.
 
-Remover a imagem atual das colheres douradas (que destoa da direção clínica premium) e transformar a seção **Estrutura** em um bloco visual pleno: uma foto ampla ocupando a seção inteira, com os 4 cards de diferenciais renderizados logo abaixo em bloco separado.
+## Passos
 
-## Mudanças em `src/routes/index.tsx`
+1. **Registrar o vídeo como asset via Lovable Assets**
+   - Rodar `lovable-assets create --file /mnt/user-uploads/video_Dra_Jaqueline.mp4` gerando `src/assets/video-dra-jaqueline.mp4.asset.json`.
+   - Isso mantém o binário fora do repo e serve via CDN (carregamento sob demanda).
 
-### 1. Nova estrutura da seção
-Reescrever o bloco `{/* CLINIC */}` (linhas ~533-565) em duas partes empilhadas:
+2. **Gerar um poster estático leve (thumbnail)**
+   - Extrair um frame do vídeo com `ffmpeg` (ex.: segundo 1) → `src/assets/video-dra-jaqueline-poster.jpg` (comprimido, ~1280px).
+   - Serve como imagem de capa antes do play - carrega rápido e evita baixar o MP4 no load inicial.
 
-**Parte A - Foto full-bleed**
-- Container `w-screen` com altura `min-h-[70vh] md:min-h-[85vh]`
-- Imagem `object-cover` cobrindo 100% do container
-- Overlay em gradient sutil (grafite/transparente) na base para legibilidade
-- Sobreposto na porção inferior-esquerda: eyebrow "Estrutura" + H2 "Uma clínica preparada para cuidar do seu sorriso com precisão e acolhimento." em tipografia display grande, cor marfim
-- Padding interno responsivo (`px-6 md:px-12 pb-16 md:pb-24`)
+3. **Criar componente `LazyVideoPlayer`** (`src/components/LazyVideoPlayer.tsx`)
+   - Estado `isPlaying`. Enquanto `false`: renderiza apenas o `<img>` do poster + botão de play sobreposto (ícone `Play` do lucide, círculo champagne com blur, hover scale).
+   - Ao clicar: monta o `<video>` com `preload="none"`, `controls`, `playsInline`, `src` do asset, e dá `.play()`.
+   - Isso garante zero download do MP4 até o usuário clicar (performance).
+   - Aspect ratio fixo (16:9 ou proporção original) para evitar layout shift.
 
-**Parte B - Cards de diferenciais**
-- Bloco separado com fundo marfim padrão, `py-20 md:py-28`
-- Mantém o grid `sm:grid-cols-2 lg:grid-cols-4` com os 4 cards já existentes (`clinic.map`)
-- Eyebrow curto acima: "O que você encontra"
+4. **Integrar na seção Avaliação em `src/routes/index.tsx`**
+   - Localizar o bloco vazio abaixo do título "O tratamento começa entendendo o seu caso." (coluna esquerda, acima do bloco "Diagnóstico").
+   - Substituir/preencher esse espaço pelo `<LazyVideoPlayer>` com bordas sutis e tratamento visual coerente (moldura fina champagne, radius pequeno) para casar com a estética editorial.
 
-### 2. Nova imagem
-Gerar via `imagegen` uma foto editorial ampla (1920x1200) de consultório odontológico premium:
-- Ambiente com luz natural, tons marfim/champagne/madeira clara
-- Cadeira odontológica moderna em segundo plano, desfocada
-- Detalhes de arquitetura minimalista, sem pessoas
-- Estética editorial (Kinfolk / Cereal magazine) - nada de estoque genérico
-- Salvar em `src/assets/clinica-estrutura.jpg` e substituir o import `clinicaImg`
+5. **Validação**
+   - `bun run build` para garantir integridade.
+   - Verificar via preview que: (a) o poster aparece imediatamente, (b) o botão de play está visível e centralizado, (c) o vídeo só carrega ao clicar, (d) responsividade mobile mantida.
 
-### 3. Limpeza
-- Remover o `import` e o arquivo antigo `clinica-detalhe.jpg` (colheres douradas) se não for referenciado em outro lugar
-
-## Fora de escopo
-- Nenhuma outra seção é alterada
-- Direção visual, cores e tipografia permanecem inalteradas
+## Detalhes técnicos
+- `preload="none"` no `<video>` é o que evita o download antecipado.
+- Poster JPG de ~80-150KB substitui os megabytes do MP4 no primeiro paint.
+- Sem autoplay, sem loop, com controles nativos após o play.
