@@ -14,7 +14,7 @@ import { LazyVideoPlayer } from "@/components/LazyVideoPlayer";
 import heroImg from "@/assets/dra-jaqueline-hero.jpg";
 import autoridadeImg from "@/assets/dra-jaqueline-autoridade.jpg.asset.json";
 import clinicaImg from "@/assets/clinica-estrutura.jpg";
-import tratamentosImg from "@/assets/tratamentos-detalhe.jpg";
+import tratamentosImg from "@/assets/tratamentos-detalhe-v2.jpg.asset.json";
 import plaquinhaRepouso from "@/assets/plaquinha-repouso.png";
 import logoAsset from "@/assets/jm-monogram.png.asset.json";
 import draVideo from "@/assets/dra-jaqueline-video.mp4.asset.json";
