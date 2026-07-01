@@ -9,7 +9,7 @@ import {
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { PlaquinhaJourney } from "@/components/PlaquinhaJourney";
 import heroImg from "@/assets/dra-jaqueline-hero.jpg";
-import clinicaImg from "@/assets/clinica-detalhe.jpg";
+import clinicaImg from "@/assets/clinica-estrutura.jpg";
 import tratamentosImg from "@/assets/tratamentos-detalhe.jpg";
 import plaquinhaRepouso from "@/assets/plaquinha-repouso.png";
 import logoAsset from "@/assets/logo-jaqueline-martins.png.asset.json";
@@ -530,31 +530,35 @@ function LandingPage() {
           </div>
         </section>
 
-        {/* CLINIC */}
+        {/* CLINIC - full-bleed image */}
+        <section className="relative w-full min-h-[70vh] md:min-h-[85vh] flex items-end overflow-hidden">
+          <img
+            src={clinicaImg}
+            alt="Interior da clínica odontológica da Dra. Jaqueline Martins, com luz natural e ambiente acolhedor."
+            width={1920}
+            height={1200}
+            loading="lazy"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-graphite/85 via-graphite/25 to-transparent" />
+          <div className="relative w-full max-w-7xl mx-auto px-6 md:px-12 pb-16 md:pb-24">
+            <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-5">
+              Estrutura
+            </p>
+            <h2 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-ivory max-w-4xl text-balance">
+              Uma clínica preparada para cuidar do seu sorriso com precisão e acolhimento.
+            </h2>
+          </div>
+        </section>
+
+        {/* CLINIC - diferenciais */}
         <section className="px-6 py-20 md:py-28">
           <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-12 gap-10 md:gap-14 mb-14 items-end">
-              <div className="md:col-span-7">
-                <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-5">
-                  Estrutura
-                </p>
-                <h2 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-graphite">
-                  Uma clínica preparada para cuidar do seu sorriso com precisão e acolhimento.
-                </h2>
-              </div>
-              <div className="md:col-span-5">
-                <img
-                  src={clinicaImg}
-                  alt="Detalhe da clínica odontológica da Dra. Jaqueline Martins."
-                  width={1280}
-                  height={896}
-                  loading="lazy"
-                  className="w-full aspect-[4/3] object-cover"
-                />
-              </div>
-            </div>
+            <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-10">
+              O que você encontra
+            </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {clinic.map((c, i) => (
+              {clinic.map((c) => (
                 <article key={c.title} className="border border-border bg-card p-8">
                   <h3 className="font-display text-xl text-graphite mt-5 mb-3">{c.title}</h3>
                   <p className="text-sm text-graphite/65 leading-relaxed">{c.desc}</p>
