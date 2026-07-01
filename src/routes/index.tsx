@@ -306,28 +306,33 @@ function LandingPage() {
         <section id="sintomas" className="px-6 py-14 md:py-20 bg-bone border-y border-border">
           <div className="max-w-7xl mx-auto">
             <div className="mb-8 md:mb-10 max-w-4xl">
-              <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
+              <p className="font-mono text-sm uppercase tracking-[0.2em] label-mono mb-6">
                 Identifique-se
               </p>
               <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-tight text-graphite mb-6">
                 O bruxismo deixa pistas.
               </h2>
-              <p className="text-graphite/65 leading-relaxed md:text-lg">
+              <p className="text-graphite/80 leading-relaxed md:text-lg">
                 Muitas pessoas convivem com sinais de bruxismo por meses ou anos sem perceber. Ele pode acontecer durante o sono ou ao longo do dia, em momentos de tensão, concentração ou ansiedade.
               </p>
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
-              {symptoms.map((s) => (
-                <article
-                  key={s.title}
-                  className="group bg-background p-6 md:p-7 transition-colors duration-300 hover:bg-accent-soft"
-                >
-                  <h3 className="font-display text-xl md:text-2xl text-graphite mb-2">{s.title}</h3>
-                  <p className="text-sm text-graphite/65 leading-snug">{s.desc}</p>
-                </article>
-              ))}
+              {symptoms.map((s) => {
+                const Icon = s.icon;
+                return (
+                  <article
+                    key={s.title}
+                    className="group bg-background p-6 md:p-7 transition-colors duration-300 hover:bg-accent-soft"
+                  >
+                    <Icon aria-hidden strokeWidth={1.25} className="w-6 h-6 text-champagne mb-4" />
+                    <h3 className="font-display text-xl md:text-2xl text-graphite mb-2">{s.title}</h3>
+                    <p className="text-sm text-graphite/75 leading-snug">{s.desc}</p>
+                  </article>
+                );
+              })}
             </div>
+
 
             <div className="mt-10 flex flex-col items-center text-center border-t border-border pt-8 gap-6">
               <p className="font-display text-xl md:text-2xl text-graphite/85 leading-snug italic max-w-2xl">
