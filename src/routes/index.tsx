@@ -486,7 +486,7 @@ function LandingPage() {
               <div className="relative">
                 <div className="absolute -inset-4 md:-inset-6 border border-champagne/40 -z-10" aria-hidden />
                 <div className="absolute -bottom-6 -right-6 hidden md:block bg-graphite text-ivory px-6 py-4 max-w-[220px] z-10">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-champagne block mb-1">CRO-SP</span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-champagne block mb-1">CRO-SP 86932</span>
                   <span className="font-display text-lg leading-tight">Dra. Jaqueline Martins</span>
                 </div>
                 <img
@@ -644,60 +644,75 @@ function LandingPage() {
       {/* FOOTER */}
        <footer className="px-6 py-16 bg-background">
          <div className="max-w-7xl mx-auto">
-           <div className="grid md:grid-cols-12 gap-10 md:gap-12 pb-12 border-b border-border">
-             <div className="md:col-span-4">
-               <img
-                 src={logoAsset.url}
-                 alt="Dra. Jaqueline Martins - Odontologia Estética"
-                 className="h-16 md:h-20 w-auto mb-5"
-               />
-               <p className="text-sm text-graphite/60 max-w-sm leading-relaxed">
-                 Odontologia avançada com foco em estética, função e cuidado individualizado.
-               </p>
-             </div>
-             <div className="md:col-span-3">
-               <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne mb-4">Endereço</h3>
-               <p className="text-sm text-graphite/70 leading-relaxed">
-                 Av. Dr. Eduardo Cotching, 1472 - Sala 6<br />
-                 Vila Formosa - São Paulo
-               </p>
-             </div>
-             <div className="md:col-span-3">
-               <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne mb-4">Horários</h3>
-               <ul className="space-y-2 text-sm text-graphite/70">
-                 <li>Segunda à Sexta: 09:00 - 18:00</li>
-                 <li>Sábado: 09:00 - 12:00</li>
-               </ul>
-             </div>
-             <div className="md:col-span-2">
-               <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne mb-4">Contato</h3>
-               <ul className="space-y-2 text-sm text-graphite/70">
-                 <li>
-                   <a href="tel:1141160605" className="hover:text-champagne transition-colors">
-                     (11) 4116-0605
-                   </a>
-                 </li>
-                 <li>
-                   <a href={ctaFinalHref} target="_blank" rel="noopener noreferrer" className="hover:text-champagne transition-colors">
-                     WhatsApp
-                   </a>
-                 </li>
-               </ul>
-             </div>
-           </div>
-           <div className="mt-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-             <p className="text-xs text-graphite/45 leading-relaxed max-w-2xl">
-               As informações desta página são educativas e não substituem uma avaliação odontológica individual.
-             </p>
-             <div className="flex gap-5">
-               <a href="https://instagram.com/dra.jaquelinemartins" target="_blank" rel="noopener noreferrer" className="text-sm text-graphite/70 hover:text-champagne transition-colors">
-                 @dra.jaquelinemartins
-               </a>
-               <a href="https://instagram.com/jaqueline.martinsbarrientos" target="_blank" rel="noopener noreferrer" className="text-sm text-graphite/70 hover:text-champagne transition-colors">
-                 @jaqueline.martinsbarrientos
-               </a>
-             </div>
-           </div>
+            <div className="grid md:grid-cols-12 gap-10 md:gap-12 pb-12 border-b border-border">
+              <div className="md:col-span-4">
+                <img
+                  src={logoAsset.url}
+                  alt="Dra. Jaqueline Martins - Odontologia Estética"
+                  className="h-16 md:h-20 w-auto mb-5"
+                />
+                <p className="text-sm text-graphite/60 max-w-sm leading-relaxed">
+                  Odontologia avançada com foco em estética, função e cuidado individualizado.
+                </p>
+              </div>
+              <div className="md:col-span-4">
+                <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne mb-5">Unidades</h3>
+                <div className="space-y-5">
+                  <div>
+                    <p className="text-sm font-medium text-graphite/90 mb-1">Vila Formosa</p>
+                    <p className="text-sm text-graphite/70 leading-relaxed">
+                      Av. Dr. Eduardo Cotching, 1472 - Sala 6<br />
+                      São Paulo
+                    </p>
+                    <a href="tel:1141160605" className="text-sm text-graphite/70 hover:text-champagne transition-colors mt-1 inline-block">
+                      (11) 4116-0605
+                    </a>
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-graphite/90 mb-1">São Miguel Paulista</p>
+                    <p className="text-sm text-graphite/70 leading-relaxed">
+                      Rua Pedro Avelino, 70<br />
+                      São Paulo
+                    </p>
+                    <a href="tel:1120371211" className="text-sm text-graphite/70 hover:text-champagne transition-colors mt-1 inline-block">
+                      (11) 2037-1211
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="md:col-span-2">
+                <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne mb-4">Horários</h3>
+                <ul className="space-y-2 text-sm text-graphite/70">
+                  <li>Segunda à Sexta: 09:00 - 18:00</li>
+                  <li>Sábado: 09:00 - 12:00</li>
+                </ul>
+                <p className="text-[11px] text-graphite/45 mt-3 leading-relaxed">Horários iguais nas duas unidades.</p>
+              </div>
+              <div className="md:col-span-2">
+                <h3 className="font-mono text-[10px] uppercase tracking-[0.28em] text-champagne mb-4">Contato</h3>
+                <ul className="space-y-2 text-sm text-graphite/70">
+                  <li>
+                    <a href={ctaFinalHref} target="_blank" rel="noopener noreferrer" className="hover:text-champagne transition-colors">
+                      WhatsApp
+                    </a>
+                  </li>
+                </ul>
+                <div className="mt-5 space-y-2">
+                  <a href="https://instagram.com/dra.jaquelinemartins" target="_blank" rel="noopener noreferrer" className="text-sm text-graphite/70 hover:text-champagne transition-colors block">
+                    @dra.jaquelinemartins
+                  </a>
+                  <a href="https://instagram.com/jaqueline.martinsbarrientos" target="_blank" rel="noopener noreferrer" className="text-sm text-graphite/70 hover:text-champagne transition-colors block">
+                    @jaqueline.martinsbarrientos
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="mt-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <p className="text-xs text-graphite/45 leading-relaxed max-w-2xl">
+                As informações desta página são educativas e não substituem uma avaliação odontológica individual.
+              </p>
+              <p className="text-xs text-graphite/45">CRO-SP 86932</p>
+            </div>
          </div>
        </footer>
 
