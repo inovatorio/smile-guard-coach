@@ -229,7 +229,7 @@ function LandingPage() {
               <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-champagne mb-8">
                 Odontologia Estética e Funcional · Bruxismo
               </p>
-              <h1 className="font-display font-medium text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-[0.95] tracking-tight text-balance text-graphite mb-8">
+              <h1 className="font-display font-medium text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[0.95] tracking-tight text-balance text-graphite mb-8">
                 Você pode estar <em className="italic font-medium text-champagne">apertando</em> os dentes sem perceber.
               </h1>
               <p className="text-base md:text-lg text-graphite/70 max-w-xl leading-relaxed mb-10">
@@ -275,7 +275,7 @@ function LandingPage() {
                 <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
                   Identifique-se
                 </p>
-                <h2 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-graphite">
+                <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-tight text-graphite">
                   O bruxismo deixa pistas.
                 </h2>
               </div>
@@ -338,7 +338,7 @@ function LandingPage() {
                 <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
                   Consequências
                 </p>
-                <h2 className="font-display text-6xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight text-graphite mb-6">
+                <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-graphite mb-6">
                 O bruxismo pode deixar marcas no seu sorriso e na sua qualidade de vida.
               </h2>
               <p className="text-graphite/65 leading-relaxed">
@@ -375,7 +375,7 @@ function LandingPage() {
                 <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
                   Avaliação
                 </p>
-                <h2 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-ivory">
+                <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-tight text-ivory">
                   O tratamento começa entendendo o seu caso.
                 </h2>
               </div>
@@ -434,7 +434,7 @@ function LandingPage() {
                 <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
                   Tratamentos
                 </p>
-                <h2 className="font-display text-6xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight text-graphite mb-6">
+                <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-graphite mb-6">
                 Cuidado personalizado para proteger seus dentes e reduzir desconfortos.
               </h2>
               <p className="text-graphite/65 leading-relaxed">
@@ -503,7 +503,7 @@ function LandingPage() {
               <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
                 Dra. Jaqueline Martins
               </p>
-              <h2 className="font-display text-6xl md:text-7xl lg:text-8xl leading-[1.02] tracking-tight text-graphite mb-8">
+              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-tight text-graphite mb-8">
                 Autoridade clínica em estética e função do sorriso.
               </h2>
               <p className="font-display text-xl md:text-2xl text-graphite/85 leading-snug mb-8">
@@ -546,7 +546,7 @@ function LandingPage() {
             <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
               Estrutura
             </p>
-            <h2 className="font-display text-6xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight text-ivory max-w-4xl text-balance">
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-ivory max-w-4xl text-balance">
               Uma clínica preparada para cuidar do seu sorriso com precisão e acolhimento.
             </h2>
           </div>
@@ -576,7 +576,7 @@ function LandingPage() {
                 <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-6">
                   Dúvidas frequentes
                 </p>
-                <h2 className="font-display text-6xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight text-graphite">
+                <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-graphite">
                 Perguntas que escutamos no consultório.
               </h2>
             </div>
@@ -607,7 +607,7 @@ function LandingPage() {
               <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-5">
                 Agende sua avaliação
               </p>
-              <h2 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-ivory mb-5 text-balance">
+              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-tight text-ivory mb-5 text-balance">
                 Não espere o desgaste aparecer para cuidar do seu sorriso.
               </h2>
               <p className="text-ivory/70 leading-relaxed mb-8 max-w-xl">
