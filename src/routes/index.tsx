@@ -188,6 +188,69 @@ function GhostCta({ href, label, className = "" }: { href: string; label: string
   );
 }
 
+function HeroStage({
+  figureRef,
+  shapeRef,
+  cutoutUrl,
+  logoUrl,
+}: {
+  figureRef: React.RefObject<HTMLDivElement | null>;
+  shapeRef: React.RefObject<HTMLDivElement | null>;
+  cutoutUrl: string;
+  logoUrl: string;
+}) {
+  return (
+    <div className="hero-stage relative aspect-[4/5] w-full">
+      {/* Forma verde-petróleo */}
+      <div
+        ref={shapeRef}
+        aria-hidden
+        className="hero-shape hero-shape-in absolute inset-y-0 right-0 w-[92%] md:w-[96%] translate-y-4"
+      />
+      {/* Glow dourado pulsante atrás da figura */}
+      <div
+        aria-hidden
+        className="hero-shape-glow absolute inset-0 pointer-events-none"
+      />
+      {/* Filete dourado com pontos */}
+      <div
+        aria-hidden
+        className="hero-fade-up-lg hidden md:flex absolute z-20 pointer-events-none items-center gap-1.5"
+        style={{ top: "42%", left: "-72px", width: "200px", animationDelay: "1500ms" }}
+      >
+        <span className="block w-1 h-1 rounded-full bg-champagne/70" />
+        <span className="block w-1 h-1 rounded-full bg-champagne/50" />
+        <span className="block h-px flex-1" style={{ background: "linear-gradient(90deg, transparent, oklch(0.74 0.075 75) 30%, oklch(0.82 0.10 78))" }} />
+        <span className="block w-1.5 h-1.5 rounded-full bg-champagne" />
+      </div>
+      {/* Watermark JM */}
+      <img
+        src={logoUrl}
+        alt=""
+        aria-hidden
+        className="hero-fade-up-lg hidden sm:block absolute bottom-4 right-6 w-20 md:w-24 opacity-[0.08] pointer-events-none select-none z-20"
+        style={{ animationDelay: "1500ms" }}
+      />
+      {/* Figura recortada (float wrapper externo + parallax wrapper interno) */}
+      <div className="hero-figure-float absolute inset-0 z-30 pointer-events-none">
+        <div ref={figureRef} className="hero-figure-parallax w-full h-full">
+          <div className="hero-figure-in w-full h-full">
+            <img
+              src={cutoutUrl}
+              alt="Dra. Jaqueline Martins, cirurgiã-dentista especialista em bruxismo."
+              width={1024}
+              height={1536}
+              loading="eager"
+              fetchPriority="high"
+              className="absolute bottom-0 right-[2%] md:right-[4%] h-[115%] w-auto max-w-none object-contain object-bottom drop-shadow-[0_40px_60px_oklch(0.20_0.03_200/0.35)]"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function LandingPage() {
   const journeyRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
@@ -276,9 +339,9 @@ function LandingPage() {
                 Odontologia Estética e Funcional · Bruxismo
               </p>
               <h1 className="font-display font-medium text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[0.95] tracking-tight text-balance text-graphite mb-8 order-2">
-                <span className="hero-line-mask"><span className="hero-line-inner" style={{ animationDelay: "0ms" }}>Você pode estar <em className="inline italic font-medium text-champagne">apertando</em></span></span>
-                <span className="hero-line-mask"><span className="hero-line-inner" style={{ animationDelay: "150ms" }}>os dentes</span></span>
-                <span className="hero-line-mask"><span className="hero-line-inner" style={{ animationDelay: "300ms" }}>sem perceber.</span></span>
+                <span className="hero-line-mask"><span className="hero-line-inner" style={{ animationDelay: "600ms" }}>Você pode estar <em className="inline italic font-medium text-champagne">apertando</em></span></span>
+                <span className="hero-line-mask"><span className="hero-line-inner" style={{ animationDelay: "800ms" }}>os dentes</span></span>
+                <span className="hero-line-mask"><span className="hero-line-inner" style={{ animationDelay: "1000ms" }}>sem perceber.</span></span>
               </h1>
               <p className="hero-fade-up-lg text-base md:text-lg text-graphite/80 max-w-xl leading-relaxed mb-10 order-3" style={{ animationDelay: "1150ms" }}>
                 Dor na mandíbula, dores de cabeça ao acordar, sensibilidade nos dentes e tensão facial podem ser sinais de bruxismo ou apertamento dental. Uma avaliação cuidadosa ajuda a entender o seu caso e proteger seu sorriso.
