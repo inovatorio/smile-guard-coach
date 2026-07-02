@@ -11,7 +11,7 @@ import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { PlaquinhaJourney } from "@/components/PlaquinhaJourney";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
 import { LazyVideoPlayer } from "@/components/LazyVideoPlayer";
-import heroImg from "@/assets/dra-jaqueline-hero.jpg";
+import heroCutoutAsset from "@/assets/dra-jaqueline-hero-cutout.png.asset.json";
 import autoridadeImg from "@/assets/dra-jaqueline-autoridade.jpg.asset.json";
 import clinicaImg from "@/assets/clinica-estrutura.jpg";
 import tratamentosImg from "@/assets/tratamentos-detalhe-v2.jpg.asset.json";
@@ -191,7 +191,8 @@ function GhostCta({ href, label, className = "" }: { href: string; label: string
 function LandingPage() {
   const journeyRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
-  const blobRef = useRef<HTMLDivElement>(null);
+  const figureRef = useRef<HTMLDivElement>(null);
+  const shapeRef = useRef<HTMLDivElement>(null);
   const [fabVisible, setFabVisible] = useState(false);
 
   useEffect(() => {
@@ -207,30 +208,25 @@ function LandingPage() {
     const hover = window.matchMedia("(hover: hover)").matches;
     if (reduce || !hover) return;
     const hero = heroRef.current;
-    const blob = blobRef.current;
-    if (!hero || !blob) return;
-    let mx = 0, my = 0, sy = 0;
-    const apply = () => {
-      blob.style.transform = `translate3d(${mx}px, ${my + sy}px, 0)`;
-    };
+    const figure = figureRef.current;
+    const shape = shapeRef.current;
+    if (!hero || !figure || !shape) return;
     const onMove = (e: MouseEvent) => {
       const r = hero.getBoundingClientRect();
       const x = (e.clientX - r.left) / r.width - 0.5;
       const y = (e.clientY - r.top) / r.height - 0.5;
-      mx = x * 24;
-      my = y * 16;
-      apply();
+      figure.style.transform = `translate3d(${x * 15}px, ${y * 15}px, 0)`;
+      shape.style.transform = `translate3d(${x * -8}px, ${y * -8}px, 0)`;
     };
-    const onScroll = () => {
-      const r = hero.getBoundingClientRect();
-      sy = Math.max(-15, Math.min(15, -r.top * 0.04));
-      apply();
+    const onLeave = () => {
+      figure.style.transform = "translate3d(0,0,0)";
+      shape.style.transform = "translate3d(0,0,0)";
     };
     hero.addEventListener("mousemove", onMove);
-    window.addEventListener("scroll", onScroll, { passive: true });
+    hero.addEventListener("mouseleave", onLeave);
     return () => {
       hero.removeEventListener("mousemove", onMove);
-      window.removeEventListener("scroll", onScroll);
+      hero.removeEventListener("mouseleave", onLeave);
     };
   }, []);
 
