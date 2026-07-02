@@ -179,6 +179,68 @@
   35% { transform: scale(1.06); }
 }
 
+/* Hero entrance choreography */
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-accent {
+  from { opacity: 0; transform: translateY(20px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes hero-ken-burns {
+  from { opacity: 0; transform: scale(1.08); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes hero-frame-slide {
+  from { opacity: 0; transform: translate(0, 0); }
+  to { opacity: 1; transform: translate(1.5rem, 1.5rem); }
+}
+
+.hero-anim-1, .hero-anim-2, .hero-anim-3, .hero-anim-4, .hero-anim-5, .hero-anim-6 {
+  animation: hero-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.hero-anim-1 { animation-delay: 0ms; }
+.hero-anim-2 { animation-delay: 130ms; }
+.hero-anim-3 { animation-delay: 260ms; }
+.hero-anim-4 { animation-delay: 390ms; }
+.hero-anim-5 { animation-delay: 520ms; }
+.hero-anim-6 { animation-delay: 650ms; }
+
+.hero-anim-accent {
+  animation: hero-accent 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 360ms;
+  transform-origin: left center;
+}
+
+.hero-anim-photo {
+  animation: hero-ken-burns 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 200ms;
+  transform-origin: center;
+}
+
+.hero-anim-frame {
+  animation: hero-frame-slide 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 500ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-anim-1, .hero-anim-2, .hero-anim-3, .hero-anim-4,
+  .hero-anim-5, .hero-anim-6, .hero-anim-accent, .hero-anim-photo {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .hero-anim-frame {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: translate(1.5rem, 1.5rem) !important;
+  }
+}
+
 @keyframes fab-ring {
   0% {
     transform: scale(1);

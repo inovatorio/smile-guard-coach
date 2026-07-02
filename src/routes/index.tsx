@@ -237,38 +237,38 @@ function LandingPage() {
           <PlaquinhaJourney wrapperRef={journeyRef} />
 
         {/* HERO */}
-        <section className="px-6 pt-10 md:pt-14 pb-12 md:pb-16">
+        <section className="px-6 pt-10 md:pt-14 pb-12 md:pb-16 overflow-x-clip">
 
-          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-12 items-center">
-            <div className="md:col-span-7 animate-reveal order-1 md:order-1 flex flex-col">
-              <p className="font-mono text-[10px] uppercase tracking-[0.32em] label-mono mb-8 order-1">
+          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-center">
+            <div className="md:col-span-7 md:order-1 flex flex-col">
+              <p className="hero-anim-1 font-mono text-[10px] uppercase tracking-[0.32em] label-mono mb-8 order-1">
                 Odontologia Estética e Funcional · Bruxismo
               </p>
-              <h1 className="font-display font-medium text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[0.95] tracking-tight text-balance text-graphite mb-8 order-2">
-                Você pode estar <em className="italic font-medium text-champagne">apertando</em> os dentes sem perceber.
+              <h1 className="hero-anim-2 font-display font-medium text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[0.95] tracking-tight text-balance text-graphite mb-8 order-2">
+                Você pode estar <em className="hero-anim-accent inline-block italic font-medium text-champagne">apertando</em> os dentes sem perceber.
               </h1>
-              <p className="text-base md:text-lg text-graphite/80 max-w-xl leading-relaxed mb-10 order-3">
+              <p className="hero-anim-3 text-base md:text-lg text-graphite/80 max-w-xl leading-relaxed mb-10 order-3">
                 Dor na mandíbula, dores de cabeça ao acordar, sensibilidade nos dentes e tensão facial podem ser sinais de bruxismo ou apertamento dental. Uma avaliação cuidadosa ajuda a entender o seu caso e proteger seu sorriso.
               </p>
 
               {/* Foto aparece aqui só no mobile - traz o rosto humano cedo */}
               <div className="order-4 md:hidden mb-8">
                 <div className="relative">
-                  <div className="absolute -inset-3 border border-champagne/30 -z-10" aria-hidden />
+                  <div className="absolute -inset-2 border border-champagne/40 -z-10" aria-hidden />
                   <img
                     src={heroImg}
                     alt="Dra. Jaqueline Martins, cirurgiã-dentista, em sua clínica odontológica em São Paulo."
                     width={896}
                     height={1152}
-                    className="w-full aspect-[4/5] object-cover relative"
+                    className="w-full aspect-[4/5] object-cover relative rounded-[10px] shadow-[0_20px_50px_-25px_oklch(0.265_0.005_75/0.35)]"
                   />
-                  <p className="absolute -bottom-4 left-4 bg-background px-3 py-1 font-mono text-[9px] uppercase tracking-[0.24em] text-graphite/75">
+                  <p className="absolute -bottom-4 left-4 z-20 bg-background px-3 py-1 font-mono text-[9px] uppercase tracking-[0.24em] text-graphite/75">
                     O bruxismo deixa pistas
                   </p>
                 </div>
               </div>
 
-              <div className="order-5 flex flex-col items-start gap-3 mb-4">
+              <div className="hero-anim-4 order-5 flex flex-col items-start gap-3 mb-4">
                 <PrimaryCta href={ctaPrimaryHref} label="Agendar avaliação pelo WhatsApp" />
                 <a
                   href={ctaSecondaryHref}
@@ -281,7 +281,7 @@ function LandingPage() {
               </div>
 
 
-              <ul className="order-6 mt-6 flex flex-wrap gap-x-8 gap-y-3 text-[11px] uppercase tracking-[0.18em] text-graphite/75">
+              <ul className="hero-anim-5 order-6 mt-6 flex flex-wrap gap-x-8 gap-y-3 text-[11px] uppercase tracking-[0.18em] text-graphite/75">
                 <li>+21 anos de experiência</li>
                 <li className="hidden sm:block text-champagne/70">·</li>
                 <li>Odontologia estética e funcional</li>
@@ -290,18 +290,28 @@ function LandingPage() {
               </ul>
             </div>
 
-            <div className="hidden md:block md:col-span-5 animate-reveal" style={{ animationDelay: "200ms" }}>
+            <div className="hidden md:block md:col-span-5 md:order-2">
               <div className="relative">
-                {/* Plaquinha condutora vive no PlaquinhaScrollGuide */}
-                <div className="absolute -inset-3 border border-champagne/30 -z-10" aria-hidden />
+                {/* Marca d'água discreta - monograma JM */}
+                <img
+                  src={logoAsset.url}
+                  alt=""
+                  aria-hidden
+                  className="hidden md:block absolute -top-8 -left-10 w-40 opacity-[0.06] -z-20 pointer-events-none select-none"
+                />
+                {/* Moldura dourada deslocada atrás */}
+                <div
+                  className="hero-anim-frame absolute inset-0 border border-champagne translate-x-5 translate-y-5 md:translate-x-6 md:translate-y-6 -z-10 rounded-[10px]"
+                  aria-hidden
+                />
                 <img
                   src={heroImg}
                   alt="Dra. Jaqueline Martins, cirurgiã-dentista, em sua clínica odontológica em São Paulo."
                   width={896}
                   height={1152}
-                  className="w-full aspect-[4/5] object-cover relative"
+                  className="hero-anim-photo w-full aspect-[4/5] object-cover relative z-10 rounded-[10px] shadow-[0_30px_60px_-30px_oklch(0.265_0.005_75/0.4)]"
                 />
-                <p className="absolute -bottom-4 left-4 md:left-6 bg-background px-3 py-1 font-mono text-[9px] uppercase tracking-[0.24em] text-graphite/75">
+                <p className="absolute -bottom-4 left-4 md:left-6 z-20 bg-background px-3 py-1 font-mono text-[9px] uppercase tracking-[0.24em] text-graphite/75">
                   O bruxismo deixa pistas
                 </p>
               </div>

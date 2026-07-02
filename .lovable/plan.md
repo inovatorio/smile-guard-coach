@@ -1,70 +1,60 @@
-# Ajustes finais na LP - Dra. Jaqueline
+# Refação do Hero da LP - Dra. Jaqueline
 
-Identidade visual mantida. Todas mudanças em `src/routes/index.tsx` e pequenos ajustes em `src/styles.css`. Sem tocar em links de WhatsApp, tokens de tema, PlaquinhaJourney, LazyVideoPlayer ou dados de contato.
+Escopo: apenas a seção HERO em `src/routes/index.tsx` (linhas ~239-311) + poucos keyframes novos em `src/styles.css`. Nenhum texto, link de WhatsApp, imagem ou outra seção será alterado.
 
-## 1. Remover micro-texto do hero
+## A) Inversão do layout no desktop
 
-Excluir o parágrafo `"Avaliação sem compromisso · resposta no mesmo dia"` abaixo do CTA principal do hero. Manter apenas: botão primário + link secundário sublinhado. Sem substituição.
+- Reordenar as duas colunas do grid `md:grid-cols-12`:
+  - Coluna de TEXTO → `md:order-1` (esquerda), mantendo `md:col-span-7`.
+  - Coluna da FOTO → `md:order-2` (direita), mantendo `md:col-span-5`.
+- Manter `items-center` para alinhamento vertical central.
+- Mobile continua empilhado: texto primeiro, foto logo abaixo (o bloco `md:hidden` da foto no meio da coluna de texto permanece).
 
-## 2. Ícones inline nos cards (Sintomas e Consequências)
+## B) Tratamento da imagem (profundidade / moldura em camadas)
 
-Nos cards de `symptoms` e `consequences`, mover o `<Item.icon />` para dentro do bloco do título:
+Substituir o wrapper atual `<div className="relative"><div className="absolute -inset-3 border border-champagne/30 -z-10" />...</div>` por uma composição em camadas:
 
-- Wrapper `flex items-center gap-3` contendo ícone + `<h3>` na mesma linha.
-- Ícone menor e mais firme: `size={18}`, `strokeWidth={1.4}`, `text-champagne shrink-0`.
-- Remover o `mb-4` que separava o ícone do título; título perde qualquer padding-top extra.
-- Reduzir padding vertical interno do card em um passo (`py-8` → `py-6`, `p-8` → `p-6`) para encurtar altura total. Ajuste também no gap do grid (`gap-6` mantém, mas remover margens verticais soltas).
-- Sintomas: objetivo é caber na viewport desktop; se ainda ficar longo, reduzir também `mt-*` do cabeçalho da seção.
+- Container `relative` com padding para acomodar a moldura deslocada sem overflow.
+- Marca d'água discreta ao fundo: `<img src={logoAsset.url}>` posicionado `absolute` no canto, `opacity-[0.06]`, `w-40`, `-z-20`, `hidden md:block`, `aria-hidden`. Simplifica/some no mobile.
+- Moldura dourada deslocada atrás: `<div>` `absolute` com `border border-champagne` (1px desktop, apagada no mobile), offset `translate-x-4 translate-y-4 md:translate-x-6 md:translate-y-6`, mesmo tamanho da foto, `-z-10`. No mobile reduzir/omitir o offset para evitar overflow horizontal (usar apenas contorno colado `-inset-2` como está hoje, ou esconder totalmente).
+- Foto: `rounded-[10px]`, `shadow-[0_30px_60px_-30px_oklch(0.265_0.005_75/0.35)]`, mantém `aspect-[4/5] object-cover`, `relative z-10`.
+- Legenda "O BRUXISMO DEIXA PISTAS" permanece no mesmo estilo, ancorada ao canto inferior esquerdo da foto (z-20 para ficar acima).
+- Aplicar o mesmo tratamento nas duas instâncias da foto (bloco `md:hidden` mobile e bloco desktop) mas simplificando a moldura no mobile (sem offset).
+- Garantir `overflow-hidden` (ou `overflow-x-clip`) no `<section>` do Hero para blindar contra scroll horizontal caso a moldura vaze.
 
-Consequências recebe o mesmo tratamento inline para manter consistência visual.
+## C) Animação de entrada (uma vez, no load)
 
-## 3. Seção do vídeo - alinhamento central
+Novos keyframes em `src/styles.css`:
 
-No grid da seção Avaliação (`video | texto+etapas`), trocar o alinhamento do container para centralizar o bloco direito verticalmente em relação à altura do vídeo:
+- `hero-rise`: opacity 0 → 1, translateY 20px → 0, 0.7s cubic-bezier(0.22, 1, 0.36, 1), `both`.
+- `hero-ken-burns`: opacity 0 → 1 + scale 1.08 → 1.0, 1.2s ease-out, `both`.
+- `hero-frame-slide`: opacity 0 → 1, translate de (0,0) → offset final (translate-x-6, translate-y-6), 0.9s ease-out, delay ~0.4s.
 
-- Grid pai: `items-center` (hoje `items-start`).
-- Coluna direita: remover qualquer `self-start`; garantir `flex flex-col justify-center h-full`.
-- Cabeçalho da seção (label + título + parágrafo) e o grid 2x2 de fases seguem empilhados; o conjunto inteiro centraliza.
+Utilities:
 
-## 4. Reduzir seção "Reputação" (Google)
+- `.hero-anim-1` … `.hero-anim-6` aplicam `hero-rise` com `animation-delay` incrementais: 0ms, 130ms, 260ms, 390ms, 520ms (credenciais), 650ms.
+- `.hero-anim-photo` usa `hero-ken-burns` (delay 200ms) — aplicado à `<img>` (com `transform-origin: center`).
+- `.hero-anim-frame` usa `hero-frame-slide` — aplicado à moldura dourada.
+- Palavra "apertando" recebe uma classe `.hero-anim-accent` (delay ~350ms, mesmo `hero-rise` porém com leve `scale(0.98 → 1)`) para o realce sutil.
 
-Reescrever o layout para uma faixa horizontal enxuta, centralizada:
+Substituir o `animate-reveal` genérico do hero por essas classes escalonadas nas ordens: eyebrow → h1 (com accent no `<em>`) → parágrafo → CTA/link → credenciais.
 
-- `<section>`: baixar padding para `py-12 md:py-16`, remover destaques grandes.
-- Uma única linha (desktop) com: label mono "Reputação" acima, e abaixo uma faixa flex centralizada `flex flex-wrap items-center justify-center gap-x-6 gap-y-3`:
-  - 5 estrelas `Star size={16}` champagne preenchidas.
-  - `"5,0"` em Fraunces `text-2xl md:text-3xl` graphite (não mais 7xl/8xl).
-  - Separador vertical fino `h-5 w-px bg-graphite/20`.
-  - `"+670 avaliações no Google"` em Inter `text-sm md:text-base` graphite/78.
-  - Selo Google: ícone G inline SVG `w-4 h-4` + texto mono `text-[11px]` "Google Reviews".
-- Texto de apoio "Somando as unidades..." em `text-xs md:text-sm text-graphite/70`, centralizado, abaixo da faixa.
-- Remover o CTA GhostCta desta seção (fica só a prova social; CTAs continuam nas seções adjacentes).
+Salvaguardas em CSS:
 
-Resultado: bloco compacto, sóbrio, ocupando ~1/3 da altura anterior.
+```css
+@media (prefers-reduced-motion: reduce) {
+  .hero-anim-1, .hero-anim-2, .hero-anim-3, .hero-anim-4,
+  .hero-anim-5, .hero-anim-6, .hero-anim-accent,
+  .hero-anim-photo, .hero-anim-frame {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+```
 
-## 5. Trocar sticky bar por FAB circular do WhatsApp
-
-- Remover o `<div>` sticky da barra preta inferior (mobile-only).
-- Remover o `pb-24 md:pb-0` do `<main>` se existir por causa dela.
-- Criar botão `<a>` fixo:
-  - Posição: `fixed bottom-5 right-5 md:bottom-8 md:right-8 z-50`.
-  - Formato: `w-14 h-14 md:w-16 md:h-16 rounded-full grid place-items-center`.
-  - Paleta: `bg-graphite text-champagne border border-champagne/50 hover:bg-champagne hover:text-graphite` (dourado no hover, grafite em repouso - dentro da identidade, longe do verde WhatsApp).
-  - Sombra: `shadow-[0_12px_32px_-8px_oklch(0.265_0.005_75/0.35)]`.
-  - Ícone: `MessageCircle` do lucide (já importado) `size={26}` `strokeWidth={1.6}`. Alternativa: SVG inline do glifo WhatsApp em `currentColor` para leitura mais imediata - vou usar SVG inline do WhatsApp em `currentColor` mantendo a paleta.
-  - `aria-label="Agendar pelo WhatsApp"`, `href={ctaFinalHref}`, `target="_blank" rel="noopener"`.
-  - Visível em desktop e mobile (sem `md:hidden`).
-- Animação sutil reaproveitando `.animate-cta-glow` já existente, opcional; se ficar pesado visualmente, aplicar apenas um `ring-1 ring-champagne/30`.
-
-## 6. Hero desktop lado a lado
-
-Reverter a ordem mobile-first sem quebrar desktop:
-
-- Coluna de texto: `order-1 md:order-1` (texto sempre à esquerda no desktop).
-- Coluna da imagem: `order-2 md:order-2` (foto à direita no desktop, abaixo no mobile).
-- Bloco de credenciais volta para dentro da coluna de texto (removendo o `order-3` separado), garantindo empilhamento mobile: headline → parágrafo → CTA → link secundário → credenciais → foto (a foto continua vindo depois no mobile por ser a segunda coluna).
-- Grid mantém `md:grid-cols-12` com `md:col-span-7` / `md:col-span-5` e `items-center`.
+Todas as animações usam apenas `opacity` e `transform` (sem reflow). A `<img>` mantém `loading` padrão (eager, primeira dobra) para não penalizar LCP; o Ken Burns só afeta transform, sem atrasar o load.
 
 ## Fora de escopo
 
-Não alterar: PlaquinhaJourney, LazyVideoPlayer interno, footer, FAQ, seção Estrutura, tokens de tema, dados de contato, links de WhatsApp, tipografia base.
+Nenhuma alteração em Header, Sintomas, Consequências, Avaliação, Autoridade, Estrutura, FAQ, Rodapé, FAB WhatsApp, PlaquinhaJourney, tokens de tema, textos, imagens ou links.
