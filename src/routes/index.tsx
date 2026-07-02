@@ -432,7 +432,7 @@ function LandingPage() {
         </section>
 
         {/* EVALUATION - dark band */}
-        <section className="px-6 py-14 md:py-20 bg-petrol text-ivory">
+        <section className="px-6 py-10 md:py-14 bg-petrol text-ivory">
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
               <div className="md:col-span-5">
@@ -440,6 +440,7 @@ function LandingPage() {
                   src={draVideo.url}
                   poster={draVideoPoster.url}
                   label="Assistir mensagem da Dra. Jaqueline Martins"
+                  aspectRatio="16 / 9"
                   className="rounded-sm shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
                 />
               </div>
