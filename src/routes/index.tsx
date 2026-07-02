@@ -11,7 +11,7 @@ import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { PlaquinhaJourney } from "@/components/PlaquinhaJourney";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
 import { LazyVideoPlayer } from "@/components/LazyVideoPlayer";
-import heroCutoutAsset from "@/assets/dra-jaqueline-hero-cutout.png.asset.json";
+
 import autoridadeImg from "@/assets/dra-jaqueline-autoridade.jpg.asset.json";
 import clinicaImg from "@/assets/clinica-estrutura.jpg";
 import tratamentosImg from "@/assets/tratamentos-detalhe-v2.jpg.asset.json";
@@ -188,47 +188,10 @@ function GhostCta({ href, label, className = "" }: { href: string; label: string
   );
 }
 
-function HeroStage({
-  figureRef,
-  shapeRef,
-  cutoutUrl,
-  logoUrl,
-  className = "",
-}: {
-  figureRef: React.RefObject<HTMLDivElement | null>;
-  shapeRef: React.RefObject<HTMLDivElement | null>;
-  cutoutUrl: string;
-  logoUrl: string;
-  className?: string;
-}) {
-  return (
-    <div className={`hero-stage relative aspect-[3/4] w-full overflow-hidden ${className}`}>
-
-      {/* Figura recortada (float wrapper externo + parallax wrapper interno) */}
-      <div className="hero-figure-float absolute inset-0 z-30 pointer-events-none">
-        <div ref={figureRef} className="hero-figure-parallax w-full h-full">
-          <div className="hero-figure-in w-full h-full">
-            <img
-              src={cutoutUrl}
-              alt="Dra. Jaqueline Martins, cirurgiã-dentista especialista em bruxismo."
-              width={1024}
-              height={1536}
-              loading="eager"
-              fetchPriority="high"
-              className="hero-figure-fade absolute bottom-0 left-1/2 -translate-x-1/2 md:left-auto md:right-[-4%] md:translate-x-0 h-full w-auto max-w-none object-contain object-bottom drop-shadow-[0_42px_64px_oklch(0.20_0.03_200/0.36)]"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 function LandingPage() {
   const journeyRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
-  const figureRef = useRef<HTMLDivElement>(null);
-  const shapeRef = useRef<HTMLDivElement>(null);
   const [fabVisible, setFabVisible] = useState(false);
 
   useEffect(() => {
@@ -238,33 +201,6 @@ function LandingPage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const hover = window.matchMedia("(hover: hover)").matches;
-    if (reduce || !hover) return;
-    const hero = heroRef.current;
-    const figure = figureRef.current;
-    const shape = shapeRef.current;
-    if (!hero || !figure || !shape) return;
-    const onMove = (e: MouseEvent) => {
-      const r = hero.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width - 0.5;
-      const y = (e.clientY - r.top) / r.height - 0.5;
-      figure.style.transform = `translate3d(${x * 15}px, ${y * 15}px, 0)`;
-      shape.style.transform = `translate3d(${x * -8}px, ${y * -8}px, 0)`;
-    };
-    const onLeave = () => {
-      figure.style.transform = "translate3d(0,0,0)";
-      shape.style.transform = "translate3d(0,0,0)";
-    };
-    hero.addEventListener("mousemove", onMove);
-    hero.addEventListener("mouseleave", onLeave);
-    return () => {
-      hero.removeEventListener("mousemove", onMove);
-      hero.removeEventListener("mouseleave", onLeave);
-    };
-  }, []);
 
 
 
@@ -306,8 +242,8 @@ function LandingPage() {
         {/* HERO */}
         <section ref={heroRef} className="hero-bg relative px-6 pt-10 md:pt-14 pb-12 md:pb-16 overflow-x-clip">
 
-          <div className="max-w-7xl mx-auto grid md:grid-cols-[minmax(0,1fr)_minmax(360px,0.82fr)] gap-8 md:gap-0 items-center relative">
-            <div className="md:order-1 flex flex-col relative z-30 md:-mr-24 lg:-mr-36">
+          <div className="max-w-7xl mx-auto grid gap-8 items-center relative">
+            <div className="flex flex-col relative z-30">
               <p className="hero-fade-up-lg font-mono text-[10px] uppercase tracking-[0.32em] label-mono mb-8 order-1" style={{ animationDelay: "500ms" }}>
                 Odontologia Estética e Funcional · Bruxismo
               </p>
@@ -320,16 +256,6 @@ function LandingPage() {
                 Dor na mandíbula, dores de cabeça ao acordar, sensibilidade nos dentes e tensão facial podem ser sinais de bruxismo ou apertamento dental. Uma avaliação cuidadosa ajuda a entender o seu caso e proteger seu sorriso.
               </p>
 
-              {/* Figura aparece aqui só no mobile - traz o rosto humano cedo */}
-              <div className="order-4 md:hidden mb-8">
-                <HeroStage
-                  figureRef={figureRef}
-                  shapeRef={shapeRef}
-                  cutoutUrl={heroCutoutAsset.url}
-                  logoUrl={logoAsset.url}
-                  className="max-w-[430px] mx-auto"
-                />
-              </div>
 
               <div className="hero-fade-up-lg order-5 flex flex-col items-start gap-3 mb-4" style={{ animationDelay: "1300ms" }}>
                 <PrimaryCta href={ctaPrimaryHref} label="Agendar avaliação pelo WhatsApp" />
@@ -353,15 +279,6 @@ function LandingPage() {
               </ul>
             </div>
 
-            <div className="hidden md:block md:order-2 relative z-20 md:-ml-10 lg:-ml-16">
-              <HeroStage
-                figureRef={figureRef}
-                shapeRef={shapeRef}
-                cutoutUrl={heroCutoutAsset.url}
-                logoUrl={logoAsset.url}
-                className="md:min-h-[560px] lg:min-h-[650px] xl:min-h-[700px]"
-              />
-            </div>
           </div>
 
 
