@@ -279,15 +279,6 @@ function LandingPage() {
               </ul>
             </div>
 
-            <div className="hidden md:block md:order-2 relative z-20 md:-ml-10 lg:-ml-16">
-              <HeroStage
-                figureRef={figureRef}
-                shapeRef={shapeRef}
-                cutoutUrl={heroCutoutAsset.url}
-                logoUrl={logoAsset.url}
-                className="md:min-h-[560px] lg:min-h-[650px] xl:min-h-[700px]"
-              />
-            </div>
           </div>
 
 
