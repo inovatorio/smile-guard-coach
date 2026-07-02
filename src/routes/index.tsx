@@ -294,10 +294,10 @@ function LandingPage() {
 
               <ul className="mt-6 flex flex-col lg:flex-row lg:flex-wrap lg:items-center gap-y-2 lg:gap-x-5 text-[11px] uppercase tracking-[0.18em] text-graphite/75">
                 {["+21 anos de experiência", "Odontologia estética e funcional", "Vila Formosa e São Miguel Paulista"].map((item, i, arr) => (
-                  <>
-                    <li key={item} className="whitespace-nowrap hero-fade-up-lg" style={{ animationDelay: `${1450 + i * 90}ms` }}>{item}</li>
-                    {i < arr.length - 1 && <li key={`sep-${i}`} className="hidden lg:block text-champagne/60" aria-hidden>·</li>}
-                  </>
+                  <React.Fragment key={item}>
+                    <li className="whitespace-nowrap hero-fade-up-lg" style={{ animationDelay: `${1450 + i * 90}ms` }}>{item}</li>
+                    {i < arr.length - 1 && <li className="hidden lg:block text-champagne/60" aria-hidden>·</li>}
+                  </React.Fragment>
                 ))}
               </ul>
             </div>
