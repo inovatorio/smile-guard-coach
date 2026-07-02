@@ -272,38 +272,41 @@ function LandingPage() {
           <PlaquinhaJourney wrapperRef={journeyRef} />
 
         {/* HERO */}
-        <section className="px-6 pt-10 md:pt-14 pb-12 md:pb-16 overflow-x-clip">
+        <section ref={heroRef} className="hero-bg relative px-6 pt-10 md:pt-14 pb-12 md:pb-16 overflow-x-clip">
 
-          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-center">
-            <div className="md:col-span-7 md:order-1 flex flex-col">
-              <p className="hero-anim-1 font-mono text-[10px] uppercase tracking-[0.32em] label-mono mb-8 order-1">
+          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-center relative">
+            <div className="md:col-span-7 md:order-1 flex flex-col relative z-10">
+              <p className="hero-fade-up-lg font-mono text-[10px] uppercase tracking-[0.32em] label-mono mb-8 order-1" style={{ animationDelay: "500ms" }}>
                 Odontologia Estética e Funcional · Bruxismo
               </p>
-              <h1 className="hero-anim-2 font-display font-medium text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[0.95] tracking-tight text-balance text-graphite mb-8 order-2">
-                Você pode estar <em className="hero-anim-accent inline-block italic font-medium text-champagne">apertando</em> os dentes sem perceber.
+              <h1 className="font-display font-medium text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[0.95] tracking-tight text-balance text-graphite mb-8 order-2">
+                <span className="hero-line-mask"><span className="hero-line-inner" style={{ animationDelay: "0ms" }}>Você pode estar <em className="inline italic font-medium text-champagne">apertando</em></span></span>
+                <span className="hero-line-mask"><span className="hero-line-inner" style={{ animationDelay: "150ms" }}>os dentes</span></span>
+                <span className="hero-line-mask"><span className="hero-line-inner" style={{ animationDelay: "300ms" }}>sem perceber.</span></span>
               </h1>
-              <p className="hero-anim-3 text-base md:text-lg text-graphite/80 max-w-xl leading-relaxed mb-10 order-3">
+              <p className="hero-fade-up-lg text-base md:text-lg text-graphite/80 max-w-xl leading-relaxed mb-10 order-3" style={{ animationDelay: "620ms" }}>
                 Dor na mandíbula, dores de cabeça ao acordar, sensibilidade nos dentes e tensão facial podem ser sinais de bruxismo ou apertamento dental. Uma avaliação cuidadosa ajuda a entender o seu caso e proteger seu sorriso.
               </p>
 
               {/* Foto aparece aqui só no mobile - traz o rosto humano cedo */}
               <div className="order-4 md:hidden mb-8">
                 <div className="relative">
-                  <div className="absolute -inset-2 border border-champagne/40 -z-10" aria-hidden />
+                  <div className="hero-blob hero-blob-in absolute -inset-6 -z-20" aria-hidden />
                   <img
                     src={heroImg}
                     alt="Dra. Jaqueline Martins, cirurgiã-dentista, em sua clínica odontológica em São Paulo."
                     width={896}
                     height={1152}
-                    className="w-full aspect-[4/5] object-cover relative rounded-[10px] shadow-[0_20px_50px_-25px_oklch(0.265_0.005_75/0.35)]"
+                    className="hero-ken-burns w-full aspect-[4/5] object-cover relative rounded-[12px_48px_12px_12px] shadow-[0_40px_80px_-30px_oklch(0.265_0.005_75/0.45),0_10px_30px_-15px_oklch(0.68_0.10_65/0.35)]"
                   />
+                  <div className="absolute inset-0 rounded-[12px_48px_12px_12px] pointer-events-none" aria-hidden style={{ background: "radial-gradient(120% 80% at 50% 40%, transparent 55%, oklch(0.30 0.02 60 / 0.28) 100%)", mixBlendMode: "multiply" }} />
                   <p className="absolute -bottom-4 left-4 z-20 bg-background px-3 py-1 font-mono text-[9px] uppercase tracking-[0.24em] text-graphite/75">
                     O bruxismo deixa pistas
                   </p>
                 </div>
               </div>
 
-              <div className="hero-anim-4 order-5 flex flex-col items-start gap-3 mb-4">
+              <div className="hero-fade-up-lg order-5 flex flex-col items-start gap-3 mb-4" style={{ animationDelay: "740ms" }}>
                 <PrimaryCta href={ctaPrimaryHref} label="Agendar avaliação pelo WhatsApp" />
                 <a
                   href={ctaSecondaryHref}
@@ -316,7 +319,7 @@ function LandingPage() {
               </div>
 
 
-              <ul className="hero-anim-5 order-6 mt-6 flex flex-col lg:flex-row lg:flex-wrap lg:items-center gap-y-2 lg:gap-x-5 text-[11px] uppercase tracking-[0.18em] text-graphite/75">
+              <ul className="hero-fade-up-lg order-6 mt-6 flex flex-col lg:flex-row lg:flex-wrap lg:items-center gap-y-2 lg:gap-x-5 text-[11px] uppercase tracking-[0.18em] text-graphite/75" style={{ animationDelay: "860ms" }}>
                 <li className="whitespace-nowrap">+21 anos de experiência</li>
                 <li className="hidden lg:block text-champagne/60" aria-hidden>·</li>
                 <li className="whitespace-nowrap">Odontologia estética e funcional</li>
@@ -327,31 +330,51 @@ function LandingPage() {
 
             <div className="hidden md:block md:col-span-5 md:order-2">
               <div className="relative">
-                {/* Marca d'água discreta - monograma JM */}
-                <img
-                  src={logoAsset.url}
-                  alt=""
+                {/* Blob dourado com parallax */}
+                <div
+                  ref={blobRef}
+                  className="hero-blob hero-blob-in absolute -inset-y-10 -inset-x-8 -z-20"
                   aria-hidden
-                  className="hidden md:block absolute -top-8 -left-10 w-40 opacity-[0.06] -z-20 pointer-events-none select-none"
                 />
+                {/* Monograma "M" grande sobrepondo */}
+                <span
+                  aria-hidden
+                  className="hero-fade-up-lg hidden md:block absolute -left-16 -top-4 font-display italic text-[10rem] leading-none text-champagne/25 z-20 pointer-events-none select-none"
+                  style={{ animationDelay: "900ms" }}
+                >
+                  M
+                </span>
+                {/* Filete dourado atravessando */}
+                <div
+                  aria-hidden
+                  className="hero-fade-up-lg absolute z-20 pointer-events-none flex items-center"
+                  style={{ top: "38%", left: "-80px", width: "180px", animationDelay: "950ms" }}
+                >
+                  <span className="block h-px flex-1" style={{ background: "linear-gradient(90deg, transparent, oklch(0.74 0.075 75) 40%, oklch(0.82 0.10 78))" }} />
+                  <span className="block w-1.5 h-1.5 rounded-full bg-champagne" />
+                </div>
                 {/* Moldura dourada deslocada atrás */}
                 <div
-                  className="hero-anim-frame absolute inset-0 border border-champagne translate-x-5 translate-y-5 md:translate-x-6 md:translate-y-6 -z-10 rounded-[10px]"
+                  className="hero-anim-frame absolute inset-0 border border-champagne translate-x-8 translate-y-8 -z-10 rounded-[12px_48px_12px_12px]"
                   aria-hidden
                 />
-                <img
-                  src={heroImg}
-                  alt="Dra. Jaqueline Martins, cirurgiã-dentista, em sua clínica odontológica em São Paulo."
-                  width={896}
-                  height={1152}
-                  className="hero-anim-photo w-full aspect-[4/5] object-cover relative z-10 rounded-[10px] shadow-[0_30px_60px_-30px_oklch(0.265_0.005_75/0.4)]"
-                />
+                <div className="hero-photo-in relative">
+                  <img
+                    src={heroImg}
+                    alt="Dra. Jaqueline Martins, cirurgiã-dentista, em sua clínica odontológica em São Paulo."
+                    width={896}
+                    height={1152}
+                    className="hero-ken-burns w-full aspect-[4/5] object-cover relative z-10 rounded-[12px_48px_12px_12px] shadow-[0_40px_80px_-30px_oklch(0.265_0.005_75/0.45),0_10px_30px_-15px_oklch(0.68_0.10_65/0.35)]"
+                  />
+                  <div className="absolute inset-0 z-10 rounded-[12px_48px_12px_12px] pointer-events-none" aria-hidden style={{ background: "radial-gradient(120% 80% at 50% 40%, transparent 55%, oklch(0.30 0.02 60 / 0.28) 100%)", mixBlendMode: "multiply" }} />
+                </div>
                 <p className="absolute -bottom-4 left-4 md:left-6 z-20 bg-background px-3 py-1 font-mono text-[9px] uppercase tracking-[0.24em] text-graphite/75">
                   O bruxismo deixa pistas
                 </p>
               </div>
             </div>
           </div>
+
 
         </section>
 
