@@ -203,36 +203,7 @@ function HeroStage({
 }) {
   return (
     <div className={`hero-stage relative aspect-[3/4] w-full overflow-hidden ${className}`}>
-      {/* Forma verde-petróleo */}
-      <div
-        ref={shapeRef}
-        aria-hidden
-        className="hero-shape hero-shape-in absolute bottom-[3%] right-[2%] top-[8%] w-[86%] md:w-[92%] translate-y-4"
-      />
-      {/* Glow dourado pulsante atrás da figura */}
-      <div
-        aria-hidden
-        className="hero-shape-glow absolute inset-0 pointer-events-none"
-      />
-      {/* Filete dourado com pontos */}
-      <div
-        aria-hidden
-        className="hero-fade-up-lg hidden md:flex absolute z-20 pointer-events-none items-center gap-1.5"
-        style={{ top: "42%", left: "-72px", width: "200px", animationDelay: "1500ms" }}
-      >
-        <span className="block w-1 h-1 rounded-full bg-champagne/70" />
-        <span className="block w-1 h-1 rounded-full bg-champagne/50" />
-        <span className="block h-px flex-1" style={{ background: "linear-gradient(90deg, transparent, oklch(0.74 0.075 75) 30%, oklch(0.82 0.10 78))" }} />
-        <span className="block w-1.5 h-1.5 rounded-full bg-champagne" />
-      </div>
-      {/* Watermark JM */}
-      <img
-        src={logoUrl}
-        alt=""
-        aria-hidden
-        className="hero-fade-up-lg hidden sm:block absolute bottom-4 right-6 w-20 md:w-24 opacity-[0.08] pointer-events-none select-none z-20"
-        style={{ animationDelay: "1500ms" }}
-      />
+
       {/* Figura recortada (float wrapper externo + parallax wrapper interno) */}
       <div className="hero-figure-float absolute inset-0 z-30 pointer-events-none">
         <div ref={figureRef} className="hero-figure-parallax w-full h-full">
