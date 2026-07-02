@@ -281,11 +281,11 @@ function LandingPage() {
               </div>
 
 
-              <ul className="hero-anim-5 order-6 mt-6 flex flex-wrap gap-x-8 gap-y-3 text-[11px] uppercase tracking-[0.18em] text-graphite/75">
+              <ul className="hero-anim-5 order-6 mt-6 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-y-2 sm:gap-x-6 text-[11px] uppercase tracking-[0.18em] text-graphite/75">
                 <li>+21 anos de experiência</li>
-                <li className="hidden sm:block text-champagne/70">·</li>
+                <li className="hidden sm:block text-champagne/60" aria-hidden>·</li>
                 <li>Odontologia estética e funcional</li>
-                <li className="hidden sm:block text-champagne/70">·</li>
+                <li className="hidden sm:block text-champagne/60" aria-hidden>·</li>
                 <li>Vila Formosa e São Miguel Paulista</li>
               </ul>
             </div>
