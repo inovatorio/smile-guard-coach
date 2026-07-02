@@ -11,7 +11,7 @@ import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { PlaquinhaJourney } from "@/components/PlaquinhaJourney";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
 import { LazyVideoPlayer } from "@/components/LazyVideoPlayer";
-import heroImg from "@/assets/dra-jaqueline-hero.jpg";
+import heroCutoutAsset from "@/assets/dra-jaqueline-hero-cutout.png.asset.json";
 import autoridadeImg from "@/assets/dra-jaqueline-autoridade.jpg.asset.json";
 import clinicaImg from "@/assets/clinica-estrutura.jpg";
 import tratamentosImg from "@/assets/tratamentos-detalhe-v2.jpg.asset.json";
@@ -188,10 +188,74 @@ function GhostCta({ href, label, className = "" }: { href: string; label: string
   );
 }
 
+function HeroStage({
+  figureRef,
+  shapeRef,
+  cutoutUrl,
+  logoUrl,
+}: {
+  figureRef: React.RefObject<HTMLDivElement | null>;
+  shapeRef: React.RefObject<HTMLDivElement | null>;
+  cutoutUrl: string;
+  logoUrl: string;
+}) {
+  return (
+    <div className="hero-stage relative aspect-[4/5] w-full">
+      {/* Forma verde-petróleo */}
+      <div
+        ref={shapeRef}
+        aria-hidden
+        className="hero-shape hero-shape-in absolute inset-y-0 right-0 w-[92%] md:w-[96%] translate-y-4"
+      />
+      {/* Glow dourado pulsante atrás da figura */}
+      <div
+        aria-hidden
+        className="hero-shape-glow absolute inset-0 pointer-events-none"
+      />
+      {/* Filete dourado com pontos */}
+      <div
+        aria-hidden
+        className="hero-fade-up-lg hidden md:flex absolute z-20 pointer-events-none items-center gap-1.5"
+        style={{ top: "42%", left: "-72px", width: "200px", animationDelay: "1500ms" }}
+      >
+        <span className="block w-1 h-1 rounded-full bg-champagne/70" />
+        <span className="block w-1 h-1 rounded-full bg-champagne/50" />
+        <span className="block h-px flex-1" style={{ background: "linear-gradient(90deg, transparent, oklch(0.74 0.075 75) 30%, oklch(0.82 0.10 78))" }} />
+        <span className="block w-1.5 h-1.5 rounded-full bg-champagne" />
+      </div>
+      {/* Watermark JM */}
+      <img
+        src={logoUrl}
+        alt=""
+        aria-hidden
+        className="hero-fade-up-lg hidden sm:block absolute bottom-4 right-6 w-20 md:w-24 opacity-[0.08] pointer-events-none select-none z-20"
+        style={{ animationDelay: "1500ms" }}
+      />
+      {/* Figura recortada (float wrapper externo + parallax wrapper interno) */}
+      <div className="hero-figure-float absolute inset-0 z-30 pointer-events-none">
+        <div ref={figureRef} className="hero-figure-parallax w-full h-full">
+          <div className="hero-figure-in w-full h-full">
+            <img
+              src={cutoutUrl}
+              alt="Dra. Jaqueline Martins, cirurgiã-dentista especialista em bruxismo."
+              width={1024}
+              height={1536}
+              loading="eager"
+              fetchPriority="high"
+              className="absolute bottom-0 right-[2%] md:right-[4%] h-[115%] w-auto max-w-none object-contain object-bottom drop-shadow-[0_40px_60px_oklch(0.20_0.03_200/0.35)]"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function LandingPage() {
   const journeyRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
-  const blobRef = useRef<HTMLDivElement>(null);
+  const figureRef = useRef<HTMLDivElement>(null);
+  const shapeRef = useRef<HTMLDivElement>(null);
   const [fabVisible, setFabVisible] = useState(false);
 
   useEffect(() => {
@@ -207,30 +271,25 @@ function LandingPage() {
     const hover = window.matchMedia("(hover: hover)").matches;
     if (reduce || !hover) return;
     const hero = heroRef.current;
-    const blob = blobRef.current;
-    if (!hero || !blob) return;
-    let mx = 0, my = 0, sy = 0;
-    const apply = () => {
-      blob.style.transform = `translate3d(${mx}px, ${my + sy}px, 0)`;
-    };
+    const figure = figureRef.current;
+    const shape = shapeRef.current;
+    if (!hero || !figure || !shape) return;
     const onMove = (e: MouseEvent) => {
       const r = hero.getBoundingClientRect();
       const x = (e.clientX - r.left) / r.width - 0.5;
       const y = (e.clientY - r.top) / r.height - 0.5;
-      mx = x * 24;
-      my = y * 16;
-      apply();
+      figure.style.transform = `translate3d(${x * 15}px, ${y * 15}px, 0)`;
+      shape.style.transform = `translate3d(${x * -8}px, ${y * -8}px, 0)`;
     };
-    const onScroll = () => {
-      const r = hero.getBoundingClientRect();
-      sy = Math.max(-15, Math.min(15, -r.top * 0.04));
-      apply();
+    const onLeave = () => {
+      figure.style.transform = "translate3d(0,0,0)";
+      shape.style.transform = "translate3d(0,0,0)";
     };
     hero.addEventListener("mousemove", onMove);
-    window.addEventListener("scroll", onScroll, { passive: true });
+    hero.addEventListener("mouseleave", onLeave);
     return () => {
       hero.removeEventListener("mousemove", onMove);
-      window.removeEventListener("scroll", onScroll);
+      hero.removeEventListener("mouseleave", onLeave);
     };
   }, []);
 
@@ -280,33 +339,25 @@ function LandingPage() {
                 Odontologia Estética e Funcional · Bruxismo
               </p>
               <h1 className="font-display font-medium text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[0.95] tracking-tight text-balance text-graphite mb-8 order-2">
-                <span className="hero-line-mask"><span className="hero-line-inner" style={{ animationDelay: "0ms" }}>Você pode estar <em className="inline italic font-medium text-champagne">apertando</em></span></span>
-                <span className="hero-line-mask"><span className="hero-line-inner" style={{ animationDelay: "150ms" }}>os dentes</span></span>
-                <span className="hero-line-mask"><span className="hero-line-inner" style={{ animationDelay: "300ms" }}>sem perceber.</span></span>
+                <span className="hero-line-mask"><span className="hero-line-inner" style={{ animationDelay: "600ms" }}>Você pode estar <em className="inline italic font-medium text-champagne">apertando</em></span></span>
+                <span className="hero-line-mask"><span className="hero-line-inner" style={{ animationDelay: "800ms" }}>os dentes</span></span>
+                <span className="hero-line-mask"><span className="hero-line-inner" style={{ animationDelay: "1000ms" }}>sem perceber.</span></span>
               </h1>
-              <p className="hero-fade-up-lg text-base md:text-lg text-graphite/80 max-w-xl leading-relaxed mb-10 order-3" style={{ animationDelay: "620ms" }}>
+              <p className="hero-fade-up-lg text-base md:text-lg text-graphite/80 max-w-xl leading-relaxed mb-10 order-3" style={{ animationDelay: "1150ms" }}>
                 Dor na mandíbula, dores de cabeça ao acordar, sensibilidade nos dentes e tensão facial podem ser sinais de bruxismo ou apertamento dental. Uma avaliação cuidadosa ajuda a entender o seu caso e proteger seu sorriso.
               </p>
 
-              {/* Foto aparece aqui só no mobile - traz o rosto humano cedo */}
+              {/* Figura aparece aqui só no mobile - traz o rosto humano cedo */}
               <div className="order-4 md:hidden mb-8">
-                <div className="relative">
-                  <div className="hero-blob hero-blob-in absolute -inset-6 -z-20" aria-hidden />
-                  <img
-                    src={heroImg}
-                    alt="Dra. Jaqueline Martins, cirurgiã-dentista, em sua clínica odontológica em São Paulo."
-                    width={896}
-                    height={1152}
-                    className="hero-ken-burns w-full aspect-[4/5] object-cover relative rounded-[12px_48px_12px_12px] shadow-[0_40px_80px_-30px_oklch(0.265_0.005_75/0.45),0_10px_30px_-15px_oklch(0.68_0.10_65/0.35)]"
-                  />
-                  <div className="absolute inset-0 rounded-[12px_48px_12px_12px] pointer-events-none" aria-hidden style={{ background: "radial-gradient(120% 80% at 50% 40%, transparent 55%, oklch(0.30 0.02 60 / 0.28) 100%)", mixBlendMode: "multiply" }} />
-                  <p className="absolute -bottom-4 left-4 z-20 bg-background px-3 py-1 font-mono text-[9px] uppercase tracking-[0.24em] text-graphite/75">
-                    O bruxismo deixa pistas
-                  </p>
-                </div>
+                <HeroStage
+                  figureRef={figureRef}
+                  shapeRef={shapeRef}
+                  cutoutUrl={heroCutoutAsset.url}
+                  logoUrl={logoAsset.url}
+                />
               </div>
 
-              <div className="hero-fade-up-lg order-5 flex flex-col items-start gap-3 mb-4" style={{ animationDelay: "740ms" }}>
+              <div className="hero-fade-up-lg order-5 flex flex-col items-start gap-3 mb-4" style={{ animationDelay: "1300ms" }}>
                 <PrimaryCta href={ctaPrimaryHref} label="Agendar avaliação pelo WhatsApp" />
                 <a
                   href={ctaSecondaryHref}
@@ -319,7 +370,7 @@ function LandingPage() {
               </div>
 
 
-              <ul className="hero-fade-up-lg order-6 mt-6 flex flex-col lg:flex-row lg:flex-wrap lg:items-center gap-y-2 lg:gap-x-5 text-[11px] uppercase tracking-[0.18em] text-graphite/75" style={{ animationDelay: "860ms" }}>
+              <ul className="hero-fade-up-lg order-6 mt-6 flex flex-col lg:flex-row lg:flex-wrap lg:items-center gap-y-2 lg:gap-x-5 text-[11px] uppercase tracking-[0.18em] text-graphite/75" style={{ animationDelay: "1450ms" }}>
                 <li className="whitespace-nowrap">+21 anos de experiência</li>
                 <li className="hidden lg:block text-champagne/60" aria-hidden>·</li>
                 <li className="whitespace-nowrap">Odontologia estética e funcional</li>
@@ -329,49 +380,12 @@ function LandingPage() {
             </div>
 
             <div className="hidden md:block md:col-span-5 md:order-2">
-              <div className="relative">
-                {/* Blob dourado com parallax */}
-                <div
-                  ref={blobRef}
-                  className="hero-blob hero-blob-in absolute -inset-y-10 -inset-x-8 -z-20"
-                  aria-hidden
-                />
-                {/* Monograma "M" grande sobrepondo */}
-                <span
-                  aria-hidden
-                  className="hero-fade-up-lg hidden md:block absolute -left-16 -top-4 font-display italic text-[10rem] leading-none text-champagne/25 z-20 pointer-events-none select-none"
-                  style={{ animationDelay: "900ms" }}
-                >
-                  M
-                </span>
-                {/* Filete dourado atravessando */}
-                <div
-                  aria-hidden
-                  className="hero-fade-up-lg absolute z-20 pointer-events-none flex items-center"
-                  style={{ top: "38%", left: "-80px", width: "180px", animationDelay: "950ms" }}
-                >
-                  <span className="block h-px flex-1" style={{ background: "linear-gradient(90deg, transparent, oklch(0.74 0.075 75) 40%, oklch(0.82 0.10 78))" }} />
-                  <span className="block w-1.5 h-1.5 rounded-full bg-champagne" />
-                </div>
-                {/* Moldura dourada deslocada atrás */}
-                <div
-                  className="hero-anim-frame absolute inset-0 border border-champagne translate-x-8 translate-y-8 -z-10 rounded-[12px_48px_12px_12px]"
-                  aria-hidden
-                />
-                <div className="hero-photo-in relative">
-                  <img
-                    src={heroImg}
-                    alt="Dra. Jaqueline Martins, cirurgiã-dentista, em sua clínica odontológica em São Paulo."
-                    width={896}
-                    height={1152}
-                    className="hero-ken-burns w-full aspect-[4/5] object-cover relative z-10 rounded-[12px_48px_12px_12px] shadow-[0_40px_80px_-30px_oklch(0.265_0.005_75/0.45),0_10px_30px_-15px_oklch(0.68_0.10_65/0.35)]"
-                  />
-                  <div className="absolute inset-0 z-10 rounded-[12px_48px_12px_12px] pointer-events-none" aria-hidden style={{ background: "radial-gradient(120% 80% at 50% 40%, transparent 55%, oklch(0.30 0.02 60 / 0.28) 100%)", mixBlendMode: "multiply" }} />
-                </div>
-                <p className="absolute -bottom-4 left-4 md:left-6 z-20 bg-background px-3 py-1 font-mono text-[9px] uppercase tracking-[0.24em] text-graphite/75">
-                  O bruxismo deixa pistas
-                </p>
-              </div>
+              <HeroStage
+                figureRef={figureRef}
+                shapeRef={shapeRef}
+                cutoutUrl={heroCutoutAsset.url}
+                logoUrl={logoAsset.url}
+              />
             </div>
           </div>
 
