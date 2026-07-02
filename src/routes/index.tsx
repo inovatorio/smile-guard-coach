@@ -8,7 +8,6 @@ import {
 } from "@/components/ui/accordion";
 import { Phone, MapPin, Clock, Instagram, MessageCircle, Star, Sunrise, Brain, Snowflake, Layers, Waves, Activity, ShieldAlert, Thermometer, HeartPulse, RotateCw, TriangleAlert, Sparkles } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
-import { PlaquinhaJourney } from "@/components/PlaquinhaJourney";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
 import { LazyVideoPlayer } from "@/components/LazyVideoPlayer";
 
@@ -191,7 +190,6 @@ function GhostCta({ href, label, className = "" }: { href: string; label: string
 
 
 function LandingPage() {
-  const journeyRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
   const [fabVisible, setFabVisible] = useState(false);
 
@@ -250,10 +248,7 @@ function LandingPage() {
       </header>
 
       <main id="top" className="pt-16 md:pt-20">
-        {/* JOURNEY WRAPPER - single plaquinha follows the scroll across these sections */}
-        <div ref={journeyRef} className="relative">
-          <PlaquinhaJourney wrapperRef={journeyRef} />
-
+        <>
         {/* HERO */}
         <section ref={heroRef} className="hero-bg hero-bg-anim relative px-6 pt-10 md:pt-14 pb-12 md:pb-16 overflow-x-clip lg:min-h-[760px]">
 
@@ -517,8 +512,7 @@ function LandingPage() {
             </p>
           </div>
         </section>
-        </div>
-        {/* /JOURNEY WRAPPER */}
+        </>
 
         {/* AUTHORITY - Dra. Jaqueline */}
         <section id="sobre" className="px-6 py-16 md:py-24 bg-bone border-y border-border">
