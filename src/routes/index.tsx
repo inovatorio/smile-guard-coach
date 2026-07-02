@@ -205,7 +205,7 @@ function HeroStage({
       <div
         ref={shapeRef}
         aria-hidden
-        className="hero-shape hero-shape-in absolute inset-y-0 right-0 w-[92%] md:w-[96%] translate-y-4"
+        className="hero-shape hero-shape-in absolute inset-y-0 right-0 w-[92%] md:w-[96%] translate-y-4 hidden"
       />
       {/* Glow dourado pulsante atrás da figura */}
       <div
