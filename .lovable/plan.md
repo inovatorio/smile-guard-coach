@@ -1,45 +1,37 @@
-## Plano — Hero com Interlaçamento (Opção A) + Animação de Entrada
+## Objetivo
+Resolver em definitivo os 3 pontos reportados no Hero de `src/routes/index.tsx` + `src/styles.css`, sem mudar a direção visual.
 
-### 1. Reestruturar o layout (remover a sensação de duas colunas)
-Em `src/routes/index.tsx`, na `<section>` do Hero:
-- Trocar o grid rígido `lg:grid-cols-[1.05fr_0.95fr]` por um **container relativo com posicionamento absoluto** para a imagem no desktop.
-- A imagem da Dra. fica ancorada à direita (`right-0 bottom-0`) e cresce até `~55%` da largura, invadindo ~15% da coluna do texto.
-- O texto ocupa toda a largura do container (`max-w-3xl` para o parágrafo), permitindo que o título "respire" e passe visualmente *atrás* da imagem, quebrando a divisão de blocos.
-- Aumentar levemente o `min-h` do Hero no desktop (`lg:min-h-[600px]`) para acomodar o overlap sem cortar conteúdo.
-- No mobile, manter a pilha vertical atual (imagem acima, texto abaixo) — o problema de "duas colunas" só existe no desktop.
+## 1. Animação de entrada — fazer disparar de fato
+Diagnóstico: as classes existem, mas hoje o disparo depende só de `animation ... both` no mount. Se o CSS carrega antes do JSX pintar, algumas keyframes já rodaram invisíveis; e qualquer `prefers-reduced-motion` desabilita tudo silenciosamente.
 
-### 2. Garantir legibilidade no overlap
-- Adicionar um **degradê radial suave** (`radial-gradient`) atrás do texto, do lado esquerdo, no tom `ivory/bone`, para reforçar contraste onde a imagem se aproxima.
-- Manter o `z-index` do texto acima da imagem apenas na parte onde há sobreposição do título (a imagem passa por trás da última linha do H1, criando profundidade sem prejudicar leitura).
+Correções:
+- Adicionar um trigger explícito via `useEffect` que aplica a classe `.hero-play` no `<section>` no próximo frame (`requestAnimationFrame`). Todas as animações passam a herdar de `.hero-play .hero-fade-up-lg`, `.hero-play .hero-line-inner`, `.hero-play .hero-figure-in-anim`, `.hero-play .hero-underline path`, `.hero-play.hero-bg-anim`.
+- Estado inicial explícito (opacity:0, translateY, clip-path) para que o "antes" seja visível e o "depois" perceptível.
+- Aumentar amplitude: título com mask-reveal 120% + translateY 40px, figura entrando de +80px com fade, sublinhado dourado desenhando em 900ms, CTAs e credenciais com stagger de 120ms.
+- `prefers-reduced-motion`: manter suporte, mas garantir fade curto (200ms) em vez de anular tudo — assim o usuário sempre percebe movimento.
 
-### 3. Animação de entrada — coreografia em 3 tempos
-Sugestão de motion **perceptível mas elegante**, alinhada ao tom editorial:
+## 2. Quebrar a sensação de "duas colunas"
+Hoje: texto ocupa metade esquerda, foto ocupa `w-[54%]` fixa à direita. Isso lê como grid.
 
-**Tempo 1 (0–400ms) — Fundo respira**
-- O gradiente `hero-bg` faz um leve *fade-in + scale* (de 1.04 para 1) para dar sensação de "câmera se aproximando".
+Mudanças no desktop (`lg:`):
+- Foto sobe a `w-[62%]` e é ancorada com `right:-4%` (sangra pra fora do container).
+- Texto ganha `lg:max-w-[62%]` e o H1 avança até `lg:pr-0`, com a última linha ("sem perceber.") passando por trás da silhueta da foto (z-index do texto acima do gradiente, abaixo da figura; a foto tem recorte transparente então há entrelaçamento real).
+- Bloco de credenciais sai da coluna do texto e vira uma faixa horizontal full-width logo abaixo do H1/subtítulo, com divisor dourado fino — elimina o eixo vertical duplo.
+- Glow radial (`.hero-text-glow::before`) reposicionado atrás do H1 para garantir legibilidade na zona de sobreposição.
 
-**Tempo 2 (200–1000ms) — Título revelado por máscara (mask-reveal linha a linha)**
-- As três linhas do H1 sobem uma a uma de dentro de uma máscara (já temos `.hero-line-mask` / `.hero-line-inner` — vamos reforçar o timing).
-- A palavra `apertando` em itálico champagne recebe um **sublinhado dourado que desenha sozinho** (SVG path com `stroke-dashoffset` animado) — 800ms depois do texto aparecer.
+Resultado: uma única composição em camadas (background → texto → figura sangrando), não duas colunas.
 
-**Tempo 3 (600–1400ms) — Imagem entra com parallax sutil**
-- A foto da Dra. entra deslizando de baixo (`translateY(40px) → 0`) + fade, com `ease-out-expo` em 900ms.
-- Após montada, ganha uma **flutuação contínua muito sutil** (`translateY: 0 ↔ -6px` em 6s, infinita) — dá vida sem distrair.
-- Opcional: leve **parallax de mouse** (já temos infraestrutura) — a foto move 6–8px seguindo o cursor.
+## 3. Reverter tipografia de "apertando"
+Remover:
+- Fonte itálica Fraunces (`.hero-em` em Fraunces italic).
+- SVG `hero-underline` ondulado.
 
-**Tempo 4 (1200–1600ms) — CTAs e credenciais**
-- Botão primário entra com `fade-up` + o pulso dourado (`animate-cta-glow`) que já existe começa após 200ms de montado.
-- Lista de credenciais (`+21 anos · ...`) aparece por último, item a item, com stagger de 80ms.
+Aplicar o estilo anterior aprovado:
+- `apertando` em Inter, mesmo peso do resto do H1, cor `--color-petrol` (verde-petróleo) e um sublinhado sólido reto dourado (`border-bottom: 3px solid var(--color-gold)`) que continua com a animação de "desenhar" via `clip-path` (0 → 100% da esquerda pra direita, 900ms).
 
-Tudo respeitando `prefers-reduced-motion` — animações desligam completamente, mantendo estado final.
+## Arquivos
+- `src/routes/index.tsx` — trigger `.hero-play`, reestrutura de colunas do Hero desktop, remoção do `<em>` cursivo e do SVG.
+- `src/styles.css` — estados iniciais, seletores `.hero-play *`, novo sublinhado reto, ajustes de largura/offset da figura, glow reposicionado, bloco `prefers-reduced-motion` com fade curto.
 
-### 4. Detalhes técnicos
-- Ajustar `src/styles.css`: adicionar `@keyframes hero-bg-in`, `@keyframes hero-underline-draw`, `@keyframes hero-float-subtle` e classes utilitárias correspondentes.
-- Refinar delays das classes `.hero-anim-*` existentes para casar com a nova coreografia.
-- Adicionar SVG inline decorativo do sublinhado dourado sob "apertando" com `pathLength` animado.
-
-### Resultado esperado
-- **Antes:** Dois blocos lado a lado com borda mental clara entre texto e foto.
-- **Depois:** Uma composição integrada em que a imagem e o texto se entrelaçam, com uma entrada coreografada que guia o olhar da tipografia para a foto, terminando no CTA.
-
-Posso implementar?
+## Validação
+Após implementar: Playwright headless em `localhost:8080`, screenshots em 3 momentos (0ms, 400ms, 1400ms) para confirmar que o movimento é visível; screenshot desktop @1280 e mobile @390 para confirmar que não parece mais 2 colunas.
