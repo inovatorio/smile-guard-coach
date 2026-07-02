@@ -242,8 +242,8 @@ function LandingPage() {
         {/* HERO */}
         <section ref={heroRef} className="hero-bg relative px-6 pt-10 md:pt-14 pb-12 md:pb-16 overflow-x-clip">
 
-          <div className="max-w-7xl mx-auto grid md:grid-cols-[minmax(0,1fr)_minmax(360px,0.82fr)] gap-8 md:gap-0 items-center relative">
-            <div className="md:order-1 flex flex-col relative z-30 md:-mr-24 lg:-mr-36">
+          <div className="max-w-7xl mx-auto grid gap-8 items-center relative">
+            <div className="flex flex-col relative z-30">
               <p className="hero-fade-up-lg font-mono text-[10px] uppercase tracking-[0.32em] label-mono mb-8 order-1" style={{ animationDelay: "500ms" }}>
                 Odontologia Estética e Funcional · Bruxismo
               </p>
