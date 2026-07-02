@@ -190,6 +190,8 @@ function GhostCta({ href, label, className = "" }: { href: string; label: string
 
 function LandingPage() {
   const journeyRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLElement>(null);
+  const blobRef = useRef<HTMLDivElement>(null);
   const [fabVisible, setFabVisible] = useState(false);
 
   useEffect(() => {
@@ -197,6 +199,39 @@ function LandingPage() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const hover = window.matchMedia("(hover: hover)").matches;
+    if (reduce || !hover) return;
+    const hero = heroRef.current;
+    const blob = blobRef.current;
+    if (!hero || !blob) return;
+    let mx = 0, my = 0, sy = 0;
+    const apply = () => {
+      blob.style.transform = `translate3d(${mx}px, ${my + sy}px, 0)`;
+    };
+    const onMove = (e: MouseEvent) => {
+      const r = hero.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      mx = x * 24;
+      my = y * 16;
+      apply();
+    };
+    const onScroll = () => {
+      const r = hero.getBoundingClientRect();
+      sy = Math.max(-15, Math.min(15, -r.top * 0.04));
+      apply();
+    };
+    hero.addEventListener("mousemove", onMove);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      hero.removeEventListener("mousemove", onMove);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
 
