@@ -270,6 +270,71 @@
   animation: hero-fade-up-lg 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+/* Hero — Opção A: interlaçamento + coreografia */
+@keyframes hero-bg-in {
+  from { opacity: 0; transform: scale(1.04); }
+  to { opacity: 1; transform: scale(1); }
+}
+.hero-bg-anim {
+  animation: hero-bg-in 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transform-origin: center;
+}
+
+/* Glow radial atrás do texto para garantir legibilidade sob a foto */
+.hero-text-glow::before {
+  content: "";
+  position: absolute;
+  inset: -40px -80px -40px -60px;
+  z-index: -1;
+  background: radial-gradient(60% 70% at 25% 45%,
+    oklch(0.985 0.006 80 / 0.92) 0%,
+    oklch(0.985 0.006 80 / 0.7) 40%,
+    transparent 75%);
+  pointer-events: none;
+}
+
+/* Sublinhado dourado desenhado sob "apertando" */
+.hero-em .hero-underline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.05em;
+  width: 100%;
+  height: 0.35em;
+  overflow: visible;
+  color: oklch(0.74 0.075 75);
+}
+.hero-em .hero-underline path {
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
+  animation: hero-underline-draw 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 1600ms;
+}
+@keyframes hero-underline-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Figura entra deslizando + fade */
+@keyframes hero-figure-slide-in {
+  from { opacity: 0; transform: translateY(48px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-figure-in-anim {
+  animation: hero-figure-slide-in 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 700ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-anim,
+  .hero-figure-in-anim,
+  .hero-em .hero-underline path {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}
+
 /* Hero v3 — figura recortada + forma verde-petróleo */
 .hero-stage {
   isolation: isolate;

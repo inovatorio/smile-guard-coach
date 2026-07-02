@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Accordion,
@@ -241,24 +241,46 @@ function LandingPage() {
           <PlaquinhaJourney wrapperRef={journeyRef} />
 
         {/* HERO */}
-        <section ref={heroRef} className="hero-bg relative px-6 pt-10 md:pt-14 pb-12 md:pb-16 overflow-x-clip">
+        <section ref={heroRef} className="hero-bg hero-bg-anim relative px-6 pt-10 md:pt-14 pb-12 md:pb-16 overflow-x-clip lg:min-h-[640px]">
 
-          <div className="max-w-7xl mx-auto grid gap-8 lg:gap-12 lg:grid-cols-[1.05fr_0.95fr] items-center relative">
-            <div className="flex flex-col relative z-30">
-              <p className="hero-fade-up-lg font-mono text-[10px] uppercase tracking-[0.32em] label-mono mb-8 order-1" style={{ animationDelay: "500ms" }}>
+          {/* Mobile-only stacked image */}
+          <div className="lg:hidden max-w-7xl mx-auto mb-8 flex justify-center hero-figure-in-anim">
+            <img
+              src={heroDraAsset.url}
+              alt="Dra. Jaqueline Martins"
+              className="w-[280px] sm:w-[360px] h-auto select-none pointer-events-none"
+              draggable={false}
+            />
+          </div>
+
+          <div className="max-w-7xl mx-auto relative">
+            {/* Desktop image — absolute, overlaps the text column */}
+            <div className="hidden lg:block absolute right-0 bottom-0 top-0 w-[54%] z-10 pointer-events-none hero-figure-in-anim">
+              <div className="hero-figure-float relative w-full h-full flex items-end justify-end">
+                <img
+                  src={heroDraAsset.url}
+                  alt="Dra. Jaqueline Martins"
+                  className="w-full max-w-[620px] h-auto select-none"
+                  draggable={false}
+                />
+              </div>
+            </div>
+
+            {/* Text column — full width, radial glow ensures legibility under overlap */}
+            <div className="relative z-20 flex flex-col max-w-3xl hero-text-glow">
+              <p className="hero-fade-up-lg font-mono text-[10px] uppercase tracking-[0.32em] label-mono mb-8" style={{ animationDelay: "500ms" }}>
                 Odontologia Estética e Funcional · Bruxismo
               </p>
-              <h1 className="font-display font-medium text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[0.95] tracking-tight text-balance text-petrol mb-8 order-2">
-                <span className="hero-line-mask"><span className="hero-line-inner" style={{ animationDelay: "600ms" }}>Você pode estar <em className="inline italic font-medium text-champagne">apertando</em></span></span>
+              <h1 className="font-display font-medium text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[0.95] tracking-tight text-balance text-petrol mb-8">
+                <span className="hero-line-mask"><span className="hero-line-inner" style={{ animationDelay: "600ms" }}>Você pode estar <em className="hero-em relative inline italic font-medium text-champagne">apertando<svg className="hero-underline" viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden><path d="M2 8 Q 60 2, 100 6 T 198 5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg></em></span></span>
                 <span className="hero-line-mask"><span className="hero-line-inner" style={{ animationDelay: "800ms" }}>os dentes</span></span>
                 <span className="hero-line-mask"><span className="hero-line-inner" style={{ animationDelay: "1000ms" }}>sem perceber.</span></span>
               </h1>
-              <p className="hero-fade-up-lg text-base md:text-lg text-graphite/80 max-w-xl leading-relaxed mb-10 order-3" style={{ animationDelay: "1150ms" }}>
+              <p className="hero-fade-up-lg text-base md:text-lg text-graphite/80 max-w-xl leading-relaxed mb-10" style={{ animationDelay: "1150ms" }}>
                 Dor na mandíbula, dores de cabeça ao acordar, sensibilidade nos dentes e tensão facial podem ser sinais de bruxismo ou apertamento dental. Uma avaliação cuidadosa ajuda a entender o seu caso e proteger seu sorriso.
               </p>
 
-
-              <div className="hero-fade-up-lg order-5 flex flex-col items-start gap-3 mb-4" style={{ animationDelay: "1300ms" }}>
+              <div className="hero-fade-up-lg flex flex-col items-start gap-3 mb-4" style={{ animationDelay: "1300ms" }}>
                 <PrimaryCta href={ctaPrimaryHref} label="Agendar avaliação pelo WhatsApp" />
                 <a
                   href={ctaSecondaryHref}
@@ -270,28 +292,16 @@ function LandingPage() {
                 </a>
               </div>
 
-
-              <ul className="hero-fade-up-lg order-6 mt-6 flex flex-col lg:flex-row lg:flex-wrap lg:items-center gap-y-2 lg:gap-x-5 text-[11px] uppercase tracking-[0.18em] text-graphite/75" style={{ animationDelay: "1450ms" }}>
-                <li className="whitespace-nowrap">+21 anos de experiência</li>
-                <li className="hidden lg:block text-champagne/60" aria-hidden>·</li>
-                <li className="whitespace-nowrap">Odontologia estética e funcional</li>
-                <li className="hidden lg:block text-champagne/60" aria-hidden>·</li>
-                <li className="whitespace-nowrap">Vila Formosa e São Miguel Paulista</li>
+              <ul className="mt-6 flex flex-col lg:flex-row lg:flex-wrap lg:items-center gap-y-2 lg:gap-x-5 text-[11px] uppercase tracking-[0.18em] text-graphite/75">
+                {["+21 anos de experiência", "Odontologia estética e funcional", "Vila Formosa e São Miguel Paulista"].map((item, i, arr) => (
+                  <React.Fragment key={item}>
+                    <li className="whitespace-nowrap hero-fade-up-lg" style={{ animationDelay: `${1450 + i * 90}ms` }}>{item}</li>
+                    {i < arr.length - 1 && <li className="hidden lg:block text-champagne/60" aria-hidden>·</li>}
+                  </React.Fragment>
+                ))}
               </ul>
             </div>
-
-            <div className="hero-fade-up-lg relative order-first lg:order-last flex justify-center lg:justify-end" style={{ animationDelay: "700ms" }}>
-              <img
-                src={heroDraAsset.url}
-                alt="Dra. Jaqueline Martins"
-                className="relative z-10 w-[280px] sm:w-[360px] md:w-[440px] lg:w-full lg:max-w-[560px] h-auto select-none pointer-events-none"
-                draggable={false}
-              />
-            </div>
-
           </div>
-
-
         </section>
 
         {/* SYMPTOMS - "O bruxismo deixa pistas." */}
