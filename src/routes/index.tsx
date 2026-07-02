@@ -440,7 +440,7 @@ function LandingPage() {
                   src={draVideo.url}
                   poster={draVideoPoster.url}
                   label="Assistir mensagem da Dra. Jaqueline Martins"
-                  aspectRatio="16 / 9"
+                  aspectRatio="9 / 16"
                   className="rounded-sm shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
                 />
               </div>
