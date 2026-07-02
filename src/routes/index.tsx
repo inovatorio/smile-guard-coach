@@ -11,7 +11,7 @@ import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { PlaquinhaJourney } from "@/components/PlaquinhaJourney";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
 import { LazyVideoPlayer } from "@/components/LazyVideoPlayer";
-import heroCutoutAsset from "@/assets/dra-jaqueline-hero-cutout.png.asset.json";
+
 import autoridadeImg from "@/assets/dra-jaqueline-autoridade.jpg.asset.json";
 import clinicaImg from "@/assets/clinica-estrutura.jpg";
 import tratamentosImg from "@/assets/tratamentos-detalhe-v2.jpg.asset.json";
