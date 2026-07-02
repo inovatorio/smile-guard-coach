@@ -1,17 +1,22 @@
+## Plano
 
-# Corrigir figura do Hero — remover fundo de verdade
+1. **Corrigir a imagem do Hero**
+   - Remover de verdade o fundo quadriculado/branco da foto atual e gerar/substituir o asset por um PNG com transparência real.
+   - Manter a pessoa recortada, sem moldura retangular visível.
 
-O PNG que subi como `dra-jaqueline-hero-cutout.png` ainda carrega fundo branco/quadriculado ao redor da doutora, então no Hero ela aparece dentro de um "cartão" branco sobre a forma verde, em vez de recortada. Preciso gerar um PNG realmente transparente e trocar o asset.
+2. **Deixar a figura mais imponente**
+   - Aumentar a escala da Dra. no Hero, especialmente no desktop.
+   - Ajustar o posicionamento vertical para evitar que a área das pernas fique estranha ou cortada de forma amadora.
+   - Dar mais presença visual com sombra/refino, sem mudar a paleta creme, verde-petróleo e champagne.
 
-## Passos
+3. **Integrar texto e imagem em uma composição única**
+   - Sair da sensação de “duas colunas separadas”.
+   - Fazer a imagem avançar levemente para a área central e permitir que parte do bloco de texto sobreponha a composição com segurança visual.
+   - Manter texto à esquerda e figura à direita, mas com overlap editorial controlado.
 
-1. Rodar `imagegen--edit_image` sobre `user-uploads://dra_jaqueline_capa_2.png` com `transparent_background: true` e prompt curto ("isolate the woman, remove background completely"), salvando em `/tmp/dra-jaqueline-cutout-clean.png`. Isso força fundo branco sólido e depois remove para PNG transparente.
-2. Substituir o asset CDN existente:
-   - `lovable-assets delete --file src/assets/dra-jaqueline-hero-cutout.png.asset.json`
-   - `lovable-assets create --file /tmp/dra-jaqueline-cutout-clean.png --filename dra-jaqueline-hero-cutout.png > src/assets/dra-jaqueline-hero-cutout.png.asset.json`
-3. Nenhuma alteração em `src/routes/index.tsx` ou `src/styles.css` — o import já aponta para o mesmo `.asset.json`, então a nova URL entra automaticamente.
-4. Verificar visualmente no preview após o swap (Playwright screenshot do Hero) para confirmar que a figura aparece sem o retângulo branco sobre a forma verde.
+4. **Ajustar responsividade**
+   - No desktop, criar uma composição mais orgânica e premium.
+   - No mobile, preservar leitura e evitar sobreposição que atrapalhe CTA ou título.
 
-## Fora de escopo
-
-Layout, motion, textos, links, outras seções.
+5. **Verificar visualmente**
+   - Conferir no preview se o fundo quadriculado desapareceu e se o Hero ficou integrado, imponente e sem aspecto estranho nas pernas.
