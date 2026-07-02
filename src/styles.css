@@ -46,6 +46,7 @@
   --color-champagne: var(--champagne);
   --color-rose: var(--rose);
   --color-graphite: var(--graphite);
+  --color-petrol: var(--petrol);
 
   --font-display: "Fraunces", "Times New Roman", serif;
   --font-sans: "Inter", system-ui, sans-serif;
