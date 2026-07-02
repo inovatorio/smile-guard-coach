@@ -77,15 +77,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "robots", content: "index,follow,max-image-preview:large,max-snippet:-1" },
+      { name: "author", content: "Dra. Jaqueline Martins" },
+      { name: "theme-color", content: "#1f3a3a" },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "pt_BR" },
       { property: "og:site_name", content: "Dra. Jaqueline Martins - Odontologia Avançada" },
       { name: "twitter:card", content: "summary_large_image" },
-      { title: "Lovable App" },
-      { property: "og:title", content: "Lovable App" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "description", content: "Smile Guardian is a premium, responsive landing page designed to capture patients for bruxism and teeth clenching evaluations." },
-      { property: "og:description", content: "Smile Guardian is a premium, responsive landing page designed to capture patients for bruxism and teeth clenching evaluations." },
-      { name: "twitter:description", content: "Smile Guardian is a premium, responsive landing page designed to capture patients for bruxism and teeth clenching evaluations." },
+      { title: "Dra. Jaqueline Martins - Avaliação de Bruxismo em São Paulo" },
+      { property: "og:title", content: "Dra. Jaqueline Martins - Avaliação de Bruxismo em São Paulo" },
+      { name: "twitter:title", content: "Dra. Jaqueline Martins - Avaliação de Bruxismo em São Paulo" },
+      { name: "description", content: "Avaliação de bruxismo e DTM com a Dra. Jaqueline Martins. Atendimento em Vila Formosa e São Miguel Paulista, São Paulo." },
+      { property: "og:description", content: "Avaliação de bruxismo e DTM com a Dra. Jaqueline Martins. Atendimento em Vila Formosa e São Miguel Paulista, São Paulo." },
+      { name: "twitter:description", content: "Avaliação de bruxismo e DTM com a Dra. Jaqueline Martins. Atendimento em Vila Formosa e São Miguel Paulista, São Paulo." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f5871532-3fed-447b-9463-1237e6637ceb/id-preview-153763f6--ad2b3c20-cec5-430b-81ff-b98f9e0eb9d0.lovable.app-1782965953938.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f5871532-3fed-447b-9463-1237e6637ceb/id-preview-153763f6--ad2b3c20-cec5-430b-81ff-b98f9e0eb9d0.lovable.app-1782965953938.png" },
     ],
@@ -98,7 +102,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap",
       },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Dra. Jaqueline Martins - Odontologia Avançada",
+          url: "https://smile-guard-coach.lovable.app",
+          inLanguage: "pt-BR",
+        }),
+      },
+    ],
   }),
+
 
   shellComponent: RootShell,
   component: RootComponent,
@@ -108,7 +125,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>
