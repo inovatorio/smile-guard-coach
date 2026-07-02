@@ -244,7 +244,7 @@ function HeroStage({
               height={1536}
               loading="eager"
               fetchPriority="high"
-              className="absolute bottom-[-10%] right-[-5%] h-[112%] md:h-[118%] lg:h-[122%] w-auto max-w-none object-contain object-bottom drop-shadow-[0_42px_64px_oklch(0.20_0.03_200/0.36)]"
+              className="hero-figure-fade absolute bottom-0 left-1/2 -translate-x-1/2 md:left-auto md:right-[-4%] md:translate-x-0 h-full w-auto max-w-none object-contain object-bottom drop-shadow-[0_42px_64px_oklch(0.20_0.03_200/0.36)]"
             />
           </div>
         </div>
