@@ -1,5 +1,18 @@
-Ajustar a seção de avaliação para reduzir sua altura total e a altura do vídeo:
+## Remover animação da plaquinha no scroll
 
-1. **Reduzir altura do vídeo**: O `LazyVideoPlayer` está com aspect ratio padrão `9/16` (vertical). Na seção de avaliação, passar um aspect ratio mais horizontal, como `16/9`, para que o vídeo ocupe menos espaço vertical.
-2. **Reduzir padding vertical da seção**: Diminuir o espaçamento interno da seção (`py-14 md:py-20`) para algo mais compacto, como `py-10 md:py-14`.
-3. **Harmonizar o grid**: Garantir que o texto ao lado continue alinhado e a seção não fique desproporcional com o vídeo mais baixo.
+A animação da plaquinha percorrendo a página está concentrada no componente `PlaquinhaJourney` e no seu uso dentro de `src/routes/index.tsx`. A remoção será feita apenas desligando o componente da página, sem apagar o arquivo (preservando o ativo caso queira reutilizá-lo no futuro).
+
+### Mudanças
+
+1. **src/routes/index.tsx**
+   - Remover o import do `PlaquinhaJourney`.
+   - Remover a declaração `const journeyRef = useRef<HTMLDivElement>(null);`.
+   - Remover a renderização `<PlaquinhaJourney wrapperRef={journeyRef} />`.
+   - Converter o `<div ref={journeyRef} className="relative">` em fragmento `<>...</>` para não deixar um wrapper sem função.
+
+2. **src/components/PlaquinhaJourney.tsx**
+   - Não será alterado; o arquivo fica inativo na árvore de componentes.
+
+### Resultado esperado
+
+A plaquinha não aparece mais flutuando/sobrepondo as seções durante o scroll. As demais animações da página (hero, números, FAQ, vídeo etc.) continuam intactas.
