@@ -188,41 +188,6 @@ function GhostCta({ href, label, className = "" }: { href: string; label: string
   );
 }
 
-function HeroStage({
-  figureRef,
-  shapeRef,
-  cutoutUrl,
-  logoUrl,
-  className = "",
-}: {
-  figureRef: React.RefObject<HTMLDivElement | null>;
-  shapeRef: React.RefObject<HTMLDivElement | null>;
-  cutoutUrl: string;
-  logoUrl: string;
-  className?: string;
-}) {
-  return (
-    <div className={`hero-stage relative aspect-[3/4] w-full overflow-hidden ${className}`}>
-
-      {/* Figura recortada (float wrapper externo + parallax wrapper interno) */}
-      <div className="hero-figure-float absolute inset-0 z-30 pointer-events-none">
-        <div ref={figureRef} className="hero-figure-parallax w-full h-full">
-          <div className="hero-figure-in w-full h-full">
-            <img
-              src={cutoutUrl}
-              alt="Dra. Jaqueline Martins, cirurgiã-dentista especialista em bruxismo."
-              width={1024}
-              height={1536}
-              loading="eager"
-              fetchPriority="high"
-              className="hero-figure-fade absolute bottom-0 left-1/2 -translate-x-1/2 md:left-auto md:right-[-4%] md:translate-x-0 h-full w-auto max-w-none object-contain object-bottom drop-shadow-[0_42px_64px_oklch(0.20_0.03_200/0.36)]"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 function LandingPage() {
   const journeyRef = useRef<HTMLDivElement>(null);
