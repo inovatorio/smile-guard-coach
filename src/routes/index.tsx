@@ -168,7 +168,7 @@ function PrimaryCta({ href, label, className = "" }: { href: string; label: stri
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center bg-graphite text-ivory px-8 py-4 text-[13px] tracking-wide font-medium hover:bg-champagne hover:text-graphite transition-all duration-300 hover:scale-[1.03] animate-cta-glow ${className}`}
+      className={`inline-flex items-center justify-center bg-petrol text-ivory px-8 py-4 text-[13px] tracking-wide font-medium hover:bg-champagne hover:text-petrol transition-all duration-300 hover:scale-[1.03] animate-cta-glow ${className}`}
     >
       {label}
     </a>
@@ -181,7 +181,7 @@ function GhostCta({ href, label, className = "" }: { href: string; label: string
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center border border-graphite/20 text-graphite px-8 py-4 text-[13px] tracking-wide font-medium hover:border-graphite hover:bg-graphite hover:text-ivory transition-colors duration-300 ${className}`}
+      className={`inline-flex items-center justify-center border border-graphite/20 text-graphite px-8 py-4 text-[13px] tracking-wide font-medium hover:border-graphite hover:bg-petrol hover:text-ivory transition-colors duration-300 ${className}`}
     >
       {label}
     </a>
@@ -318,7 +318,7 @@ function LandingPage() {
             href={ctaPrimaryHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center bg-graphite text-ivory px-4 py-2.5 text-[10px] md:text-[11px] uppercase tracking-[0.18em] hover:bg-champagne hover:text-graphite transition-colors duration-300"
+            className="inline-flex items-center bg-petrol text-ivory px-4 py-2.5 text-[10px] md:text-[11px] uppercase tracking-[0.18em] hover:bg-champagne hover:text-petrol transition-colors duration-300"
           >
             Agendar avaliação
           </a>
@@ -505,7 +505,7 @@ function LandingPage() {
         </section>
 
         {/* EVALUATION - dark band */}
-        <section className="px-6 py-14 md:py-20 bg-graphite text-ivory">
+        <section className="px-6 py-14 md:py-20 bg-petrol text-ivory">
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
               <div className="md:col-span-5">
@@ -598,7 +598,7 @@ function LandingPage() {
             <div className="md:col-span-6 order-2 md:order-1">
               <div className="relative">
                 <div className="absolute -inset-4 md:-inset-6 border border-champagne/40 -z-10" aria-hidden />
-                <div className="absolute -bottom-6 -right-6 hidden md:block bg-graphite text-ivory px-6 py-4 max-w-[220px] z-10">
+                <div className="absolute -bottom-6 -right-6 hidden md:block bg-petrol text-ivory px-6 py-4 max-w-[220px] z-10">
                   <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-champagne block mb-1">CRO-SP 86932</span>
                   <span className="font-display text-lg leading-tight">Dra. Jaqueline Martins</span>
                 </div>
@@ -765,7 +765,7 @@ function LandingPage() {
         </section>
 
         {/* FINAL CTA */}
-        <section className="px-6 py-16 md:py-24 bg-graphite text-ivory overflow-hidden">
+        <section className="px-6 py-16 md:py-24 bg-petrol text-ivory overflow-hidden">
           <div className="max-w-6xl mx-auto grid md:grid-cols-12 gap-10 items-center">
             <div className="md:col-span-6">
               <p className="font-mono text-sm uppercase tracking-[0.2em] text-champagne mb-5">
@@ -905,7 +905,7 @@ function LandingPage() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Agendar pelo WhatsApp"
-          className="fab-whatsapp group relative w-14 h-14 md:w-16 md:h-16 rounded-full grid place-items-center bg-graphite text-champagne border border-champagne/50 shadow-[0_12px_32px_-8px_oklch(0.265_0.005_75/0.45)] hover:bg-champagne hover:text-graphite transition-[background-color,color,transform,box-shadow] duration-300 hover:scale-110 hover:shadow-[0_18px_44px_-8px_oklch(0.265_0.005_75/0.6)]"
+          className="fab-whatsapp group relative w-14 h-14 md:w-16 md:h-16 rounded-full grid place-items-center bg-petrol text-champagne border border-champagne/50 shadow-[0_12px_32px_-8px_oklch(0.265_0.005_75/0.45)] hover:bg-champagne hover:text-petrol transition-[background-color,color,transform,box-shadow] duration-300 hover:scale-110 hover:shadow-[0_18px_44px_-8px_oklch(0.265_0.005_75/0.6)]"
         >
           <span aria-hidden className="fab-ring" />
           <span aria-hidden className="fab-ring fab-ring--delay" />
