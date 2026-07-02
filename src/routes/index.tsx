@@ -512,8 +512,7 @@ function LandingPage() {
             </p>
           </div>
         </section>
-        </div>
-        {/* /JOURNEY WRAPPER */}
+        </>
 
         {/* AUTHORITY - Dra. Jaqueline */}
         <section id="sobre" className="px-6 py-16 md:py-24 bg-bone border-y border-border">
