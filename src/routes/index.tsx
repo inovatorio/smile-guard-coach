@@ -256,16 +256,6 @@ function LandingPage() {
                 Dor na mandíbula, dores de cabeça ao acordar, sensibilidade nos dentes e tensão facial podem ser sinais de bruxismo ou apertamento dental. Uma avaliação cuidadosa ajuda a entender o seu caso e proteger seu sorriso.
               </p>
 
-              {/* Figura aparece aqui só no mobile - traz o rosto humano cedo */}
-              <div className="order-4 md:hidden mb-8">
-                <HeroStage
-                  figureRef={figureRef}
-                  shapeRef={shapeRef}
-                  cutoutUrl={heroCutoutAsset.url}
-                  logoUrl={logoAsset.url}
-                  className="max-w-[430px] mx-auto"
-                />
-              </div>
 
               <div className="hero-fade-up-lg order-5 flex flex-col items-start gap-3 mb-4" style={{ animationDelay: "1300ms" }}>
                 <PrimaryCta href={ctaPrimaryHref} label="Agendar avaliação pelo WhatsApp" />
