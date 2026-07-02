@@ -313,6 +313,11 @@
   will-change: transform;
 }
 
+.hero-figure-fade {
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 78%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 0%, black 78%, transparent 100%);
+}
+
 @keyframes hero-shape-in {
   from { opacity: 0; transform: scale(0.85); }
   to { opacity: 1; transform: scale(1); }
