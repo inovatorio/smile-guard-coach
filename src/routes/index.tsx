@@ -338,7 +338,7 @@ function LandingPage() {
               <p className="hero-fade-up-lg font-mono text-[10px] uppercase tracking-[0.32em] label-mono mb-8 order-1" style={{ animationDelay: "500ms" }}>
                 Odontologia Estética e Funcional · Bruxismo
               </p>
-              <h1 className="font-display font-medium text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[0.95] tracking-tight text-balance text-graphite mb-8 order-2">
+              <h1 className="font-display font-medium text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[0.95] tracking-tight text-balance text-petrol mb-8 order-2">
                 <span className="hero-line-mask"><span className="hero-line-inner" style={{ animationDelay: "600ms" }}>Você pode estar <em className="inline italic font-medium text-champagne">apertando</em></span></span>
                 <span className="hero-line-mask"><span className="hero-line-inner" style={{ animationDelay: "800ms" }}>os dentes</span></span>
                 <span className="hero-line-mask"><span className="hero-line-inner" style={{ animationDelay: "1000ms" }}>sem perceber.</span></span>
@@ -399,7 +399,7 @@ function LandingPage() {
               <p className="font-mono text-sm uppercase tracking-[0.2em] label-mono mb-6">
                 Identifique-se
               </p>
-              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-tight text-graphite mb-6">
+              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-tight text-petrol mb-6">
                 O bruxismo deixa pistas.
               </h2>
               <p className="text-graphite/80 leading-relaxed md:text-lg">
@@ -417,7 +417,7 @@ function LandingPage() {
                   >
                     <div className="flex items-center gap-3 mb-2">
                       <Icon aria-hidden strokeWidth={1.4} size={20} className="text-champagne shrink-0" />
-                      <h3 className="font-display text-lg md:text-xl text-graphite leading-tight">{s.title}</h3>
+                      <h3 className="font-display text-lg md:text-xl text-petrol leading-tight">{s.title}</h3>
                     </div>
                     <p className="text-sm text-graphite/75 leading-snug">{s.desc}</p>
                   </article>
@@ -449,7 +449,7 @@ function LandingPage() {
                 <span className="font-mono text-[10px] uppercase tracking-[0.28em] label-mono block mb-3">
                   {stat.tag}
                 </span>
-                <div className="font-display text-4xl md:text-5xl lg:text-6xl text-graphite leading-none mb-2">
+                <div className="font-display text-4xl md:text-5xl lg:text-6xl text-petrol leading-none mb-2">
                   <AnimatedNumber value={stat.value} prefix={"prefix" in stat ? stat.prefix : undefined} formatter={"formatter" in stat ? stat.formatter : undefined} />{" "}
                   <span className="text-base md:text-lg text-graphite/75 align-middle">{stat.unit}</span>
                 </div>
@@ -467,7 +467,7 @@ function LandingPage() {
                 <p className="font-mono text-sm uppercase tracking-[0.2em] label-mono mb-6">
                   Consequências
                 </p>
-                <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-graphite mb-6">
+                <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-petrol mb-6">
                 O bruxismo pode deixar marcas no seu sorriso e na sua qualidade de vida.
               </h2>
               <p className="text-graphite/80 leading-relaxed">
@@ -485,7 +485,7 @@ function LandingPage() {
                   >
                     <div className="flex items-center gap-3 mb-2">
                       <Icon aria-hidden strokeWidth={1.4} size={20} className="text-champagne shrink-0" />
-                      <h3 className="font-display text-lg md:text-xl text-graphite leading-tight">{c.title}</h3>
+                      <h3 className="font-display text-lg md:text-xl text-petrol leading-tight">{c.title}</h3>
                     </div>
                     <p className="text-sm text-graphite/75 leading-snug">{c.desc}</p>
                   </article>
@@ -548,7 +548,7 @@ function LandingPage() {
                 <p className="font-mono text-sm uppercase tracking-[0.2em] label-mono mb-6">
                   Tratamentos
                 </p>
-                <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-graphite mb-6">
+                <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-petrol mb-6">
                 Cuidado personalizado para proteger seus dentes e reduzir desconfortos.
               </h2>
               <p className="text-graphite/78 leading-relaxed">
@@ -562,7 +562,7 @@ function LandingPage() {
                   key={t.title}
                   className="bg-background p-6 md:p-7 transition-colors duration-300 hover:bg-accent-soft lg:col-span-4"
                 >
-                  <h3 className="font-display text-xl md:text-2xl text-graphite mb-2">{t.title}</h3>
+                  <h3 className="font-display text-xl md:text-2xl text-petrol mb-2">{t.title}</h3>
                   <p className="text-sm text-graphite/78 leading-snug">{t.desc}</p>
                 </article>
               ))}
@@ -617,7 +617,7 @@ function LandingPage() {
               <p className="font-mono text-sm uppercase tracking-[0.2em] label-mono mb-6">
                 Dra. Jaqueline Martins
               </p>
-              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-tight text-graphite mb-8">
+              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-tight text-petrol mb-8">
                 Autoridade clínica em estética e função do sorriso.
               </h2>
               <p className="font-display text-xl md:text-2xl text-graphite/85 leading-snug mb-8">
@@ -630,19 +630,19 @@ function LandingPage() {
               <dl className="grid grid-cols-3 gap-6 border-t border-border pt-8">
                 <div>
                   <dt className="font-mono text-[10px] uppercase tracking-[0.2em] label-mono mb-2">Pacientes</dt>
-                  <dd className="font-display text-3xl md:text-4xl text-graphite">
+                  <dd className="font-display text-3xl md:text-4xl text-petrol">
                     +24.256
                   </dd>
                 </div>
                 <div>
                   <dt className="font-mono text-[10px] uppercase tracking-[0.2em] label-mono mb-2">Carreira</dt>
-                  <dd className="font-display text-3xl md:text-4xl text-graphite">
+                  <dd className="font-display text-3xl md:text-4xl text-petrol">
                     +21 anos
                   </dd>
                 </div>
                 <div>
                   <dt className="font-mono text-[10px] uppercase tracking-[0.2em] label-mono mb-2">Unidades</dt>
-                  <dd className="font-display text-3xl md:text-4xl text-graphite">
+                  <dd className="font-display text-3xl md:text-4xl text-petrol">
                     02
                   </dd>
                 </div>
@@ -681,7 +681,7 @@ function LandingPage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
               {clinic.map((c) => (
                 <article key={c.title} className="border border-border bg-card p-6 md:p-7">
-                  <h3 className="font-display text-xl md:text-2xl text-graphite mb-2">{c.title}</h3>
+                  <h3 className="font-display text-xl md:text-2xl text-petrol mb-2">{c.title}</h3>
                   <p className="text-sm text-graphite/78 leading-snug">{c.desc}</p>
                 </article>
               ))}
@@ -708,7 +708,7 @@ function LandingPage() {
                   />
                 ))}
               </div>
-              <span className="font-display text-2xl md:text-3xl text-graphite leading-none">5,0</span>
+              <span className="font-display text-2xl md:text-3xl text-petrol leading-none">5,0</span>
               <span className="hidden sm:block h-5 w-px bg-graphite/20" aria-hidden />
               <span className="text-sm md:text-base text-graphite/80">
                 +670 avaliações no Google
@@ -740,7 +740,7 @@ function LandingPage() {
                 <p className="font-mono text-sm uppercase tracking-[0.2em] label-mono mb-6">
                   Dúvidas frequentes
                 </p>
-                <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-graphite">
+                <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-petrol">
                 Perguntas que escutamos no consultório.
               </h2>
             </div>
@@ -752,7 +752,7 @@ function LandingPage() {
                   value={`item-${i}`}
                   className="border-b border-border"
                 >
-                  <AccordionTrigger className="font-display text-lg md:text-xl text-graphite hover:text-champagne py-6 text-left">
+                  <AccordionTrigger className="font-display text-lg md:text-xl text-petrol hover:text-champagne py-6 text-left">
                     {item.q}
                   </AccordionTrigger>
                   <AccordionContent className="text-graphite/70 leading-relaxed text-base pb-6 pr-8">
