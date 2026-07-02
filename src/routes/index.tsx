@@ -202,6 +202,20 @@ function LandingPage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Trigger de animação do Hero: adiciona .hero-play no próximo frame
+  // garantindo que o estado inicial (invisível) seja pintado antes das keyframes.
+  useEffect(() => {
+    const el = heroRef.current;
+    if (!el) return;
+    const raf1 = requestAnimationFrame(() => {
+      const raf2 = requestAnimationFrame(() => el.classList.add("hero-play"));
+      (el as any).__raf2 = raf2;
+    });
+    return () => {
+      cancelAnimationFrame(raf1);
+      if ((el as any).__raf2) cancelAnimationFrame((el as any).__raf2);
+    };
+  }, []);
 
 
 
@@ -254,25 +268,25 @@ function LandingPage() {
           </div>
 
           <div className="max-w-7xl mx-auto relative">
-            {/* Desktop image — absolute, overlaps the text column */}
-            <div className="hidden lg:block absolute right-0 bottom-0 top-0 w-[54%] z-10 pointer-events-none hero-figure-in-anim">
-              <div className="hero-figure-float relative w-full h-full flex items-end justify-end">
+            {/* Desktop image — sangra pra direita, sobrepõe o texto para eliminar o eixo de duas colunas */}
+            <div className="hidden lg:block absolute -right-[6%] bottom-0 top-0 w-[64%] z-10 pointer-events-none hero-figure-in-anim">
+              <div className="relative w-full h-full flex items-end justify-end">
                 <img
                   src={heroDraAsset.url}
                   alt="Dra. Jaqueline Martins"
-                  className="w-full max-w-[620px] h-auto select-none"
+                  className="w-full max-w-[720px] h-auto select-none"
                   draggable={false}
                 />
               </div>
             </div>
 
-            {/* Text column — full width, radial glow ensures legibility under overlap */}
-            <div className="relative z-20 flex flex-col max-w-3xl hero-text-glow">
+            {/* Text column — avança até 62% no desktop, com glow por baixo */}
+            <div className="relative z-20 flex flex-col lg:max-w-[62%] hero-text-glow">
               <p className="hero-fade-up-lg font-mono text-[10px] uppercase tracking-[0.32em] label-mono mb-8" style={{ animationDelay: "500ms" }}>
                 Odontologia Estética e Funcional · Bruxismo
               </p>
               <h1 className="font-display font-medium text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[0.95] tracking-tight text-balance text-petrol mb-8">
-                <span className="hero-line-mask"><span className="hero-line-inner" style={{ animationDelay: "600ms" }}>Você pode estar <em className="hero-em relative inline italic font-medium text-champagne">apertando<svg className="hero-underline" viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden><path d="M2 8 Q 60 2, 100 6 T 198 5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg></em></span></span>
+                <span className="hero-line-mask"><span className="hero-line-inner" style={{ animationDelay: "600ms" }}>Você pode estar <span className="hero-em">apertando<span className="hero-underline-line" aria-hidden /></span></span></span>
                 <span className="hero-line-mask"><span className="hero-line-inner" style={{ animationDelay: "800ms" }}>os dentes</span></span>
                 <span className="hero-line-mask"><span className="hero-line-inner" style={{ animationDelay: "1000ms" }}>sem perceber.</span></span>
               </h1>
@@ -291,18 +305,20 @@ function LandingPage() {
                   Tenho dor na mandíbula, quero falar sobre isso
                 </a>
               </div>
-
-              <ul className="mt-6 flex flex-col lg:flex-row lg:flex-wrap lg:items-center gap-y-2 lg:gap-x-5 text-[11px] uppercase tracking-[0.18em] text-graphite/75">
-                {["+21 anos de experiência", "Odontologia estética e funcional", "Vila Formosa e São Miguel Paulista"].map((item, i, arr) => (
-                  <React.Fragment key={item}>
-                    <li className="whitespace-nowrap hero-fade-up-lg" style={{ animationDelay: `${1450 + i * 90}ms` }}>{item}</li>
-                    {i < arr.length - 1 && <li className="hidden lg:block text-champagne/60" aria-hidden>·</li>}
-                  </React.Fragment>
-                ))}
-              </ul>
             </div>
+
+            {/* Credentials — faixa full-width abaixo, quebra o eixo de duas colunas */}
+            <ul className="relative z-20 mt-10 lg:mt-16 pt-6 border-t border-champagne/40 flex flex-col lg:flex-row lg:items-center gap-y-2 lg:gap-x-6 text-[11px] uppercase tracking-[0.18em] text-graphite/75">
+              {["+21 anos de experiência", "Odontologia estética e funcional", "Vila Formosa e São Miguel Paulista"].map((item, i, arr) => (
+                <React.Fragment key={item}>
+                  <li className="whitespace-nowrap hero-fade-up-lg" style={{ animationDelay: `${1450 + i * 120}ms` }}>{item}</li>
+                  {i < arr.length - 1 && <li className="hidden lg:block text-champagne/60" aria-hidden>·</li>}
+                </React.Fragment>
+              ))}
+            </ul>
           </div>
         </section>
+
 
         {/* SYMPTOMS - "O bruxismo deixa pistas." */}
         <section id="sintomas" className="px-6 py-14 md:py-20 bg-bone border-y border-border">
