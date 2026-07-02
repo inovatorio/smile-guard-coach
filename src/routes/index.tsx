@@ -24,41 +24,120 @@ const PAGE_TITLE = "Dra. Jaqueline Martins - Avaliação de Bruxismo";
 const PAGE_DESC =
   "Dor na mandíbula, dentes sensíveis ou dor de cabeça ao acordar? Agende uma avaliação de bruxismo com a Dra. Jaqueline Martins.";
 
+const SITE_URL = "https://smile-guard-coach.lovable.app";
+const OG_IMAGE = "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f5871532-3fed-447b-9463-1237e6637ceb/id-preview-153763f6--ad2b3c20-cec5-430b-81ff-b98f9e0eb9d0.lovable.app-1782965953938.png";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: PAGE_TITLE },
       { name: "description", content: PAGE_DESC },
+      { name: "keywords", content: "bruxismo, avaliação de bruxismo, dor na mandíbula, DTM, placa oclusal, apertamento dental, dentista Vila Formosa, dentista São Miguel Paulista, Dra. Jaqueline Martins" },
       { property: "og:title", content: PAGE_TITLE },
       { property: "og:description", content: PAGE_DESC },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: `${SITE_URL}/` },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: OG_IMAGE },
       { name: "twitter:title", content: PAGE_TITLE },
       { name: "twitter:description", content: PAGE_DESC },
+      { name: "twitter:image", content: OG_IMAGE },
+      // GEO tags (busca local)
+      { name: "geo.region", content: "BR-SP" },
+      { name: "geo.placename", content: "São Paulo" },
+      { name: "geo.position", content: "-23.5677;-46.5386" },
+      { name: "ICBM", content: "-23.5677, -46.5386" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/` }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Dentist",
+          "@type": ["Dentist", "LocalBusiness", "MedicalBusiness"],
+          "@id": `${SITE_URL}/#dentist`,
           name: "Dra. Jaqueline Martins - Odontologia Avançada",
           description: PAGE_DESC,
+          url: SITE_URL,
+          image: OG_IMAGE,
+          priceRange: "$$",
+          inLanguage: "pt-BR",
           medicalSpecialty: ["Dentistry", "CosmeticDentistry"],
-          areaServed: ["Vila Formosa", "São Miguel Paulista", "São Paulo"],
-          address: [
+          knowsAbout: [
+            "Bruxismo",
+            "Disfunção temporomandibular (DTM)",
+            "Placa oclusal",
+            "Apertamento dental",
+            "Dor orofacial",
+            "Reabilitação oral",
+          ],
+          areaServed: [
+            { "@type": "Place", name: "Vila Formosa, São Paulo" },
+            { "@type": "Place", name: "São Miguel Paulista, São Paulo" },
+            { "@type": "City", name: "São Paulo" },
+          ],
+          sameAs: [
+            "https://instagram.com/dra.jaquelinemartins",
+            "https://instagram.com/jaqueline.martinsbarrientos",
+          ],
+          location: [
             {
-              "@type": "PostalAddress",
-              addressLocality: "Vila Formosa",
-              addressRegion: "SP",
-              addressCountry: "BR",
+              "@type": "Dentist",
+              name: "Dra. Jaqueline Martins - Unidade Vila Formosa",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Vila Formosa",
+                addressRegion: "SP",
+                addressCountry: "BR",
+              },
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: -23.5677,
+                longitude: -46.5386,
+              },
+              areaServed: "Vila Formosa, São Paulo",
             },
             {
-              "@type": "PostalAddress",
-              addressLocality: "São Miguel Paulista",
-              addressRegion: "SP",
-              addressCountry: "BR",
+              "@type": "Dentist",
+              name: "Dra. Jaqueline Martins - Unidade São Miguel Paulista",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "São Miguel Paulista",
+                addressRegion: "SP",
+                addressCountry: "BR",
+              },
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: -23.4986,
+                longitude: -46.4447,
+              },
+              areaServed: "São Miguel Paulista, São Paulo",
+            },
+          ],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faq.map((item) => ({
+            "@type": "Question",
+            name: item.q,
+            acceptedAnswer: { "@type": "Answer", text: item.a },
+          })),
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Início",
+              item: `${SITE_URL}/`,
             },
           ],
         }),
@@ -67,6 +146,7 @@ export const Route = createFileRoute("/")({
   }),
   component: LandingPage,
 });
+
 
 const CTA_PRIMARY = "Quero avaliar meu bruxismo";
 const CTA_SECONDARY = "Tenho dor na mandíbula";
