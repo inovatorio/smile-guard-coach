@@ -193,19 +193,21 @@ function HeroStage({
   shapeRef,
   cutoutUrl,
   logoUrl,
+  className = "",
 }: {
   figureRef: React.RefObject<HTMLDivElement | null>;
   shapeRef: React.RefObject<HTMLDivElement | null>;
   cutoutUrl: string;
   logoUrl: string;
+  className?: string;
 }) {
   return (
-    <div className="hero-stage relative aspect-[4/5] w-full">
+    <div className={`hero-stage relative aspect-[3/4] w-full overflow-hidden ${className}`}>
       {/* Forma verde-petróleo */}
       <div
         ref={shapeRef}
         aria-hidden
-        className="hero-shape hero-shape-in absolute inset-y-0 right-0 w-[92%] md:w-[96%] translate-y-4 hidden"
+        className="hero-shape hero-shape-in absolute bottom-[3%] right-[2%] top-[8%] w-[86%] md:w-[92%] translate-y-4"
       />
       {/* Glow dourado pulsante atrás da figura */}
       <div
@@ -242,7 +244,7 @@ function HeroStage({
               height={1536}
               loading="eager"
               fetchPriority="high"
-              className="absolute bottom-0 right-[2%] md:right-[4%] h-[115%] w-auto max-w-none object-contain object-bottom drop-shadow-[0_40px_60px_oklch(0.20_0.03_200/0.35)]"
+              className="absolute bottom-[-10%] right-[-5%] h-[112%] md:h-[118%] lg:h-[122%] w-auto max-w-none object-contain object-bottom drop-shadow-[0_42px_64px_oklch(0.20_0.03_200/0.36)]"
             />
           </div>
         </div>
@@ -333,8 +335,8 @@ function LandingPage() {
         {/* HERO */}
         <section ref={heroRef} className="hero-bg relative px-6 pt-10 md:pt-14 pb-12 md:pb-16 overflow-x-clip">
 
-          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-center relative">
-            <div className="md:col-span-7 md:order-1 flex flex-col relative z-10">
+          <div className="max-w-7xl mx-auto grid md:grid-cols-[minmax(0,1fr)_minmax(360px,0.82fr)] gap-8 md:gap-0 items-center relative">
+            <div className="md:order-1 flex flex-col relative z-30 md:-mr-24 lg:-mr-36">
               <p className="hero-fade-up-lg font-mono text-[10px] uppercase tracking-[0.32em] label-mono mb-8 order-1" style={{ animationDelay: "500ms" }}>
                 Odontologia Estética e Funcional · Bruxismo
               </p>
@@ -354,6 +356,7 @@ function LandingPage() {
                   shapeRef={shapeRef}
                   cutoutUrl={heroCutoutAsset.url}
                   logoUrl={logoAsset.url}
+                  className="max-w-[430px] mx-auto"
                 />
               </div>
 
@@ -379,12 +382,13 @@ function LandingPage() {
               </ul>
             </div>
 
-            <div className="hidden md:block md:col-span-5 md:order-2">
+            <div className="hidden md:block md:order-2 relative z-20 md:-ml-10 lg:-ml-16">
               <HeroStage
                 figureRef={figureRef}
                 shapeRef={shapeRef}
                 cutoutUrl={heroCutoutAsset.url}
                 logoUrl={logoAsset.url}
+                className="md:min-h-[560px] lg:min-h-[650px] xl:min-h-[700px]"
               />
             </div>
           </div>

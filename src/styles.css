@@ -275,6 +275,18 @@
   isolation: isolate;
 }
 
+.hero-stage::after {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: -2%;
+  bottom: -1px;
+  height: 18%;
+  z-index: 40;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 0%, var(--background) 78%);
+}
+
 .hero-shape {
   background: linear-gradient(150deg,
     oklch(0.34 0.045 195) 0%,
