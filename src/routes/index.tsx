@@ -201,33 +201,6 @@ function LandingPage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const hover = window.matchMedia("(hover: hover)").matches;
-    if (reduce || !hover) return;
-    const hero = heroRef.current;
-    const figure = figureRef.current;
-    const shape = shapeRef.current;
-    if (!hero || !figure || !shape) return;
-    const onMove = (e: MouseEvent) => {
-      const r = hero.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width - 0.5;
-      const y = (e.clientY - r.top) / r.height - 0.5;
-      figure.style.transform = `translate3d(${x * 15}px, ${y * 15}px, 0)`;
-      shape.style.transform = `translate3d(${x * -8}px, ${y * -8}px, 0)`;
-    };
-    const onLeave = () => {
-      figure.style.transform = "translate3d(0,0,0)";
-      shape.style.transform = "translate3d(0,0,0)";
-    };
-    hero.addEventListener("mousemove", onMove);
-    hero.addEventListener("mouseleave", onLeave);
-    return () => {
-      hero.removeEventListener("mousemove", onMove);
-      hero.removeEventListener("mouseleave", onLeave);
-    };
-  }, []);
 
 
 
