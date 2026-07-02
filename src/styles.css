@@ -295,8 +295,9 @@
 }
 
 /* Sublinhado dourado reto sob "apertando" — desenha da esquerda pra direita */
+/* "apertando" — dourado com sublinhado verde-petróleo que se desenha */
 .hero-em {
-  color: var(--color-petrol, oklch(0.28 0.05 200));
+  color: var(--color-champagne, oklch(0.74 0.075 75));
   position: relative;
   display: inline-block;
 }
@@ -308,7 +309,7 @@
   bottom: -0.08em;
   display: block;
   height: 4px;
-  background: oklch(0.74 0.075 75);
+  background: var(--color-petrol, oklch(0.26 0.05 200));
   clip-path: inset(0 100% 0 0);
   will-change: clip-path;
 }

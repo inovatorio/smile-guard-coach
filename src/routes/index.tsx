@@ -257,27 +257,26 @@ function LandingPage() {
         {/* HERO */}
         <section ref={heroRef} className="hero-bg hero-bg-anim relative px-6 pt-10 md:pt-14 pb-12 md:pb-16 overflow-x-clip lg:min-h-[640px]">
 
-          {/* Mobile-only stacked image */}
-          <div className="lg:hidden max-w-7xl mx-auto mb-8 flex justify-center hero-figure-in-anim">
+          {/* Mobile background image — transparência para texto sobrepor */}
+          <div className="lg:hidden absolute inset-0 z-0 pointer-events-none hero-figure-in-anim overflow-hidden">
             <img
               src={heroDraAsset.url}
-              alt="Dra. Jaqueline Martins"
-              className="w-[280px] sm:w-[360px] h-auto select-none pointer-events-none"
+              alt=""
+              aria-hidden
+              className="absolute right-[-20%] bottom-0 h-[85%] w-auto max-w-none opacity-20 select-none hero-figure-fade"
               draggable={false}
             />
           </div>
 
           <div className="max-w-7xl mx-auto relative">
             {/* Desktop image — sangra pra direita, sobrepõe o texto para eliminar o eixo de duas colunas */}
-            <div className="hidden lg:block absolute -right-[6%] bottom-0 top-0 w-[64%] z-10 pointer-events-none hero-figure-in-anim">
-              <div className="relative w-full h-full flex items-end justify-end">
-                <img
-                  src={heroDraAsset.url}
-                  alt="Dra. Jaqueline Martins"
-                  className="w-full max-w-[720px] h-auto select-none"
-                  draggable={false}
-                />
-              </div>
+            <div className="hidden lg:flex absolute -right-[6%] bottom-0 top-0 w-[64%] z-10 pointer-events-none hero-figure-in-anim items-end justify-end">
+              <img
+                src={heroDraAsset.url}
+                alt="Dra. Jaqueline Martins"
+                className="h-full w-auto max-h-[640px] object-contain object-bottom select-none"
+                draggable={false}
+              />
             </div>
 
             {/* Text column — avança até 62% no desktop, com glow por baixo */}
