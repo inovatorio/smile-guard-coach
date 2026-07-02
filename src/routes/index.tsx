@@ -192,8 +192,6 @@ function GhostCta({ href, label, className = "" }: { href: string; label: string
 function LandingPage() {
   const journeyRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
-  const figureRef = useRef<HTMLDivElement>(null);
-  const shapeRef = useRef<HTMLDivElement>(null);
   const [fabVisible, setFabVisible] = useState(false);
 
   useEffect(() => {
