@@ -19,6 +19,7 @@ import plaquinhaRepouso from "@/assets/plaquinha-repouso.png";
 import logoAsset from "@/assets/jm-monogram.png.asset.json";
 import draVideo from "@/assets/dra-jaqueline-video.mp4.asset.json";
 import draVideoPoster from "@/assets/dra-jaqueline-video-poster.jpg.asset.json";
+import heroDraAsset from "@/assets/hero_dra_jaqueline_v5.png.asset.json";
 
 const PAGE_TITLE = "Dra. Jaqueline Martins - Avaliação de Bruxismo";
 const PAGE_DESC =
@@ -242,7 +243,7 @@ function LandingPage() {
         {/* HERO */}
         <section ref={heroRef} className="hero-bg relative px-6 pt-10 md:pt-14 pb-12 md:pb-16 overflow-x-clip">
 
-          <div className="max-w-7xl mx-auto grid gap-8 items-center relative">
+          <div className="max-w-7xl mx-auto grid gap-8 lg:gap-12 lg:grid-cols-[1.05fr_0.95fr] items-center relative">
             <div className="flex flex-col relative z-30">
               <p className="hero-fade-up-lg font-mono text-[10px] uppercase tracking-[0.32em] label-mono mb-8 order-1" style={{ animationDelay: "500ms" }}>
                 Odontologia Estética e Funcional · Bruxismo
@@ -277,6 +278,15 @@ function LandingPage() {
                 <li className="hidden lg:block text-champagne/60" aria-hidden>·</li>
                 <li className="whitespace-nowrap">Vila Formosa e São Miguel Paulista</li>
               </ul>
+            </div>
+
+            <div className="hero-fade-up-lg relative order-first lg:order-last flex justify-center lg:justify-end" style={{ animationDelay: "700ms" }}>
+              <img
+                src={heroDraAsset.url}
+                alt="Dra. Jaqueline Martins"
+                className="relative z-10 w-[280px] sm:w-[360px] md:w-[440px] lg:w-full lg:max-w-[560px] h-auto select-none pointer-events-none"
+                draggable={false}
+              />
             </div>
 
           </div>
