@@ -867,7 +867,7 @@ function LandingPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <Clock className="w-4 h-4 mt-0.5 shrink-0 text-champagne/70" />
-                    <span>Sábado: 09:00 - 12:00</span>
+                    <span>Sábado: 09:00 - 13:00</span>
                   </li>
                 </ul>
                 <p className="text-[11px] text-graphite/70 mt-3 leading-relaxed">Horários iguais nas duas unidades.</p>
