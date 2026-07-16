@@ -171,7 +171,7 @@ const symptoms = [
   { icon: Sunrise, title: "Dor ou cansaço na mandíbula", desc: "Sente dor ou cansaço na mandíbula ao acordar ou ao mastigar?" },
   { icon: Brain, title: "Dores de cabeça ao acordar", desc: "Acorda com dor de cabeça nas têmporas ou na região frontal com frequência?" },
   { icon: Snowflake, title: "Dentes sensíveis", desc: "Seus dentes ficaram sensíveis ao frio, calor ou doce sem causa aparente?" },
-  { icon: Layers, title: "Desgaste, trinca ou fraturas", desc: "Notou os dentes mais curtos, com bordas lascadas ou fratura no dente?" },
+  { icon: Layers, title: "Desgaste, trinca ou fraturas", desc: "Notou os dentes mais curtos, com bordas lascadas ou fratura?" },
   { icon: Waves, title: "Estalos ou desconforto na ATM", desc: "Sua mandíbula estala, trava ou incomoda ao abrir a boca?" },
   { icon: Activity, title: "Tensão facial e travamento", desc: "Percebe o rosto tenso ou a mandíbula travada em momentos de estresse?" },
 ];
@@ -189,7 +189,7 @@ const steps = [
   { phase: "Escuta", title: "Escuta", desc: "Conversamos sobre seus sintomas, rotina e histórico de saúde." },
   { phase: "Exame clínico", title: "Exame clínico", desc: "Avaliação dos dentes, da mordida, da musculatura e da ATM." },
   { phase: "Identificação", title: "Identificação", desc: "Mapeamento de sinais de desgaste, sensibilidade ou fraturas." },
-  { phase: "Plano de cuidado", title: "Plano de cuidado", desc: "Conduta personalizada de proteção, alívio e prevenção." },
+  { phase: "Plano de cuidado", title: "Plano de cuidado", desc: "Conduta personalizada de proteção, alívio, prevenção e controle." },
 ];
 
 const treatments = [
