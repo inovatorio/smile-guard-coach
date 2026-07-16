@@ -14,7 +14,6 @@ import { LazyVideoPlayer } from "@/components/LazyVideoPlayer";
 import autoridadeImg from "@/assets/dra-jaqueline-autoridade.jpg.asset.json";
 import clinicaImg from "@/assets/clinica-estrutura.jpg";
 import tratamentosImg from "@/assets/tratamentos-detalhe-v2.jpg.asset.json";
-import tratamentosDesktopImg from "@/assets/tratamentos-detalhe-desktop.png.asset.json";
 import plaquinhaRepouso from "@/assets/plaquinha-repouso.png";
 import logoAsset from "@/assets/jm-monogram.png.asset.json";
 import draVideo from "@/assets/dra-jaqueline-video.mp4.asset.json";
@@ -581,12 +580,12 @@ function LandingPage() {
                   className="absolute inset-0 w-full h-full object-cover lg:hidden"
                 />
                 <img
-                  src={tratamentosDesktopImg.url}
+                  src={tratamentosImg.url}
                   alt="Placas dentais personalizadas sobre caderno, em composição editorial de clínica premium. Cada conduta é desenhada para o seu caso não para um padrão."
                   width={1280}
                   height={1600}
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover object-[center_24%] hidden lg:block"
+                  className="absolute inset-0 w-full h-full object-cover object-center hidden lg:block"
                 />
                 <figcaption className="lg:hidden absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-graphite/70 via-graphite/10 to-transparent text-ivory">
                   <span className="font-mono text-[10px] tracking-[0.2em] text-champagne mb-2">{"\n"}</span>
