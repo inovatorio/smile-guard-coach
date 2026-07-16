@@ -216,7 +216,7 @@ const faq = [
   },
   {
     q: "Qual é o tratamento para bruxismo?",
-    a: "O tratamento é individualizado e pode envolver placa oclusal personalizada, orientações para reduzir o apertamento durante o dia, acompanhamento clínico e, quando necessário, reabilitação de áreas desgastadas. A conduta é definida após a avaliação.",
+    a: "O tratamento é individualizado e pode incluir exame do sono realizado em casa, uso de placa diagnóstica para avaliar a intensidade do bruxismo, placa oclusal personalizada, orientações para reduzir o apertamento durante o dia e a noite, acompanhamento clínico e, quando necessário, reabilitação das áreas desgastadas. A conduta é definida após uma avaliação detalhada.",
   },
   {
     q: "A placa para bruxismo realmente protege os dentes?",
