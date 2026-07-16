@@ -227,8 +227,8 @@ const faq = [
     a: "Pode ser um dos sinais. A dor ou cansaço na mandíbula, principalmente ao acordar ou após momentos de tensão, frequentemente está associada ao apertamento dental. É importante avaliar cada caso.",
   },
   {
-    q: "Bruxismo pode causar dor de cabeça?",
-    a: "Sim. A sobrecarga dos músculos da face e da mandíbula pode estar relacionada a dores de cabeça, especialmente ao acordar ou ao final do dia.",
+    q: "Bruxismo pode causar dor de cabeça ou zumbido?",
+    a: "Sim. A sobrecarga dos músculos da face e da mandíbula pode estar relacionada a dores de cabeça ou zumbido especialmente ao acordar ou ao final do dia.",
   },
   {
     q: "Bruxismo tem cura?",
