@@ -571,7 +571,7 @@ function LandingPage() {
                   <p className="text-sm text-graphite/78 leading-snug">{t.desc}</p>
                 </article>
               ))}
-              <figure className="relative lg:col-span-4 min-h-[220px] overflow-hidden">
+              <figure className="relative lg:col-span-12 min-h-[220px] lg:min-h-[420px] overflow-hidden">
                 <img
                   src={tratamentosImg.url}
                   alt="Detalhe editorial de bancada em mármore com instrumentos odontológicos em clínica premium."
