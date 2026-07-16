@@ -196,7 +196,7 @@ const steps = [
 const treatments = [
   { title: "Placa personalizada", desc: "Proteção dental confeccionada sob medida para o seu caso." },
   { title: "Exame Personalizado", desc: "Exame do sono realizado no conforto da sua casa, com placa diagnóstica para avaliar com precisão a intensidade do bruxismo." },
-  { title: "Orientações durante o dia", desc: "Estratégias para reduzir o apertamento em momentos de tensão." },
+  { title: "Orientações durante o dia e noite", desc: "Estratégias para reduzir o apertamento em momentos de tensão." },
   { title: "Reabilitação de desgastes", desc: "Recuperação estética e funcional quando há perda de estrutura." },
   { title: "Avaliação estética e funcional", desc: "Análise integrada do sorriso, da mordida e da harmonia facial." },
   { title: "Encaminhamento complementar", desc: "Quando indicado, articulamos com outras especialidades de apoio." },
