@@ -240,7 +240,7 @@ const faq = [
   },
   {
     q: "Quando devo procurar uma avaliação?",
-    a: "Quando houver dor frequente, desgaste nos dentes, sensibilidade, estalos, tensão facial ou suspeita de apertamento durante o sono ou ao longo do dia.",
+    a: "Quando houver dor frequente, desgaste ou sensibilidade nos dentes, estalos na mandíbula, tensão facial, zumbido no ouvido, dores de estômago, refluxo ou suspeita de apertamento dos dentes durante o dia ou durante o sono.",
   },
 ];
 
