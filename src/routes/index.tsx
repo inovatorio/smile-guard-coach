@@ -586,7 +586,7 @@ function LandingPage() {
                   width={1280}
                   height={1600}
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover object-center hidden lg:block"
+                  className="absolute inset-0 w-full h-full object-cover object-[center_24%] hidden lg:block"
                 />
                 <figcaption className="lg:hidden absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-graphite/70 via-graphite/10 to-transparent text-ivory">
                   <span className="font-mono text-[10px] tracking-[0.2em] text-champagne mb-2">{"\n"}</span>
