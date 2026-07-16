@@ -571,7 +571,7 @@ function LandingPage() {
                   <p className="text-sm text-graphite/78 leading-snug">{t.desc}</p>
                 </article>
               ))}
-              <figure className="relative lg:col-span-12 min-h-[220px] lg:min-h-[420px] overflow-hidden">
+              <figure className="relative lg:col-span-12 min-h-[220px] lg:min-h-0 lg:h-[260px] overflow-hidden">
                 <img
                   src={tratamentosImg.url}
                   alt="Detalhe editorial de bancada em mármore com instrumentos odontológicos em clínica premium."
@@ -586,7 +586,7 @@ function LandingPage() {
                   width={1280}
                   height={1600}
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover hidden lg:block"
+                  className="absolute inset-0 w-full h-full object-cover object-center hidden lg:block"
                 />
                 <figcaption className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-graphite/70 via-graphite/10 to-transparent text-ivory">
                   <span className="font-mono text-[10px] tracking-[0.2em] text-champagne mb-2">{"\n"}</span>
