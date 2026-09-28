@@ -346,7 +346,7 @@ function LandingPage() {
 
           <div className="max-w-7xl mx-auto relative">
             {/* Desktop image — ancorada à direita com respiro, proporção natural */}
-            <div className="hidden lg:flex absolute right-[3%] bottom-0 top-0 w-[52%] max-w-[620px] z-10 pointer-events-none hero-figure-in-anim items-end justify-end">
+            <div className="hidden lg:flex absolute right-0 xl:right-[3%] bottom-0 top-0 w-[48%] max-w-[620px] z-10 pointer-events-none hero-figure-in-anim items-end justify-end">
               <img
                 src={heroDraAsset.url}
                 alt="Dra. Jaqueline Martins"
@@ -356,7 +356,7 @@ function LandingPage() {
             </div>
 
             {/* Text column */}
-            <div className="relative z-20 flex flex-col lg:max-w-[54%] hero-text-glow">
+            <div className="relative z-20 flex flex-col lg:max-w-[46%] xl:max-w-[54%] hero-text-glow">
               <p className="hero-fade-up-lg font-mono text-[10px] uppercase tracking-[0.32em] label-mono mb-8" style={{ animationDelay: "500ms" }}>
                 Odontologia Estética e Funcional · Bruxismo
               </p>
