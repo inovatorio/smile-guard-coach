@@ -109,7 +109,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "WebSite",
           name: "Dra. Jaqueline Martins - Odontologia Avançada",
-          url: "https://smile-guard-coach.lovable.app",
+          url: "https://bruxismo.drajaquelinemartins.com.br",
           inLanguage: "pt-BR",
         }),
       },

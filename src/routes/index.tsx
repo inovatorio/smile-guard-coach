@@ -11,20 +11,20 @@ import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
 import { LazyVideoPlayer } from "@/components/LazyVideoPlayer";
 
-import autoridadeImg from "@/assets/dra-jaqueline-autoridade.jpg.asset.json";
+import autoridadeImg from "@/assets/dra-jaqueline-autoridade.jpg";
 import clinicaImg from "@/assets/clinica-estrutura.jpg";
-import tratamentosImg from "@/assets/tratamentos-detalhe-v2.jpg.asset.json";
+import tratamentosImg from "@/assets/tratamentos-detalhe-v2.jpg";
 import plaquinhaRepouso from "@/assets/plaquinha-repouso.png";
-import logoAsset from "@/assets/jm-monogram.png.asset.json";
-import draVideo from "@/assets/dra-jaqueline-video.mp4.asset.json";
-import draVideoPoster from "@/assets/dra-jaqueline-video-poster.jpg.asset.json";
-import heroDraAsset from "@/assets/hero_dra_jaqueline_v5.png.asset.json";
+import logoAsset from "@/assets/jm-monogram.png";
+import draVideo from "@/assets/dra-jaqueline-video.mp4";
+import draVideoPoster from "@/assets/dra-jaqueline-video-poster.jpg";
+import heroDraAsset from "@/assets/hero_dra_jaqueline_v5.png";
 
 const PAGE_TITLE = "Dra. Jaqueline Martins - Avaliação de Bruxismo";
 const PAGE_DESC =
   "Dor na mandíbula, dentes sensíveis ou dor de cabeça ao acordar? Agende uma avaliação de bruxismo com a Dra. Jaqueline Martins.";
 
-const SITE_URL = "https://smile-guard-coach.lovable.app";
+const SITE_URL = "https://bruxismo.drajaquelinemartins.com.br";
 const OG_IMAGE = "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f5871532-3fed-447b-9463-1237e6637ceb/id-preview-153763f6--ad2b3c20-cec5-430b-81ff-b98f9e0eb9d0.lovable.app-1782965953938.png";
 
 export const Route = createFileRoute("/")({
@@ -305,7 +305,7 @@ function LandingPage() {
         <div className="max-w-7xl mx-auto px-6 h-14 md:h-16 flex items-center justify-between">
           <a href="#top" className="flex items-center" aria-label="Dra. Jaqueline Martins - Odontologia Estética">
             <img
-              src={logoAsset.url}
+              src={logoAsset}
               alt="Dra. Jaqueline Martins - Odontologia Estética"
               className="h-10 md:h-12 w-auto"
             />
@@ -336,7 +336,7 @@ function LandingPage() {
           {/* Mobile background image — transparência para texto sobrepor */}
           <div className="lg:hidden absolute inset-0 z-0 pointer-events-none hero-figure-in-anim overflow-hidden">
             <img
-              src={heroDraAsset.url}
+              src={heroDraAsset}
               alt=""
               aria-hidden
               className="absolute right-[-20%] bottom-0 h-[85%] w-auto max-w-none opacity-20 select-none hero-figure-fade"
@@ -348,7 +348,7 @@ function LandingPage() {
             {/* Desktop image — ancorada à direita com respiro, proporção natural */}
             <div className="hidden lg:flex absolute right-0 xl:right-[3%] bottom-0 top-0 w-[48%] max-w-[620px] z-10 pointer-events-none hero-figure-in-anim items-end justify-end">
               <img
-                src={heroDraAsset.url}
+                src={heroDraAsset}
                 alt="Dra. Jaqueline Martins"
                 className="w-full h-auto select-none"
                 draggable={false}
@@ -513,8 +513,8 @@ function LandingPage() {
             <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
               <div className="md:col-span-5">
                 <LazyVideoPlayer
-                  src={draVideo.url}
-                  poster={draVideoPoster.url}
+                  src={draVideo}
+                  poster={draVideoPoster}
                   label="Assistir mensagem da Dra. Jaqueline Martins"
                   aspectRatio="9 / 16"
                   className="rounded-sm shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
@@ -572,7 +572,7 @@ function LandingPage() {
               ))}
               <figure className="relative lg:col-span-12 min-h-[220px] lg:min-h-0 lg:h-[260px] overflow-hidden">
                 <img
-                  src={tratamentosImg.url}
+                  src={tratamentosImg}
                   alt="Detalhe editorial de bancada em mármore com instrumentos odontológicos em clínica premium."
                   width={1280}
                   height={1600}
@@ -580,7 +580,7 @@ function LandingPage() {
                   className="absolute inset-0 w-full h-full object-cover lg:hidden"
                 />
                 <img
-                  src={tratamentosImg.url}
+                  src={tratamentosImg}
                   alt="Placas dentais personalizadas sobre caderno, em composição editorial de clínica premium. Cada conduta é desenhada para o seu caso não para um padrão."
                   width={1280}
                   height={1600}
@@ -614,7 +614,7 @@ function LandingPage() {
                   <span className="font-display text-lg leading-tight">Dra. Jaqueline Martins</span>
                 </div>
                 <img
-                  src={autoridadeImg.url}
+                  src={autoridadeImg}
                   alt="Retrato da Dra. Jaqueline Martins, cirurgiã-dentista, em sua clínica em São Paulo."
                   width={1120}
                   height={1400}
@@ -821,7 +821,7 @@ function LandingPage() {
             <div className="grid md:grid-cols-12 gap-10 md:gap-12 pb-12 border-b border-border">
               <div className="md:col-span-4">
                 <img
-                  src={logoAsset.url}
+                  src={logoAsset}
                   alt="Dra. Jaqueline Martins - Odontologia Estética"
                   className="h-20 md:h-24 w-auto mb-5"
                 />
