@@ -12,4 +12,13 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  vite: {
+    server: {
+      // Assets enviados pelo Lovable (src/assets/*.asset.json) apontam para /__l5e/...,
+      // que só existe na hospedagem do Lovable. Em dev local, busca do site publicado.
+      proxy: {
+        "/__l5e": { target: "https://smile-guard-coach.lovable.app", changeOrigin: true },
+      },
+    },
+  },
 });
