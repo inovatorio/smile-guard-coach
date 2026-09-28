@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "smile-guard-coach",
+      "runtimeExecutable": "/bin/zsh",
+      "runtimeArgs": ["-c", "cd ~/Documents/Claude/Projects/smile-guard-coach && PATH=/opt/homebrew/opt/node@24/bin:$PATH npx vite dev --port 5173 --strictPort"],
+      "port": 5173
+    }
+  ]
+}
